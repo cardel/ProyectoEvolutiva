@@ -9,7 +9,6 @@
 using namespace std;
 
 
-
 int main(int argc, char ** argv)
 {
 	string nombreArchivoEntrada="input.txt";
@@ -19,6 +18,7 @@ int main(int argc, char ** argv)
 	int numeroDeIteracciones = 500;
 	int numeroVariables=0;
 	
+	int numeroSolucion=0;
 	/*
 	 * Leer argumentos de entrada
 	 */
@@ -59,17 +59,22 @@ int main(int argc, char ** argv)
 			cout << "Problema al leer los argumentos de entrada" << endl;
 	}
 	
-	FILE * ArchivoDeEntrada;
-	
+	FILE * ArchivoDeEntrada;	
 	ArchivoDeEntrada = fopen("Entrada.txt", "r");
 	
+	FILE * ArchivoDeSalida;
+	ArchivoDeSalida = fopen("Salida.txt", "w");
+	
 	char mystring[10000];
+	srand ( time(NULL) );
 	
 	if(ArchivoDeEntrada==NULL) cout << "Error al leer entrada" << endl;
 	else{
 		while(!feof(ArchivoDeEntrada))
 		{
 			fscanf(ArchivoDeEntrada,"%d",&numeroVariables);
+			numeroSolucion++;
+			
 			
 			if(numeroVariables==0)
 			{
@@ -81,14 +86,12 @@ int main(int argc, char ** argv)
 					
 					for(int i=0; i<numeroLineas; i++)
 					{
+						
 							for(int j=0; j<numeroVariables+1; j++)
 							{
 									int f;
 									fscanf(ArchivoDeEntrada,"%d",&f);
-									cout << f;
-							}
-							
-							cout << endl;
+							}							
 					}
 					
 					//bool tablaDeFunciones[numeroLineas][sizeEntrada+1] ;
@@ -98,7 +101,7 @@ int main(int argc, char ** argv)
 			/*
 			 * Generar poblacion
 			 */
-			srand ( time(NULL) );
+			
 			vector<Cromosoma*> poblacion;
 
 			for(int i=0; i<poblacionInicial; i++)
@@ -110,37 +113,71 @@ int main(int argc, char ** argv)
 			}
 			
 			//Iterar N veces
+			/*
+			 * Aqui iteramos n veces
+			 * 
+			 */
+			Cromosoma * mejorCromosoma = poblacion.at(0);
 			
-			Cromosoma * mejorCromosoma = poblacion.at(0);	
+			int numeroClausulas = mejorCromosoma->getNumeroClausulas();
+			int numeroVariables = mejorCromosoma->getNumeroVariables();
+			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");
+
 			//Representar cromosoma
 			if(!usarMaxiterminos) 
 			{
-				int numeroClausulas = mejorCromosoma->getNumeroClausulas();
-				int numeroVariables = mejorCromosoma->getNumeroVariables();
-				
 				for(int i=0; i<numeroClausulas; i++)
 				{
-					cout << "(";
+					fprintf (ArchivoDeSalida, "%s","(");
 					for(int j=0; j<numeroVariables; j++)
 					{
-						int variable = j/2;
-						cout << "x" << variable << " and ";
+						if(mejorCromosoma->get(i,j)==1){	
+							int variable = j/2;
+							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
+							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
+							
+							if(j<numeroVariables-1) fprintf(ArchivoDeSalida, "%s"," and ");
+						}
 					}
-					cout <<") or ";
+					fprintf (ArchivoDeSalida, "%s",")");
+
+					if(i<numeroClausulas-1) fprintf(ArchivoDeSalida, "%s"," or ");
 				}
-				cout << endl;
+				
+				if(numeroClausulas>0) fprintf (ArchivoDeSalida, "%s","\n");
+				else fprintf (ArchivoDeSalida, "%s","0\n");	
 				
 			}
 			else
 			{
+				for(int i=0; i<numeroClausulas; i++)
+				{
+					
+					fprintf (ArchivoDeSalida, "%s","(");
+					
+					for(int j=0; j<numeroVariables; j++)
+					{		
+						if(mejorCromosoma->get(i,j)==1){				
+							int variable = j/2;
+							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
+							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
+							if(j<numeroVariables-1) fprintf(ArchivoDeSalida, "%s"," or ");
+						}
+					}
+					fprintf (ArchivoDeSalida, "%s",")");
+					
+					if(i<numeroClausulas-1) fprintf(ArchivoDeSalida, "%s"," and ");
+				}
 				
+				if(numeroClausulas>0) fprintf (ArchivoDeSalida, "%s","\n");
+				else fprintf (ArchivoDeSalida, "%s","0\n");	
 				
 			}
 			
-
-			
 		}
 		fclose(ArchivoDeEntrada);
+		fclose(ArchivoDeSalida);	
+		
 	}
 	
 	return 0;	

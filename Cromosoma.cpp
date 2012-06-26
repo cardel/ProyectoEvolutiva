@@ -27,7 +27,6 @@ Cromosoma::~Cromosoma()
 
 void Cromosoma::GenerarIndividuo()
 {
-	srand ( time(NULL) );
 
 	for(int i=0; i<numeroClausulas; i++)
 	{
