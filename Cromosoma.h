@@ -4,7 +4,7 @@
 class Cromosoma
 {
 	public:
-		Cromosoma(int numClausulas, int numVariables);
+		Cromosoma(int numClausulas, int numVariables, bool maxiTerminos);
 		~Cromosoma();
 		void GenerarIndividuo();
 		
@@ -14,10 +14,15 @@ class Cromosoma
 		int getNumeroClausulas();
 		int getNumeroVariables();
 		
+		bool obtenerSalida(int posicionDecimal);
+		
 	private:
 		int numeroClausulas;
 		int numeroVariables;
 		bool ** estCromosoma;
+		
+		bool cromosomaEvaluado[];
+		void evaluarCromosoma();
 };
  
 #endif

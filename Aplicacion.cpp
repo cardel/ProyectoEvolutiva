@@ -107,7 +107,7 @@ int main(int argc, char ** argv)
 			for(int i=0; i<poblacionInicial; i++)
 			{
 				int numeroClausulas=(int)(rand() % (numeroVariables+1));
-				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables*2);				
+				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables*2, usarMaxiterminos);				
 				aux->GenerarIndividuo();
  				poblacion.push_back(aux);
 			}

@@ -7,8 +7,7 @@ class TablaDeVerdad
 		TablaDeVerdad(int numVariables);
 		~TablaDeVerdad();
 		
-		bool obtenerValor(int posicionDecimal);
-		
+		bool obtenerValor(int posicionDecimal);		
 		void escribirTablaDeVerdad(int posicionDecimal, bool valor);
 		
 		
