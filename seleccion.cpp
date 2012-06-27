@@ -3,3 +3,7 @@
 Seleccion::Seleccion()
 {
 }
+
+vector<Cromosoma> Seleccion::aplicarSeleccion()
+{
+}

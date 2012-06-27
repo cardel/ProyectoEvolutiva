@@ -24,7 +24,7 @@ public:
     /*!
       \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.
     */
-    aplicarSeleccion();
+    vector<Cromosoma> aplicarSeleccion();
 };
 
 #endif // SELECCION_H
