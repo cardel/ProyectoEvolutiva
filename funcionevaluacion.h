@@ -6,8 +6,8 @@
 
 //! Clase para el manejo de la función de evaluación.
 /*!
-Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y
-poder obtenerlos de manera ordenada.
+Esta clase permitira el calculo de la función de evaluación para cada elemento e la población de Cromosomas y
+poder seleccionarlos para realizar el Cruce.
 */
 class FuncionEvaluacion
 {
@@ -17,7 +17,7 @@ public:
     Constructor para la aplicación y calculo de la función de evaluación para cada Cromosoma.
     \param poblacion es un vector que contendrá la población de cromosomas.
     */
-    FuncionEvaluacion(vector<Cromosoma>);
+    FuncionEvaluacion(vector<Cromosoma> poblacion);
     //! Función que calculara a cada cromosoma la función de evaluación y retornara los cromosomas seleccionados para relizar el cruce.
     /*!
       \return un vector con los cromosomas seleccionados.

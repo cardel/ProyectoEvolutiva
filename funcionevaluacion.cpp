@@ -1,6 +1,6 @@
 #include "funcionevaluacion.h"
 
-FuncionEvaluacion::FuncionEvaluacion(vector<Cromosoma>)
+FuncionEvaluacion::FuncionEvaluacion(vector<Cromosoma> poblacion)
 {
 }
 
