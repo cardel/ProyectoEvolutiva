@@ -1,0 +1,386 @@
+
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{multirow}
+
+\lstset{%			% Configuración de parámetros de listing.
+basicstyle=\small\ttfamily,	% Códigos con fuente TrueType.
+numbers=left,			% Numeración de líneas a la izquierda.
+numberstyle=\tiny,		% Tamaño tiny para numeración de líneas.
+language=Octave,		% Sintaxis de Octave.
+breaklines=true,		% Rompe líneas demasiado largas.
+xleftmargin=1cm,		% Margen izquierdo.
+xrightmargin=1cm,		% Margen derecho.
+escapeinside={\%*}{*)}
+}%
+
+
+\title{Algoritmo genético para la reducción de ecuaciones de funciones binarias expresadas en maxitérminos y minitérminos.}
+\author{Carlos Delgado, Edgar Moncada, Luis F. Vargas}
+\date{Junio de 2012}
+\begin{document}
+\maketitle{}
+\renewcommand{\tablename}{\textbf{Tabla}}
+
+\abstract{En este proyecto se busca la simplicación de ecuaciones de funciones booleanas utilizando un algortimo evolutivo, que haga el proceso que se hace con los mapas de Karnaugh}
+
+\section{Fundamentación del problema}
+
+Se busca que en la construcción de circuitos digitales para el cálculo de funciones booleanas sea del menor tamaño posible, existen dos posible formas de representar una función booleana en términos de compuertas \textit{and} y \textit{or}:
+
+\begin{itemize}
+	\item \textbf{Minitérminos} Se trata de representar la función en claúsulas, cada clausula es determinada por cada \textit{1} que tiene la función, cada claúsula se crea conectando las entradas con compuertas \textit{and} y las claúsulas entre sí se conectan con compuertas \textit{or}
+	\item \textbf{Maxitérminos} Se trata de representar la función en claúsulas, cada clausula es determinada por cada \textit{0} que tiene la función, cada claúsula se crea conectando las entradas con compuertas \textit{or} y las claúsulas entre sí se conectan con compuertas \textit{and}, cada entrada se representa como su negación
+\end{itemize}
+
+Por ejemplo, para la siguiente función:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c | c | c|}
+		\hline
+		$x_1$ & $x_0$ & $f(x)$ \\
+		\hline
+		\hline
+		0 & 0& 1\\
+		\hline
+		0 & 1 & 1\\
+		\hline
+		1 & 0& 0\\
+		\hline
+		1 & 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+En representación de minitérminos es así.
+
+\begin{equation}
+	(\sim{x_1} \wedge \sim{x_0}) \vee (\sim{x_1} \wedge x_0)
+\end{equation}
+
+En respresentación de maxitérminos:
+
+\begin{equation}
+	(\sim{x_1} \vee x_0) \wedge (\sim{x_1} \wedge \sim{x_0})
+\end{equation}
+
+Sin embargo, cuando las funciones tienen muchas variables de entrada, el costo (número de compuertas) presenta un gran incremento, por lo que se deben simplificar las funciones, existen dos métodos:
+
+\begin{itemize}
+	\item \textbf{Algebra de Boole} Mediante el uso de relaciones lógicas se simplifican las expresiones, sin embargo, no es bueno cuando las funciones son extensas, ya que se torna engorroso.
+	\item \textbf{Mapas de Karnaugh} Una buena solución, ya que utiliza una representación de matrices ordenadas en codificación Grey (cada símbolo cambia un bit en cada columna o fila) y permite asociar directamente para realizar la simplicación, éste metodo es muy bueno hasta cierto tamaño donde las matrices ya son muy grandes y requiere algún esfuerzo para simplificar el problema.
+\end{itemize}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c | c | c|}
+		\hline
+		- &$x_1$ & $\sim{x_1}$\\
+		\hline
+		$x_0$ & 1 & 1\\
+		\hline
+		$\sim{x_0}$ & 0& 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Para la ecuación, en minitérminos:
+
+\begin{equation}
+	(\sim{x_1} \wedge \sim{x_0}) \vee (\sim{x_1} \wedge x_0)
+\end{equation}
+
+En maxitérminos:
+
+\begin{equation}
+	(\sim{x_1} \vee \sim{x_0}) \wedge (\sim{x_1} \vee x_0)
+\end{equation}
+
+\section{Algoritmo Genético}
+
+\subsection{El cromosoma}
+
+El cromosoma se codifica como una matriz de tamaño número de clausulas por 2 veces el número de variables de entrada, por ejemplo:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c | c | c|}
+		\hline
+		$x_1$ & $x_0$ & $f(x)$ \\
+		\hline
+		0 & 0& 0\\
+		\hline
+		0 & 1 & 1\\
+		\hline
+		1 & 0& 1\\
+		\hline
+		1 & 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Un cromosoma que representa esta función pueden es:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c | c | c|  c|  c|}
+		\hline
+		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
+		\hline
+		0 & 1& 1 & 0\\
+		\hline
+		1 & 1& 0 & 0\\
+		\hline
+		0 & 0& 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Que en representación de minitérminos:
+
+\begin{equation}
+	(\sim{x_1} \wedge x_0) \vee (\sim{x_1} \wedge x_1) \vee x_0
+\end{equation}
+
+Que en representación de maxitérminos:
+
+\begin{equation}
+	(\sim{x_1} \vee x_0) \wedge (\sim{x_1} \vee x_1) \wedge x_0
+\end{equation}
+
+\subsection{Población inicial}
+
+Para el problema se utilizan poblaciones iniciales de 200 individuos por defecto, aunque el usuario puede indicar un número, que debe ser mínimo 100 y máximo 1000
+
+\subsection{Función de aptitud}
+
+La función de aptitud considera los siguiente factores:
+
+\begin{itemize}
+	\item \textbf{Número de claúsulas} Número de claúsulas en el cromosoma, se busca minimizar este valor.
+	\item \textbf{Acercamiento a la función} Es el factor más importante se busca que este valor sea 0, es decir que la función encontrada sea correcta
+\end{itemize}
+
+Se busca que la función de aptitud sea 0, es decir los mejores cromosomas son aquellos que tengan el menor valor de función de aptitud.
+
+\subsection{Función de selección}
+
+En este caso se utiliza la selección por ruleta.
+
+\subsection{Cruce}
+
+Se seleccionan dos cromosomas dentro del grupo de seleccionados, se toma el cromosoma con menor número de cláusulas y se genera un número aleatorio entre 1 y ese número menos 1, valor que se denota con $\alpha$.
+\\\\
+Con éste valor se generan dos hijos, uno tomando en ambos cromosomas $\alpha$ claúsulas iniciales y generando un cromosoma de tamaño $2*\alpha$, con el resto de ambos cromosomas se realiza el mismo procedimiento
+\\\\
+Ejemplo:
+
+\begin{table}[H]
+	\centering
+	\caption{Cromosoma A}
+	\begin{tabular}{|c | c | c|  c|  c|}
+		\hline
+		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
+		\hline
+		0 & 1& 1 & 0\\
+		\hline
+		1 & 1& 0 & 0\\
+		\hline
+		0 & 0& 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Cromosoma B}
+	\begin{tabular}{|c | c | c|  c|  c|}
+		\hline
+		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
+		\hline
+		0 & 0& 1 & 0\\
+		\hline
+		1 & 1& 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Como B tiene 2 claúsulas por lo tanto $\alpha$ solamente puede tomar el valor de $1$, por lo tanto, los hijos de estos dos padres son:
+
+\begin{table}[H]
+	\centering
+	\caption{Hijo 1}
+	\begin{tabular}{|c | c | c|  c|  c|}
+		\hline
+		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
+		\hline
+		0 & 1& 1 & 0\\
+		\hline
+		0 & 0& 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Este hijo se genera al combinar la cĺáusula 1 del hijo A con la claúsula 1 del hijo B
+
+\begin{table}[H]
+	\centering
+	\caption{Hijo 2}
+	\begin{tabular}{|c | c | c|  c|  c|}
+		\hline
+		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
+		\hline
+		1 & 1& 0 & 0\\
+		\hline
+		0 & 0& 1 & 0\\
+		\hline
+		1 & 1& 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Este hijo se genera al combinar el resto de claúsulas del hijo A con el resto de claúsulas del hijo B.
+
+\subsection{Mutación}
+
+Para mutar se selecciona el 2\% de los individuos, en éstos se selecciona aleatoriamente una claúsula, con probabilidad del 50\% se realiza alguna de estas dos acciones
+
+\begin{itemize}
+	\item \textbf{Borrar claúsula} Borra una clausula, si es la única de la función, la salida de la misma es siempre 0
+	\item \textbf{Cambiar el valor de una variable} Se selecciona una posición de la claúsula y se cambia el valor que tiene asignado por su negación
+\end{itemize}
+
+\subsection{Selección de los cromosomas que pasan a la siguiente generación}
+
+En este algortimo se mantiene el número de la población por lo tanto como se están creando una población de hijos que es igual a la mitad de los padres (por el cruze entre dos individuos) se elimina el 50\% de los padres con la peor función de aptitud.
+
+\subsection{Criterio de parada}
+
+El criterio de parada se presenta en dos casos
+
+\begin{itemize}
+	\item Al pasar 200 generaciones
+	\item Si el menor valor de la función de cambio, no tiene cambios en 5 generaciones
+\end{itemize}
+
+\section{La aplicación}
+
+\subsection{Parámetros de entrada}
+
+\begin{table}[H]
+	\centering
+	\caption{Parámetros de la aplicación}
+	\begin{tabular}{|c|c|p{5cm}|}
+		\hline
+		\textbf{Parámetro} & \textbf{Tipo dato} & \textbf{Descripción}\\
+		\hline
+		-f & Cadena de caráteres & Nombre archivo de entrada. Por defecto \textit{input.txt}\\
+		\hline
+		-p & Número natural & Población inicial (Por defecto 200) Min: 100 Máx: 1000\\
+		\hline
+		-i & Número natural & Número de interacciones o generaciones (Por defecto 500) Min: 1 Máx: 1000\\
+		\hline
+		-t & Booleano (0 o 1) & Indica si se va trabajar por minitérminos o maxitérminos 0 o 1 respectivamente (por defecto 0 o false)\\
+		\hline
+		-o & Cadena de caráteres & Nombre archivo de salida. Por defecto \textit{output.txt} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Representación de la población}
+
+La población se representa como un vector de matrices, donde cada matriz representa un individuo.\\
+Ejemplo:
+\begin{table}[H]
+	\centering
+	\caption{Representación de población}
+	\begin{tabular}{| c |c | c | c|  c|  c|}
+		\hline
+		Individuo & $x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
+		\hline
+		\multirow{2}{4cm}{Cromosoma 1} &0 & 1& 1 & 0\\
+		\cline{2-5}
+		& 1 & 1& 0 & 0\\
+		\cline{2-5}
+		& 0 & 0& 1 & 0\\
+		\hline
+		\hline
+		\multirow{2}{4cm}{Cromosoma 2}  & 0 & 1& 1 & 0\\
+		\cline{2-5}
+		& 1 & 1& 0 & 0\\
+		\cline{2-5}
+		& 0 & 0& 1 & 0\\
+		\hline
+		\hline
+		\multirow{3}{4cm}{Cromosoma N}  & 0 & 1& 1 & 0\\
+		\cline{2-5}
+		& 1 & 1& 0 & 0\\
+		\cline{2-5}
+		& 0 & 0& 1 & 0\\
+		\cline{2-5}
+		& 0 & 1& 1 & 0\\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+\subsection{La entrada}
+
+La entrada se codifica en un archivo de entrada, en cuya primera linea tiene un número natural $B$ que indica el número de bits de la entrada, en las siguiente $2^B$ líneas se especifica la función booleana, èsta función debe ingresarse en orden de codificación binaria y en la última columna debe tener el valor que toma ante una entrada específica, en la siguiente línea tiene un número natural para indicar el tamaño de la siguiente entrada, sí este número es $0$ significa que no hay más entradas.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+2
+0 0 1
+0 1 1
+1 0 0
+1 1 0
+3
+0 0 0 1
+0 0 1 0 
+0 1 0 1
+0 1 1 0
+1 0 0 1
+1 0 1 0
+1 1 0 0
+1 1 1 1
+0
+\end{lstlisting}
+
+\subsection{Parámetros de la aplicación}
+
+\subsection{Salida}
+
+La salida muestra las ecuaciones resultantes de cada solución, la salida tiene la forma solución \# <numero de solución> y a continuación la ecuación en términos de $x$ que la representan, ejemplo:
+
+Si es en minitérminos
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+%*Soluci\'on \# 1:\\*)
+%*($\sim$x0 and x1) or ($\sim$x1)\\*)
+%*Soluci\'on \# 2:\\*)
+%*($\sim$x0 and x2) or ($\sim$x4) or (x4 and x3)*)
+\end{lstlisting}
+
+Si es en maxitérminos
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+%*Soluci\'{o}n \#1:\\*)
+%*($\sim$x0 or x1) and ($\sim$x1)\\*)
+%*Soluci\'on \#2:\\*)
+%*($\sim$x0 or x2) and ($\sim$x4) and (x4 or x3)*)
+\end{lstlisting}
+
+\section{Análisis y resultados}
+
+\section{Conclusiones}
+
+\section{Referencias}
+
+\end{document}

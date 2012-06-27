@@ -1,6 +1,8 @@
 #ifndef TABLADEVERDAD_H
 #define TABLADEVERDAD_H
 
+#include <vector>
+
 class TablaDeVerdad
 {
 	public:
@@ -15,7 +17,6 @@ class TablaDeVerdad
 		
 	private:
 		int numVariables;
-		bool ** tablaDeVerdad;
-};
+		vector<bool> tablaDeVerdad;
  
 #endif

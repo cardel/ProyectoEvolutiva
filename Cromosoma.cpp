@@ -14,6 +14,8 @@ Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 	}
 	numeroClausulas = numClausulas;
 	numeroVariables = numVariables;
+	usarMaxiTerminos=maxiTerminos;
+	
 	cromosomaEvaluado[numVariables];
 }
 
@@ -26,9 +28,9 @@ Cromosoma::~Cromosoma()
 		}
 }
 
+
 void Cromosoma::GenerarIndividuo()
 {
-
 	for(int i=0; i<numeroClausulas; i++)
 	{
 		for(int j=0; j<numeroVariables; j++)
@@ -36,19 +38,31 @@ void Cromosoma::GenerarIndividuo()
 			estCromosoma[i][j] = (rand() % 2);			
 		}	
 		
-	}	
-
-	/*for(int i=0; i<numeroClausulas; i++)
-	{
-		for(int j=0; j<numeroVariables; j++)
-		{
-			cout << estCromosoma[i][j]<<" ";
-			
-		}	
-		cout << endl;
 	}
-	cout << endl;*/
+	evaluarCromosoma();	
+}
+
+
+void Cromosoma::evaluarCromosoma()
+{
+
+	for(int s=0; s<numeroVariables; s++)
+	{
+		//Este S se incrementa 0 1 --> 10 11 --> 100 ... etc
+		//El Chiste es usar la tabla de verdad
+		bool resultado=0;
 		
+		for(int i=0; i<numeroClausulas; i++)
+		{
+			for(int j=0; j<numeroVariables; j++)
+			{
+				//estCromosoma[i][j] = (rand() % 2);			
+			}	
+		
+		}
+		cromosomaEvaluado[s]==resultado;	
+	}
+
 }
 
 bool Cromosoma::get(int x, int y)

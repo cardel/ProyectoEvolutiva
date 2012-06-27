@@ -22,6 +22,7 @@ class Cromosoma
 		bool ** estCromosoma;
 		
 		bool cromosomaEvaluado[];
+		bool usarMaxiTerminos;
 		void evaluarCromosoma();
 };
  
