@@ -1,5 +1,11 @@
 #ifndef CROMOSOMA_H
 #define CROMOSOMA_H
+#include <string>
+#include <cstdlib>
+#include <iostream>
+#include <cmath>
+
+using namespace std;
 
 class Cromosoma
 {
@@ -14,7 +20,7 @@ class Cromosoma
 		int getNumeroClausulas();
 		int getNumeroVariables();
 		
-		bool obtenerSalida(int posicionDecimal);
+		bool obtenerSalida(int posicionDecimal);		
 		
 	private:
 		int numeroClausulas;
@@ -24,6 +30,8 @@ class Cromosoma
 		bool cromosomaEvaluado[];
 		bool usarMaxiTerminos;
 		void evaluarCromosoma();
+		
+		string decimalABinario(int number);
 };
  
 #endif

@@ -132,7 +132,7 @@ int main(int argc, char ** argv)
 					for(int j=0; j<numeroVariables; j++)
 					{
 						if(mejorCromosoma->get(i,j)==1){	
-							int variable = j/2;
+							int variable = (numeroVariables - j)/2;
 							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
 							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
 							
@@ -158,7 +158,7 @@ int main(int argc, char ** argv)
 					for(int j=0; j<numeroVariables; j++)
 					{		
 						if(mejorCromosoma->get(i,j)==1){				
-							int variable = j/2;
+							int variable = (numeroVariables - j)/2;
 							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
 							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
 							if(j<numeroVariables-1) fprintf(ArchivoDeSalida, "%s"," or ");
