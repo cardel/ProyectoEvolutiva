@@ -1,7 +1,6 @@
 #ifndef FUNCIONEVALUACION_H
 #define FUNCIONEVALUACION_H
 #include "Cromosoma.h"
-#include "TablaDeVerdad.h"
 #include <vector>
 
 //! Clase para el manejo de la función de evaluación.

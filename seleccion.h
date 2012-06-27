@@ -1,7 +1,6 @@
 #ifndef SELECCION_H
 #define SELECCION_H
 #include "Cromosoma.h"
-#include "TablaDeVerdad.h"
 #include <vector>
 
 //! Clase para el manejo de la función de Aptitud.
