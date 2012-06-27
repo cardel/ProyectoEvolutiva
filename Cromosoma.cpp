@@ -85,11 +85,7 @@ int Cromosoma::getNumeroVariables()
 	return numeroVariables;
 }
 
-void evaluarCromosoma()
-{
-	
-	
-}
+
 
 bool Cromosoma::obtenerSalida(int posicionDecimal)
 {
