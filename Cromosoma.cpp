@@ -2,26 +2,23 @@
 
 Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 {
-	estCromosoma = new bool*[numClausulas];
 	
 	for(int i=0; i<numClausulas; i++)
 	{
-		estCromosoma[i]=new bool[numVariables];
+		bool * aux = new bool[numVariables];
+		estadoCromosoma.push_back(aux);
 	}
 	numeroClausulas = numClausulas;
 	numeroVariables = numVariables;
-	usarMaxiTerminos=maxiTerminos;
+	numeroVariablesARepresentar = numVariables*2;
+	numeroEntrada = pow(numVariables,2);
+	usarMaxiTerminos = maxiTerminos;
 	
-	cromosomaEvaluado[numVariables];
 }
 
 Cromosoma::~Cromosoma()
 {
-		if(estCromosoma!=0)
-		{
-				delete [] estCromosoma;
-				estCromosoma=0;
-		}
+
 }
 
 
@@ -29,9 +26,9 @@ void Cromosoma::GenerarIndividuo()
 {
 	for(int i=0; i<numeroClausulas; i++)
 	{
-		for(int j=0; j<numeroVariables; j++)
+		for(int j=0; j<numeroVariablesARepresentar; j++)
 		{
-			estCromosoma[i][j] = (rand() % 2);			
+			estadoCromosoma.at(i)[j] = (rand() % 2);			
 		}	
 		
 	}
@@ -54,7 +51,15 @@ void Cromosoma::evaluarCromosoma()
 {
 	//Este S se incrementa 0 1 --> 10 11 --> 100 ... etc
 
-	for(int s=0; s<numeroVariables; s++)
+	for(int i=0; i<numeroClausulas; i++)
+	{
+			for(int j=0; j<numeroVariablesARepresentar; j++)
+			{
+					//cout << estadoCromosoma.at(i)[j];
+			}
+			//cout << endl;
+	}
+	for(int s=0; s<numeroEntrada; s++)
 	{
 		string representacionBinaria = decimalABinario(s);
 		
@@ -64,57 +69,67 @@ void Cromosoma::evaluarCromosoma()
 		{
 			representacionBinaria="0"+representacionBinaria;
 		}
-		
-		bool resultado;
+		bool resultado=0;
 		if(!usarMaxiTerminos) resultado=0;
-		else resultado=1;
+		else resultado=1;	
+
 		
-		//Evaluar
 		for(int i=0; i<numeroClausulas; i++)
 		{
-			bool resultadoClausula;
-			for(int j=0; j<numeroVariables; j++)
+			bool evaluo = 0;
+			bool resultadoClausula = 0;
+			for(int j=0; j<representacionBinaria.size(); j++)
 			{
+				bool valor = representacionBinaria.at(j) - '0';
 				if(!usarMaxiTerminos)
 				{
 					if(j==0) resultadoClausula = 1;					
-					if(representacionBinaria==string("1"))
+					if(estadoCromosoma.at(i)[j*2]==1)
+					{	
+						evaluo=1;				
+						resultadoClausula&=valor;
+					} 
+					if(estadoCromosoma.at(i)[j*2+1]==1)
 					{
-						//Si es variable o variable negada
-						if(j%2==0)	resultadoClausula&=estCromosoma[i][j];
-						else resultadoClausula&=(!estCromosoma[i][j]);
+						evaluo=1;
+						resultadoClausula&=(!valor);
 					} 
 				}
 				else
 				{
-					if(j==0) resultadoClausula = 0;
-					if(representacionBinaria==string("1"))
-					{
-						//Si es variable o variable negada
-						if(j%2==0)	resultadoClausula|=estCromosoma[i][j];
-						else resultadoClausula|=(!estCromosoma[i][j]);					
+					if(j==0) resultadoClausula = 0;					
+					if(estadoCromosoma.at(i)[j*2]==1)
+					{	
+						evaluo=1;				
+						resultadoClausula|=valor;
 					} 
-				}
-		
-			}
-			
-			if(!usarMaxiTerminos) resultado|=resultadoClausula;
-			else resultado&=resultadoClausula;
+					if(estadoCromosoma.at(i)[j*2+1]==1)
+					{
+						evaluo=1;
+						resultadoClausula|=(!valor);
+					} 
+				}				
 
-		
+			}
+
+			if(!evaluo) resultadoClausula=0;
+			if(!usarMaxiTerminos) resultado|=resultadoClausula;
+			else resultado&=resultadoClausula;		
+			
+	
 		}
-                cromosomaEvaluado[s]==resultado;
+		cromosomaEvaluado.push_back(resultado);
 	}
 
 }
 
 bool Cromosoma::get(int x, int y)
 {
-	return estCromosoma[x][y];
+	return estadoCromosoma.at(x)[y];
 }
 void Cromosoma::set(int x, int y, bool z)
 {
-	estCromosoma[x][y]=z;
+	estadoCromosoma.at(x)[y]=z;
 }
 
 int Cromosoma::getNumeroClausulas()
@@ -131,7 +146,7 @@ int Cromosoma::getNumeroVariables()
 
 bool Cromosoma::obtenerSalida(int posicionDecimal)
 {
-    return cromosomaEvaluado[posicionDecimal];
+    return cromosomaEvaluado.at(posicionDecimal);
 }
 
 double Cromosoma::getAptitud()

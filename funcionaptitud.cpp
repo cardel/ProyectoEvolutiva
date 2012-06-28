@@ -44,6 +44,7 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
     }
     /*! ordena sobre el vector de entrada
     */
+
     sort(poblacion.begin() , poblacion.end(), compare());
 
     return poblacion;

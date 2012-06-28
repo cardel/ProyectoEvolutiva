@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -29,9 +30,11 @@ class Cromosoma
 	private:
 		int numeroClausulas;
 		int numeroVariables;
-		bool ** estCromosoma;
+		int numeroVariablesARepresentar;
+		int numeroEntrada;
 		
-		bool cromosomaEvaluado[];
+		vector<bool *> estadoCromosoma;
+		vector<bool> cromosomaEvaluado;
 		bool usarMaxiTerminos;
 		void evaluarCromosoma();
 		
