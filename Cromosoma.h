@@ -38,7 +38,7 @@ class Cromosoma
 		string decimalABinario(int number);
 
                 //! adicionado por edgar//
-                double aptitud;
+        double aptitud;
 };
  
 #endif

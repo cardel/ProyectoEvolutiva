@@ -5,6 +5,7 @@
 #include <cmath> 
 #include <vector> 
 #include "Cromosoma.h"
+#include "TablaDeVerdad.h"
 
 using namespace std;
 
@@ -19,6 +20,8 @@ int main(int argc, char ** argv)
 	int numeroVariables=0;
 	
 	int numeroSolucion=0;
+	
+	
 	/*
 	 * Leer argumentos de entrada
 	 */
@@ -75,6 +78,8 @@ int main(int argc, char ** argv)
 			fscanf(ArchivoDeEntrada,"%d",&numeroVariables);
 			numeroSolucion++;
 			
+			//Crear tabla de verdad
+			TablaDeVerdad * tablaVerdad = new TablaDeVerdad();
 			
 			if(numeroVariables==0)
 			{
@@ -86,16 +91,14 @@ int main(int argc, char ** argv)
 					
 					for(int i=0; i<numeroLineas; i++)
 					{
-						
+							
 							for(int j=0; j<numeroVariables+1; j++)
 							{
 									int f;
 									fscanf(ArchivoDeEntrada,"%d",&f);
+									tablaVerdad->escribirTablaDeVerdad(f);
 							}							
 					}
-					
-					//bool tablaDeFunciones[numeroLineas][sizeEntrada+1] ;
-					//vector<vector <bool,bool> tabla;
 			}
 			
 			/*

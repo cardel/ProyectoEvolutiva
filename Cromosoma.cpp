@@ -90,7 +90,9 @@ void Cromosoma::evaluarCromosoma()
 					if(j==0) resultadoClausula = 0;
 					if(representacionBinaria==string("1"))
 					{
-						resultadoClausula|=estCromosoma[i][j];
+						//Si es variable o variable negada
+						if(j%2==0)	resultadoClausula|=estCromosoma[i][j];
+						else resultadoClausula|=(!estCromosoma[i][j]);					
 					} 
 				}
 		

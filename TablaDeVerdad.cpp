@@ -1,25 +1,18 @@
 #include "TablaDeVerdad.h"
 
+
 TablaDeVerdad::TablaDeVerdad(){
-
-}
-TablaDeVerdad::TablaDeVerdad(int numVariables){
-
 }
 TablaDeVerdad::~TablaDeVerdad(){
-
 }
+
 
 bool TablaDeVerdad::obtenerSalida(int posicionDecimal)
 {
+	return tablaDeVerdad.at(posicionDecimal);
 }
 
-void TablaDeVerdad::escribirTablaDeVerdad(int posicionDecimal, bool valor)
+void TablaDeVerdad::escribirTablaDeVerdad(bool valor)
 {
+	tablaDeVerdad.push_back(valor);
 }
-
-int TablaDeVerdad::getNumeroClausulas()
-{
-}
-
-

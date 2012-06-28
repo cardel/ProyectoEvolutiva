@@ -7,18 +7,13 @@ using namespace std;
 class TablaDeVerdad
 {
 	public:
-                TablaDeVerdad();
-		TablaDeVerdad(int numVariables);
+		TablaDeVerdad();
 		~TablaDeVerdad();
 		
 		bool obtenerSalida(int posicionDecimal);		
-		void escribirTablaDeVerdad(int posicionDecimal, bool valor);
-		
-		
-		int getNumeroClausulas();
+		void escribirTablaDeVerdad(bool valor);		
 		
 	private:
-		int numVariables;
 		vector<bool> tablaDeVerdad;
 };
  
