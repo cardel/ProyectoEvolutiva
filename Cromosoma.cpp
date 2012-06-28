@@ -101,7 +101,7 @@ void Cromosoma::evaluarCromosoma()
 
 		
 		}
-		cromosomaEvaluado[s]==resultado;	
+                cromosomaEvaluado[s]==resultado;
 	}
 
 }
@@ -129,5 +129,16 @@ int Cromosoma::getNumeroVariables()
 
 bool Cromosoma::obtenerSalida(int posicionDecimal)
 {
-	return cromosomaEvaluado[posicionDecimal];
+    return cromosomaEvaluado[posicionDecimal];
 }
+
+double Cromosoma::getAptitud() const
+{
+    return aptitud;
+}
+
+void Cromosoma::setAptitud(double value)
+{
+    aptitud=value;
+}
+

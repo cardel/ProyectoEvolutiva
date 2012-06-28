@@ -2,6 +2,7 @@
 #define FUNCIONAPTITUD_H
 #include "Cromosoma.h"
 #include "TablaDeVerdad.h"
+#include <algorithm>
 #include <vector>
 
 //! Clase para el manejo de la función de Aptitud.
@@ -31,6 +32,12 @@ public:
     */
     double obtenerMejorAptitud();
 private:
+    vector<Cromosoma> poblacion;
+    TablaDeVerdad tablaVerdad;
+    bool esMinTermino;
+    double mejorAptitud;
+    bool operator compareAptitudCromosoma(const Cromosoma& a, const Cromosoma& b);
+
 
 };
 

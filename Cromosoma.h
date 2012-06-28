@@ -20,7 +20,11 @@ class Cromosoma
 		int getNumeroClausulas();
 		int getNumeroVariables();
 		
-		bool obtenerSalida(int posicionDecimal);		
+                bool obtenerSalida(int posicionDecimal);
+
+                 //! adicionado por edgar//
+                double const getAptitud();
+                void setAptitud(double value);
 		
 	private:
 		int numeroClausulas;
@@ -32,6 +36,9 @@ class Cromosoma
 		void evaluarCromosoma();
 		
 		string decimalABinario(int number);
+
+                //! adicionado por edgar//
+                double aptitud;
 };
  
 #endif
