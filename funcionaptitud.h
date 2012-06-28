@@ -39,7 +39,7 @@ public:
     {
         bool operator()(Cromosoma a, Cromosoma b) const
         {
-            if(esMinTermino){
+            if(FuncionAptitud::ES_MIN_TERMINO){
                 return (a.getAptitud()<b.getAptitud());
             }else{
                 return (a.getAptitud()>b.getAptitud());
@@ -51,8 +51,12 @@ public:
 private:
     vector<Cromosoma> poblacion;
     TablaDeVerdad tablaVerdad;
-    bool esMinTermino;
     double mejorAptitud;
+    static bool ES_MIN_TERMINO;
+
 };
+
+bool FuncionAptitud::ES_MIN_TERMINO=true;
+
 
 #endif // FUNCIONAPTITUD_H

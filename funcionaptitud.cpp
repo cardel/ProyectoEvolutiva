@@ -4,7 +4,7 @@ FuncionAptitud::FuncionAptitud(vector<Cromosoma> poblacion, TablaDeVerdad tablaV
 {
     this->poblacion = poblacion;
     this->tablaVerdad = tablaVerdad;
-    this->esMinTermino = esMinTermino;
+    FuncionAptitud::ES_MIN_TERMINO = esMinTermino;
     this->mejorAptitud=-1;
 }
 
@@ -29,7 +29,7 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
         aptitud+= count;
         c_tmp.setAptitud(aptitud);//! esta es la aptitud no la normalizacion
 
-        if(esMinTermino){
+        if(FuncionAptitud::ES_MIN_TERMINO){
             if(mejorAptitud==-1 || mejorAptitud>aptitud){//tratamos de minimizar
                 mejorAptitud=aptitud;
             }
@@ -49,5 +49,3 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
 
     return poblacion;
 }
-
-
