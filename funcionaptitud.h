@@ -33,15 +33,21 @@ public:
         \return un double con el valor de la mejor aptitud.
     */
     double obtenerMejorAptitud();
-     bool compareAptitudCromosoma(Cromosoma a, Cromosoma b);
+    /*! Estructura para realizar la comparación de la función sort
+    */
+    struct compare
+    {
+        bool operator()(Cromosoma a, Cromosoma b) const
+        {
+            return (a.getAptitud()<b.getAptitud());
+        }
+    };
+
 private:
     vector<Cromosoma> poblacion;
     TablaDeVerdad tablaVerdad;
     bool esMinTermino;
     double mejorAptitud;
-
-
-
 };
 
 #endif // FUNCIONAPTITUD_H
