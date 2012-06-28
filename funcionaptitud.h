@@ -39,7 +39,12 @@ public:
     {
         bool operator()(Cromosoma a, Cromosoma b) const
         {
-            return (a.getAptitud()<b.getAptitud());
+            if(esMinTermino){
+                return (a.getAptitud()<b.getAptitud());
+            }else{
+                return (a.getAptitud()>b.getAptitud());
+            }
+
         }
     };
 

@@ -19,19 +19,28 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
     for(int j =0;j<size;j++){//! por cada cromosoma
         int numComparaciones = (int)pow(2, poblacion[j].getNumeroVariables());
         Cromosoma c_tmp = poblacion[j];
+        double aptitud = (double)c_tmp.getNumeroClausulas();
+        double count =0;
         for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
-            double aptitud = c_tmp.getNumeroClausulas() + (int)(c_tmp.obtenerSalida(i)||tablaVerdad.obtenerSalida(i));
+            if(c_tmp.obtenerSalida(i)==tablaVerdad.obtenerSalida(i)){
+                count++;
+            }
+        }
+        aptitud+= count;
+        c_tmp.setAptitud(aptitud);//! esta es la aptitud no la normalizacion
 
-            if(mejorAptitud==-1 || mejorAptitud<aptitud){
+        if(esMinTermino){
+            if(mejorAptitud==-1 || mejorAptitud>aptitud){//tratamos de minimizar
                 mejorAptitud=aptitud;
             }
-
-            c_tmp.setAptitud(aptitud);//! esta es la aptitud no la normalizacion
-
-
-            //! sumaAptitud+=aptitud;
-
+        }else{
+            if(mejorAptitud==-1 || mejorAptitud<aptitud){//tratamos de maximizar
+                mejorAptitud=aptitud;
+            }
         }
+
+
+        //! sumaAptitud+=aptitud;
     }
     /*! ordena sobre el vector de entrada
     */
