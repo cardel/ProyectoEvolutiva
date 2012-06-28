@@ -1,3 +1,4 @@
 Solución #1:
 0
 Solución #2:
+(~x1 and x0 and )

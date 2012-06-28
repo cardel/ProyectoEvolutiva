@@ -109,10 +109,10 @@ int main(int argc, char ** argv)
 			
 			vector<Cromosoma*> poblacion;
 
-			for(int i=0; i<1; i++)
+			for(int i=0; i<poblacionInicial; i++)
 			{
 				int numeroClausulas=(int)(rand() % (numeroVariables+1));
-				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables*2, usarMaxiterminos);				
+				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);				
 				aux->GenerarIndividuo();
  				poblacion.push_back(aux);
 			}
@@ -128,7 +128,8 @@ int main(int argc, char ** argv)
 			int numeroVariables = mejorCromosoma->getNumeroVariables();
 			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");
 
-			for(int z=0; z<numeroLineas; z++) cout << mejorCromosoma->obtenerSalida(z) << endl;
+			for(int z=0; z<numeroLineas; z++) cout << mejorCromosoma->obtenerSalida(z) <<  " ";
+			cout << endl;
 			//Representar cromosoma
 			if(!usarMaxiterminos) 
 			{
@@ -179,6 +180,7 @@ int main(int argc, char ** argv)
 				else fprintf (ArchivoDeSalida, "%s","0\n");	
 				
 			}
+			
 			
 		}
 		fclose(ArchivoDeEntrada);

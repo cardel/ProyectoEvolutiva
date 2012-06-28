@@ -10,6 +10,8 @@ Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 	}
 	numeroClausulas = numClausulas;
 	numeroVariables = numVariables;
+	numeroVariablesARepresentar = numVariables*2;
+	numeroEntrada = pow(numVariables,2);
 	usarMaxiTerminos = maxiTerminos;
 	
 }
@@ -24,7 +26,7 @@ void Cromosoma::GenerarIndividuo()
 {
 	for(int i=0; i<numeroClausulas; i++)
 	{
-		for(int j=0; j<numeroVariables; j++)
+		for(int j=0; j<numeroVariablesARepresentar; j++)
 		{
 			estadoCromosoma.at(i)[j] = (rand() % 2);			
 		}	
@@ -51,13 +53,13 @@ void Cromosoma::evaluarCromosoma()
 
 	for(int i=0; i<numeroClausulas; i++)
 	{
-			for(int j=0; j<numeroVariables; j++)
+			for(int j=0; j<numeroVariablesARepresentar; j++)
 			{
-					cout << estadoCromosoma.at(i)[j];
+					//cout << estadoCromosoma.at(i)[j];
 			}
-			cout << endl;
+			//cout << endl;
 	}
-	for(int s=0; s<numeroVariables; s++)
+	for(int s=0; s<numeroEntrada; s++)
 	{
 		string representacionBinaria = decimalABinario(s);
 		

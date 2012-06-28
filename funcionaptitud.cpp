@@ -35,11 +35,8 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
     }
     /*! ordena sobre el vector de entrada
     */
-<<<<<<< HEAD
-    //sort(poblacion.begin() , poblacion.end(), compareAptitudCromosoma);
-=======
+
     sort(poblacion.begin() , poblacion.end(), compare());
->>>>>>> 3f4c0c544aa9b08286e76e8edfe313e4754545ff
 
     return poblacion;
 }

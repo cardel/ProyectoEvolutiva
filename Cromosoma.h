@@ -30,6 +30,8 @@ class Cromosoma
 	private:
 		int numeroClausulas;
 		int numeroVariables;
+		int numeroVariablesARepresentar;
+		int numeroEntrada;
 		
 		vector<bool *> estadoCromosoma;
 		vector<bool> cromosomaEvaluado;
