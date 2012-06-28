@@ -1,0 +1,132 @@
+\hypertarget{classFuncionAptitud}{\section{Referencia de la Clase Funcion\-Aptitud}
+\label{classFuncionAptitud}\index{Funcion\-Aptitud@{Funcion\-Aptitud}}
+}
+
+
+Clase para el manejo de la función de Aptitud.  
+
+
+
+
+{\ttfamily \#include $<$funcionaptitud.\-h$>$}
+
+\subsection*{Estructuras de datos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structFuncionAptitud_1_1compare}{compare}
+\end{DoxyCompactItemize}
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFuncionAptitud_a7e6eb419f2c5c754e96cc93ecebac0e3}{Funcion\-Aptitud} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ poblacion, \hyperlink{classTablaDeVerdad}{Tabla\-De\-Verdad} tabla\-Verdad, bool es\-Min\-Termino)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classFuncionAptitud_a45c1cdc83e08ba9b26a2f95fc49523f1}{aplicar\-Aptitud} ()
+\begin{DoxyCompactList}\small\item\em Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena. \end{DoxyCompactList}\item 
+double \hyperlink{classFuncionAptitud_a4719bc3182eeba62dd27a595f659ee8c}{obtener\-Mejor\-Aptitud} ()
+\begin{DoxyCompactList}\small\item\em Función que retorna el valor de la mejor aptitud calculada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Clase para el manejo de la función de Aptitud. 
+
+\begin{DoxyVerb}Clase aptitud
+\end{DoxyVerb}
+
+
+Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y poder obtenerlos de manera ordenada. \begin{DoxyAuthor}{Autor}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2012 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classFuncionAptitud_a7e6eb419f2c5c754e96cc93ecebac0e3}{\index{Funcion\-Aptitud@{Funcion\-Aptitud}!Funcion\-Aptitud@{Funcion\-Aptitud}}
+\index{Funcion\-Aptitud@{Funcion\-Aptitud}!FuncionAptitud@{Funcion\-Aptitud}}
+\subsubsection[{Funcion\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}Funcion\-Aptitud\-::\-Funcion\-Aptitud (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Cromosoma} $>$}]{poblacion, }
+\item[{{\bf Tabla\-De\-Verdad}}]{tabla\-Verdad, }
+\item[{bool}]{es\-Min\-Termino}
+\end{DoxyParamCaption}
+)}}\label{classFuncionAptitud_a7e6eb419f2c5c754e96cc93ecebac0e3}
+
+
+Constructor. 
+
+Constructor para la aplicación y calculo de la función de aptitud para cada \hyperlink{classCromosoma}{Cromosoma}. 
+\begin{DoxyParams}{Parámetros}
+{\em poblacion} & es un vector que contendrá la población de cromosomas. \\
+\hline
+{\em tabla\-Verdad} & es la tabla de verdad para obtener el valor de la funcion. \\
+\hline
+{\em es\-Min\-Termino} & variable booleana que indica si se trabaja con mini términos o maxi términos. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classFuncionAptitud_a45c1cdc83e08ba9b26a2f95fc49523f1}{\index{Funcion\-Aptitud@{Funcion\-Aptitud}!aplicar\-Aptitud@{aplicar\-Aptitud}}
+\index{aplicar\-Aptitud@{aplicar\-Aptitud}!FuncionAptitud@{Funcion\-Aptitud}}
+\subsubsection[{aplicar\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Funcion\-Aptitud\-::aplicar\-Aptitud (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFuncionAptitud_a45c1cdc83e08ba9b26a2f95fc49523f1}
+
+
+Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena. 
+
+\begin{DoxyReturn}{Devuelve}
+un vector con los cromosomas ordenados de mejor aptitud a peor aptitud. 
+\end{DoxyReturn}
+por cada cromosoma
+
+para cada valor de verdad
+
+esta es la aptitud no la normalizacion
+
+suma\-Aptitud+=aptitud;
+
+ordena sobre el vector de entrada
+
+Gráfico de llamadas para esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFuncionAptitud_a45c1cdc83e08ba9b26a2f95fc49523f1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classFuncionAptitud_a4719bc3182eeba62dd27a595f659ee8c}{\index{Funcion\-Aptitud@{Funcion\-Aptitud}!obtener\-Mejor\-Aptitud@{obtener\-Mejor\-Aptitud}}
+\index{obtener\-Mejor\-Aptitud@{obtener\-Mejor\-Aptitud}!FuncionAptitud@{Funcion\-Aptitud}}
+\subsubsection[{obtener\-Mejor\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}double Funcion\-Aptitud\-::obtener\-Mejor\-Aptitud (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFuncionAptitud_a4719bc3182eeba62dd27a595f659ee8c}
+
+
+Función que retorna el valor de la mejor aptitud calculada. 
+
+\begin{DoxyReturn}{Devuelve}
+un double con el valor de la mejor aptitud. 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+funcionaptitud.\-h\item 
+funcionaptitud.\-cpp\end{DoxyCompactItemize}

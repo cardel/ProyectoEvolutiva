@@ -1,3 +1,41 @@
+/*! 
+ * \brief 
+  <b>Proyecto de computación evolutiva</b><br/><br/>
+	Este proyecto implementa la simplificación de funciones booleanas, proceso que normalmente se utiliza con mapas de Karnaugh.<br/><br/>
+	El proceso se utiliza con maxitérminos y minitérminos.<br/>
+	<br/> 
+	La ejecución es de la siguiente forma:<br/><br/>
+	<code>
+	 ./exe -p <archivo de entrada> -o <archivo de salida> -i <número iteracciones máxima> -t <usar maxiterminos (0) o minitérminos> -p <población inicial>
+	</code><br/><br/>
+	La entrada del problema debe ser el número de bits  y  una función binaria, con sus entradas ordenadas por ejemplo:
+	<code>
+	2<br/>
+    0 0 1<br/>
+    0 1 0<br/>
+    1 0 1<br/>
+    1 1 0<br/>
+    0
+	</code><br/><br/>
+	Pueden existir varias entradas, hasta que encuentra un 0 como número de bits<br/>
+	<br/> 
+	La salida, es la ecuación del mejor cromosoma<br/>
+	<code>
+	(x0 and x1) or (x0)
+	</code>
+ *  \author    Carlos Andres Delgado
+ *  \author    Edgar Andres Moncada
+ *  \author    Luis Felipe Vargas
+ *  \version   1.0
+ *  \date      2012
+ *  \bug       No funciona con entradas con funciones desordenadas
+ *  \warning   Evitar usar con entradas muy grandes
+ *  \copyright GNU Public License.  
+ *  \mainpage Descripción del proyecto.
+ */
+
+ 
+
 #include <iostream>
 #include <string>
 #include <cstdlib>

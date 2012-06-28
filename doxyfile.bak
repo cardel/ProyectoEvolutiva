@@ -1,0 +1,49 @@
+PROJECT_NAME          = "Prueba de la clase rational:"
+OUTPUT_LANGUAGE       = Spanish
+OUTPUT_DIRECTORY      = .
+GENERATE_LATEX        = NO
+GENERATE_MAN          = NO
+GENERATE_RTF          = NO
+CASE_SENSE_NAMES      = YES
+INPUT_ENCODING        = ISO-8859-1
+INPUT                 = rational.h rational.cpp rat-calc.cpp \
+                        rat-tst.cpp ADH_port.h
+RECURSIVE             = NO
+QUIET                 = YES
+JAVADOC_AUTOBRIEF     = YES
+EXTRACT_ALL           = YES
+EXTRACT_PRIVATE       = YES
+EXTRACT_STATIC        = YES
+EXTRACT_LOCAL_CLASSES = YES
+INLINE_INHERITED_MEMB = YES
+SOURCE_BROWSER        = YES
+INLINE_SOURCES        = NO
+STRIP_CODE_COMMENTS   = NO
+REFERENCED_BY_RELATION= NO
+REFERENCES_RELATION   = NO
+FULL_PATH_NAMES       = NO
+
+SORT_MEMBER_DOCS      = NO
+SORT_BRIEF_DOCS       = NO
+CLASS_DIAGRAMS        = YES
+
+ENABLE_PREPROCESSING  = YES
+MACRO_EXPANSION       = YES
+EXPAND_ONLY_PREDEF    = YES
+PREDEFINED            = "DOXYGEN_COMMENT" \
+                        "Spanish_dox" \
+                        "__cplusplus" \
+                        "_MSC_VER=1300" \
+                        "OPEN_namespace(N)=namespace N {" \
+                        "CLOSE_namespace(N)=}" \
+                        "USIGN_namespace(N)=using namespace N"
+EXAMPLE_PATH          = .
+
+#--- TODOS ESTOS SON MENOS COMUNES ---
+# DISTRIBUTE_GROUP_DOC = YES
+# ENABLE_PREPROCESSING = YES
+# FILE_PATTERNS        = diagrams_*.h
+# GENERATE_TAGFILE     = example.tag
+# HAVE_DOT             = YES
+# PERL_PATH            = perl
+# TAGFILES             = example.tag=../../example/html

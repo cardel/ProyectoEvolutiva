@@ -1,0 +1,85 @@
+\hypertarget{classSeleccion}{\section{Seleccion Class Reference}
+\label{classSeleccion}\index{Seleccion@{Seleccion}}
+}
+
+
+Clase para el manejo de la función de Aptitud.  
+
+
+
+
+{\ttfamily \#include $<$seleccion.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSeleccion_a98fa8d406a3f543405dab4f25efde0a0}{Seleccion} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ poblacion, vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ hijos)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classSeleccion_ae8ac58d7995c5807522fa3eba7a17ebb}{aplicar\-Seleccion} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clase para el manejo de la función de Aptitud. 
+
+\begin{DoxyVerb}Clase Seleccion
+\end{DoxyVerb}
+
+
+Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y poder obtenerlos de manera ordenada. \begin{DoxyAuthor}{Author}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2012 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSeleccion_a98fa8d406a3f543405dab4f25efde0a0}{\index{Seleccion@{Seleccion}!Seleccion@{Seleccion}}
+\index{Seleccion@{Seleccion}!Seleccion@{Seleccion}}
+\subsubsection[{Seleccion}]{\setlength{\rightskip}{0pt plus 5cm}Seleccion\-::\-Seleccion (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Cromosoma} $>$}]{poblacion, }
+\item[{vector$<$ {\bf Cromosoma} $>$}]{hijos}
+\end{DoxyParamCaption}
+)}}\label{classSeleccion_a98fa8d406a3f543405dab4f25efde0a0}
+
+
+Constructor. 
+
+Constructor para la aplicación de la seleccion de cromosomas 
+\begin{DoxyParams}{Parameters}
+{\em poblacion} & es un vector que contendrá la población de cromosomas viejas. \\
+\hline
+{\em hijos} & es un vector que contendrá la población de cromosomas que se ha cruzado y aplicado posibles mutaciones. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classSeleccion_ae8ac58d7995c5807522fa3eba7a17ebb}{\index{Seleccion@{Seleccion}!aplicar\-Seleccion@{aplicar\-Seleccion}}
+\index{aplicar\-Seleccion@{aplicar\-Seleccion}!Seleccion@{Seleccion}}
+\subsubsection[{aplicar\-Seleccion}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Seleccion\-::aplicar\-Seleccion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSeleccion_ae8ac58d7995c5807522fa3eba7a17ebb}
+Función seleccionara, por medio del metodo de seleccion por ruleta, entre la población vieja y los hijos mutados para que pasen a la siguiente generación.
+
+\begin{DoxyVerb}  \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+seleccion.\-h\item 
+seleccion.\-cpp\end{DoxyCompactItemize}

@@ -8,6 +8,7 @@ Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 		bool * aux = new bool[numVariables];
 		estadoCromosoma.push_back(aux);
 	}
+	
 	numeroClausulas = numClausulas;
 	numeroVariables = numVariables;
 	numeroVariablesARepresentar = numVariables*2;
@@ -49,16 +50,6 @@ string Cromosoma::decimalABinario(int number)
 
 void Cromosoma::evaluarCromosoma()
 {
-	//Este S se incrementa 0 1 --> 10 11 --> 100 ... etc
-
-	for(int i=0; i<numeroClausulas; i++)
-	{
-			for(int j=0; j<numeroVariablesARepresentar; j++)
-			{
-					//cout << estadoCromosoma.at(i)[j];
-			}
-			//cout << endl;
-	}
 	for(int s=0; s<numeroEntrada; s++)
 	{
 		string representacionBinaria = decimalABinario(s);
@@ -158,4 +149,3 @@ void Cromosoma::setAptitud(double value)
 {
     aptitud=value;
 }
-

@@ -1,0 +1,41 @@
+{\bfseries Proyecto de computación evolutiva}\par
+\par
+ Este proyecto implementa la simplificación de funciones booleanas, proceso que normalmente se utiliza con mapas de Karnaugh.\par
+\par
+ El proceso se utiliza con maxitérminos y minitérminos.\par
+ \par
+ La ejecución es de la siguiente forma\-:\par
+\par
+ {\ttfamily  ./exe -\/p $<$archivo de=\char`\"{}\char`\"{} entrada$>$=\char`\"{}\char`\"{}$>$ -\/o $<$archivo de=\char`\"{}\char`\"{} salida$>$=\char`\"{}\char`\"{}$>$ -\/i $<$n úmero=\char`\"{}\char`\"{} iteracciones=\char`\"{}\char`\"{} máxima$>$=\char`\"{}\char`\"{}$>$ -\/t $<$usar maxiterminos (0) o minitérminos$>$ -\/p $<$poblaci ón=\char`\"{}\char`\"{} inicial$>$=\char`\"{}\char`\"{}$>$ }\par
+\par
+ La entrada del problema debe ser el número de bits y una función binaria, con sus entradas ordenadas por ejemplo\-: {\ttfamily  2\par
+ 0 0 1\par
+ 0 1 0\par
+ 1 0 1\par
+ 1 1 0\par
+ 0 }\par
+\par
+ Pueden existir varias entradas, hasta que encuentra un 0 como número de bits\par
+ \par
+ La salida, es la ecuación del mejor cromosoma\par
+ {\ttfamily  (x0 and x1) or (x0) } \begin{DoxyAuthor}{Autor}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2012 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000001}{Bug}]No funciona con entradas con funciones desordenadas \end{DoxyRefDesc}
+\begin{DoxyWarning}{Atención}
+Evitar usar con entradas muy grandes 
+\end{DoxyWarning}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}

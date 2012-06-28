@@ -7,8 +7,16 @@
 
 //! Clase para seleccionar el Mating pool
 /*!
-Esta clase permitira seleccionar los cromosomas de acuerdo a la aptitud para la realización del cruce.
-*/
+ *  \brief     Clase FuncionSeleccionCruce
+ *  \details   Esta clase permitira seleccionar los cromosomas de acuerdo a la aptitud para la realización del cruce.
+ *  \author    Carlos Andres Delgado
+ *  \author    Edgar Andres Moncada
+ *  \author    Luis Felipe Vargas
+ *  \version   1.0
+ *  \date      2012
+ *  \copyright GNU Public License.
+ */
+
 class FuncionSeleccionCruce
 {
 public:

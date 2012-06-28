@@ -1,0 +1,86 @@
+\hypertarget{classCruce}{\section{Referencia de la Clase Cruce}
+\label{classCruce}\index{Cruce@{Cruce}}
+}
+
+
+Clase para el manejo del \hyperlink{classCruce}{Cruce} de los cromosomas.  
+
+
+
+
+{\ttfamily \#include $<$cruce.\-h$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCruce_aed65682d35805efe97e0d72d72f9e656}{Cruce} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ poblacion)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classCruce_aa1c30687e13accb4b5f6f54533608ea3}{aplicar\-Cruce} ()
+\begin{DoxyCompactList}\small\item\em Función que calculara los nuevos hijos al cruzar la población actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Clase para el manejo del \hyperlink{classCruce}{Cruce} de los cromosomas. 
+
+\begin{DoxyVerb}Clase Cruce
+\end{DoxyVerb}
+
+
+Esta clase permitira realizar el cruce de los cromosomas. Se seleccionan dos cromosomas dentro del grupo de seleccionados, se toma el cromosoma con menor número de cláusulas y se genera un número aleatorio entre 1 y ese número menos 1, valor que se denota con alfa. Con éste valor se generan dos hijos, uno tomando en ambos cromosomas alfa claúsulas iniciales y generando un cromosoma de tamaño 2 ∗ alfa, con el resto de ambos cromosomas se realiza el mismo procedimiento. \begin{DoxyAuthor}{Autor}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2012 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Documentación del constructor y destructor}
+\hypertarget{classCruce_aed65682d35805efe97e0d72d72f9e656}{\index{Cruce@{Cruce}!Cruce@{Cruce}}
+\index{Cruce@{Cruce}!Cruce@{Cruce}}
+\subsubsection[{Cruce}]{\setlength{\rightskip}{0pt plus 5cm}Cruce\-::\-Cruce (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Cromosoma} $>$}]{poblacion}
+\end{DoxyParamCaption}
+)}}\label{classCruce_aed65682d35805efe97e0d72d72f9e656}
+
+
+Constructor. 
+
+Constructor para la aplicación de \hyperlink{classCruce}{Cruce} a la población de Cromosomas 
+\begin{DoxyParams}{Parámetros}
+{\em poblacion} & es un vector que contendrá la población de Cromosomas generado por la función de evaluación. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentación de las funciones miembro}
+\hypertarget{classCruce_aa1c30687e13accb4b5f6f54533608ea3}{\index{Cruce@{Cruce}!aplicar\-Cruce@{aplicar\-Cruce}}
+\index{aplicar\-Cruce@{aplicar\-Cruce}!Cruce@{Cruce}}
+\subsubsection[{aplicar\-Cruce}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Cruce\-::aplicar\-Cruce (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCruce_aa1c30687e13accb4b5f6f54533608ea3}
+
+
+Función que calculara los nuevos hijos al cruzar la población actual. 
+
+\begin{DoxyReturn}{Devuelve}
+un vector con los nuevos Cromosomas. 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
+\item 
+cruce.\-h\item 
+cruce.\-cpp\end{DoxyCompactItemize}

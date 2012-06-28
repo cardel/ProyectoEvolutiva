@@ -5,9 +5,15 @@
 
 //! Clase para el manejo de la función de Aptitud.
 /*!
-Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y
-poder obtenerlos de manera ordenada.
-*/
+ *  \brief     Clase Seleccion
+ *  \details   Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y poder obtenerlos de manera ordenada.
+ *  \author    Carlos Andres Delgado
+ *  \author    Edgar Andres Moncada
+ *  \author    Luis Felipe Vargas
+ *  \version   1.0
+ *  \date      2012
+ *  \copyright GNU Public License.
+ */ 
 class Seleccion
 {
 public:

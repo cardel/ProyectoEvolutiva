@@ -1,0 +1,169 @@
+\hypertarget{classCromosoma}{\section{Cromosoma Class Reference}
+\label{classCromosoma}\index{Cromosoma@{Cromosoma}}
+}
+
+
+Clase cromosoma.  
+
+
+
+
+{\ttfamily \#include $<$Cromosoma.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCromosoma_a8fca0c1bd72c65aac6c2f26494e2c5f9}{Cromosoma} (int num\-Clausulas, int num\-Variables, bool maxi\-Terminos)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classCromosoma_a39310d043c187768ba83a1a9c921e966}{$\sim$\-Cromosoma} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{classCromosoma_a59d6a42685e8b6e983b496d8051e4168}{bool {\bfseries get} (int x, int y)}\label{classCromosoma_a59d6a42685e8b6e983b496d8051e4168}
+
+\item 
+\hypertarget{classCromosoma_aaf002d2f7f9438e74eeba52892868e83}{void {\bfseries set} (int x, int y, bool z)}\label{classCromosoma_aaf002d2f7f9438e74eeba52892868e83}
+
+\item 
+int \hyperlink{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}{get\-Numero\-Clausulas} ()
+\begin{DoxyCompactList}\small\item\em get\-Numero\-Clausulas \end{DoxyCompactList}\item 
+int \hyperlink{classCromosoma_a825104a1dd2a7595d119907c84fd2fd1}{get\-Numero\-Variables} ()
+\begin{DoxyCompactList}\small\item\em get\-Numero\-Variables \end{DoxyCompactList}\item 
+bool \hyperlink{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}{obtener\-Salida} (int posicion\-Decimal)
+\begin{DoxyCompactList}\small\item\em obtener\-Salida \end{DoxyCompactList}\item 
+double \hyperlink{classCromosoma_a280c8232e95aec0c8dd627cd579abec6}{get\-Aptitud} ()
+\begin{DoxyCompactList}\small\item\em get\-Aptitud \end{DoxyCompactList}\item 
+void \hyperlink{classCromosoma_a158f2fe672e3232ebf07a5724a15fc2e}{set\-Aptitud} (double value)
+\begin{DoxyCompactList}\small\item\em set\-Aptitud \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clase cromosoma. 
+
+\begin{DoxyVerb}Clase cromosoma
+\end{DoxyVerb}
+
+
+Define un cromosoma como una matriz, donde la fila representa una claúsula y la columna el estado de una variable y su negada \begin{DoxyAuthor}{Author}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2012 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCromosoma_a8fca0c1bd72c65aac6c2f26494e2c5f9}{\index{Cromosoma@{Cromosoma}!Cromosoma@{Cromosoma}}
+\index{Cromosoma@{Cromosoma}!Cromosoma@{Cromosoma}}
+\subsubsection[{Cromosoma}]{\setlength{\rightskip}{0pt plus 5cm}Cromosoma\-::\-Cromosoma (
+\begin{DoxyParamCaption}
+\item[{int}]{num\-Clausulas, }
+\item[{int}]{num\-Variables, }
+\item[{bool}]{maxi\-Terminos}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a8fca0c1bd72c65aac6c2f26494e2c5f9}
+
+
+Constructor. 
+
+Constructor de la clase \hyperlink{classCromosoma}{Cromosoma} 
+\begin{DoxyParams}{Parameters}
+{\em num\-Clausulas} & es un número entero que representa el número de claúsulas que tendrá el cromosoma \\
+\hline
+{\em num\-Variables} & es número entero que representa el número de variable y su negada que tendrá el cromosoma \\
+\hline
+\end{DoxyParams}
+\hypertarget{classCromosoma_a39310d043c187768ba83a1a9c921e966}{\index{Cromosoma@{Cromosoma}!$\sim$\-Cromosoma@{$\sim$\-Cromosoma}}
+\index{$\sim$\-Cromosoma@{$\sim$\-Cromosoma}!Cromosoma@{Cromosoma}}
+\subsubsection[{$\sim$\-Cromosoma}]{\setlength{\rightskip}{0pt plus 5cm}Cromosoma\-::$\sim$\-Cromosoma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a39310d043c187768ba83a1a9c921e966}
+
+
+Destructor. 
+
+Destructor de la clase \hyperlink{classCromosoma}{Cromosoma} 
+
+\subsection{Member Function Documentation}
+\hypertarget{classCromosoma_a280c8232e95aec0c8dd627cd579abec6}{\index{Cromosoma@{Cromosoma}!get\-Aptitud@{get\-Aptitud}}
+\index{get\-Aptitud@{get\-Aptitud}!Cromosoma@{Cromosoma}}
+\subsubsection[{get\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}double Cromosoma\-::get\-Aptitud (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a280c8232e95aec0c8dd627cd579abec6}
+
+
+get\-Aptitud 
+
+Obtiene la aptitud que tiene el cromosoma \begin{DoxyReturn}{Returns}
+double que representa el valor de la aptitud del cromosoma 
+\end{DoxyReturn}
+\hypertarget{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}{\index{Cromosoma@{Cromosoma}!get\-Numero\-Clausulas@{get\-Numero\-Clausulas}}
+\index{get\-Numero\-Clausulas@{get\-Numero\-Clausulas}!Cromosoma@{Cromosoma}}
+\subsubsection[{get\-Numero\-Clausulas}]{\setlength{\rightskip}{0pt plus 5cm}int Cromosoma\-::get\-Numero\-Clausulas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}
+
+
+get\-Numero\-Clausulas 
+
+Retorna el número de claúsulas que tiene el cromosoma \hypertarget{classCromosoma_a825104a1dd2a7595d119907c84fd2fd1}{\index{Cromosoma@{Cromosoma}!get\-Numero\-Variables@{get\-Numero\-Variables}}
+\index{get\-Numero\-Variables@{get\-Numero\-Variables}!Cromosoma@{Cromosoma}}
+\subsubsection[{get\-Numero\-Variables}]{\setlength{\rightskip}{0pt plus 5cm}int Cromosoma\-::get\-Numero\-Variables (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a825104a1dd2a7595d119907c84fd2fd1}
+
+
+get\-Numero\-Variables 
+
+Retorna el número de variables que tiene cada claúsula en el cromosoma \hypertarget{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}{\index{Cromosoma@{Cromosoma}!obtener\-Salida@{obtener\-Salida}}
+\index{obtener\-Salida@{obtener\-Salida}!Cromosoma@{Cromosoma}}
+\subsubsection[{obtener\-Salida}]{\setlength{\rightskip}{0pt plus 5cm}bool Cromosoma\-::obtener\-Salida (
+\begin{DoxyParamCaption}
+\item[{int}]{posicion\-Decimal}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}
+
+
+obtener\-Salida 
+
+Obtiene una salida ante una entrada decimal de un cromosoma (En cualquier representación, maxitérminos o minitérminos) 
+\begin{DoxyParams}{Parameters}
+{\em posicion\-Decimal} & es un número entero que representa la posición que se desea conocer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+booleano que representa el valor que toma la función ante la entrada especificada 
+\end{DoxyReturn}
+\hypertarget{classCromosoma_a158f2fe672e3232ebf07a5724a15fc2e}{\index{Cromosoma@{Cromosoma}!set\-Aptitud@{set\-Aptitud}}
+\index{set\-Aptitud@{set\-Aptitud}!Cromosoma@{Cromosoma}}
+\subsubsection[{set\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}void Cromosoma\-::set\-Aptitud (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a158f2fe672e3232ebf07a5724a15fc2e}
+
+
+set\-Aptitud 
+
+Establece la aptitud que tiene el cromosoma 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Cromosoma.\-h\item 
+Cromosoma.\-cpp\end{DoxyCompactItemize}
