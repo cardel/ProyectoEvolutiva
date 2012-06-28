@@ -6,7 +6,7 @@
 //! Clase para el manejo de la función de Aptitud.
 /*!
  *  \brief     Clase Seleccion
- *  \details   Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y poder obtenerlos de manera ordenada.
+ *  \details   Esta clase permitira el calculo de la función de aptitud para cada elemento de la población de Cromosomas y poder obtenerlos de manera ordenada.
  *  \author    Carlos Andres Delgado
  *  \author    Edgar Andres Moncada
  *  \author    Luis Felipe Vargas
