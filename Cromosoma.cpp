@@ -13,7 +13,7 @@ Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 	numeroVariablesARepresentar = numVariables*2;
 	numeroEntrada = pow(numVariables,2);
 	usarMaxiTerminos = maxiTerminos;
-	
+	GenerarIndividuo();
 }
 
 Cromosoma::~Cromosoma()

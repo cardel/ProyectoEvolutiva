@@ -1,0 +1,4 @@
+Solución #1:
+(~x0) and (x0 or ~x0)
+Solución #2:
+(x1 or ~x1 or ~x0)

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <sstream>
 #include <cstdio> 
 #include <cmath> 
 #include <vector> 
@@ -63,10 +64,10 @@ int main(int argc, char ** argv)
 	}
 	
 	FILE * ArchivoDeEntrada;	
-	ArchivoDeEntrada = fopen("Entrada.txt", "r");
+	ArchivoDeEntrada = fopen(nombreArchivoEntrada.c_str(), "r");
 	
 	FILE * ArchivoDeSalida;
-	ArchivoDeSalida = fopen("Salida.txt", "w");
+	ArchivoDeSalida = fopen(nombreArchivoSalida.c_str(), "w");
 	
 	char mystring[10000];
 	srand ( time(NULL) );
@@ -78,7 +79,6 @@ int main(int argc, char ** argv)
 			fscanf(ArchivoDeEntrada,"%d",&numeroVariables);
 			numeroSolucion++;
 			
-			//Crear tabla de verdad
 			TablaDeVerdad * tablaVerdad = new TablaDeVerdad();
 			int numeroLineas = (int)pow(numeroVariables,2);
 			
@@ -94,94 +94,84 @@ int main(int argc, char ** argv)
 					for(int j=0; j<numeroVariables+1; j++)
 					{
 						int f;
-						fscanf(ArchivoDeEntrada,"%d",&f);
-						
-						//Solo escribir resultado en tabla de verdad
+						fscanf(ArchivoDeEntrada,"%d",&f);						
 						if(j==numeroVariables) tablaVerdad->escribirTablaDeVerdad(f);
 					}							
 				}
 			}
 			
-			//for(int z=0; z<numeroLineas; z++) cout << tablaVerdad->obtenerSalida(z) << endl;
-			/*
-			 * Generar poblacion
-			 */
-			
+			//Población
 			vector<Cromosoma*> poblacion;
 
 			for(int i=0; i<poblacionInicial; i++)
 			{
 				int numeroClausulas=(int)(rand() % (numeroVariables+1));
 				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);				
-				aux->GenerarIndividuo();
  				poblacion.push_back(aux);
 			}
 			
-			//Iterar N veces
-			/*
-			 * Aqui iteramos n veces
-			 * 
-			 */
+			//Iteracciones
+			for(int i=0; i<numeroDeIteracciones; i++)
+			{
+				
+					//Cruce
+					//Mutacion
+					//Etc
+					//Etc
+			}
+			 
 			Cromosoma * mejorCromosoma = poblacion.at(0);
 			
 			int numeroClausulas = mejorCromosoma->getNumeroClausulas();
 			int numeroVariables = mejorCromosoma->getNumeroVariables();
 			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");
-
-			for(int z=0; z<numeroLineas; z++) cout << mejorCromosoma->obtenerSalida(z) <<  " ";
-			cout << endl;
-			//Representar cromosoma
-			if(!usarMaxiterminos) 
+			
+			for(int i=0; i<numeroClausulas; i++)
 			{
-				for(int i=0; i<numeroClausulas; i++)
+				fprintf (ArchivoDeSalida, "%s","(");
+				vector<string> escribirClausula;
+				
+				string operadorInterno;
+				string operadorClausulas;
+				
+				if(!usarMaxiterminos)
 				{
-					fprintf (ArchivoDeSalida, "%s","(");
-					for(int j=0; j<numeroVariables; j++)
-					{
-						if(mejorCromosoma->get(i,j)==1){	
-							int variable = (numeroVariables - j -1)/2;
-							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
-							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
-							
-							if(j<numeroVariables-1) fprintf(ArchivoDeSalida, "%s"," and ");
-						}
-					}
-					fprintf (ArchivoDeSalida, "%s",")");
-
-					if(i<numeroClausulas-1) fprintf(ArchivoDeSalida, "%s"," or ");
+					operadorInterno=" and ";
+					operadorClausulas=" or ";
+				}
+				else
+				{
+					operadorInterno=" or ";
+					operadorClausulas=" and ";				
 				}
 				
-				if(numeroClausulas>0) fprintf (ArchivoDeSalida, "%s","\n");
-				else fprintf (ArchivoDeSalida, "%s","0\n");	
-				
-			}
-			else
-			{
-				for(int i=0; i<numeroClausulas; i++)
+				for(int j=0; j<numeroVariables; j++)
 				{
-					
-					fprintf (ArchivoDeSalida, "%s","(");
-					
-					for(int j=0; j<numeroVariables; j++)
-					{		
-						if(mejorCromosoma->get(i,j)==1){				
-							int variable = (numeroVariables - j -1)/2;
-							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
-							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
-							if(j<numeroVariables-1) fprintf(ArchivoDeSalida, "%s"," or ");
-						}
+					if(mejorCromosoma->get(i,j)==1){	
+						int variable = (numeroVariables - j -1)/2;
+						stringstream out;
+						out << variable;
+						
+						if (j%2==0) escribirClausula.push_back("x"+out.str());
+						else escribirClausula.push_back("~x"+out.str());						
 					}
-					fprintf (ArchivoDeSalida, "%s",")");
-					
-					if(i<numeroClausulas-1) fprintf(ArchivoDeSalida, "%s"," and ");
 				}
 				
-				if(numeroClausulas>0) fprintf (ArchivoDeSalida, "%s","\n");
-				else fprintf (ArchivoDeSalida, "%s","0\n");	
+				for(int k=0; k<escribirClausula.size(); k++)
+				{
+					fprintf (ArchivoDeSalida, "%s", escribirClausula.at(k).c_str());
+					if(k<(escribirClausula.size()-1)) fprintf(ArchivoDeSalida,"%s", operadorInterno.c_str());
+				}
 				
+				if(escribirClausula.size()==0) fprintf (ArchivoDeSalida, "%s","0");
+				fprintf (ArchivoDeSalida, "%s",")");
+
+				if(i<numeroClausulas-1) fprintf(ArchivoDeSalida, "%s",operadorClausulas.c_str());
 			}
 			
-			
+			if(numeroClausulas>0) fprintf (ArchivoDeSalida, "%s","\n");
+			else fprintf (ArchivoDeSalida, "%s","0\n");	
+						
 		}
 		fclose(ArchivoDeEntrada);
 		fclose(ArchivoDeSalida);	
