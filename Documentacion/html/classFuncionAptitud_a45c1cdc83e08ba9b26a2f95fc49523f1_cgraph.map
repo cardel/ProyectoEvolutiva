@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classCromosoma.html#a53e4a3cda8f7a0b2233f0219579f7cc3" title="getNumeroClausulas" alt="" coords="251,5,474,32"/>
+<area shape="rect" id="node5" href="$classCromosoma.html#a8a75eb52e417f9c050c32969b56984e7" title="obtenerSalida" alt="" coords="273,56,453,83"/>
+<area shape="rect" id="node7" href="$classTablaDeVerdad.html#a3e53eabc4e37d9514141f4afacc1e915" title="obtenerSalida" alt="" coords="263,107,462,133"/>
+<area shape="rect" id="node9" href="$classCromosoma.html#a158f2fe672e3232ebf07a5724a15fc2e" title="setAptitud" alt="" coords="283,157,443,184"/>
+</map>

@@ -1,0 +1,82 @@
+\hypertarget{classMutacion}{\section{Mutacion Class Reference}
+\label{classMutacion}\index{Mutacion@{Mutacion}}
+}
+
+
+Clase para implementar mutación.  
+
+
+
+
+{\ttfamily \#include $<$mutacion.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMutacion_afee3c90f0afc795c89fa0590bef2b667}{Mutacion} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ hijos)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classMutacion_a6ef8eb8c3818175895cf7ff56cdfedf0}{aplicar\-Mutacion} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clase para implementar mutación. 
+
+\begin{DoxyVerb}Clase Mutacion
+\end{DoxyVerb}
+
+
+Para mutar se selecciona el 2 \% de los individuos, en éstos se selecciona aleatoriamente una claúsula, con probabilidad del 50 \% se realiza alguna de estas dos acciones. $\ast$ Borrar claúsula Borra una clausula, si es la única de la función, la salida de la misma es siempre 0.\-Cambiar el valor de una variable Se selecciona una posición de la claúsula y se cambia el valor que tiene asignado por su negación. \begin{DoxyAuthor}{Author}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2012 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMutacion_afee3c90f0afc795c89fa0590bef2b667}{\index{Mutacion@{Mutacion}!Mutacion@{Mutacion}}
+\index{Mutacion@{Mutacion}!Mutacion@{Mutacion}}
+\subsubsection[{Mutacion}]{\setlength{\rightskip}{0pt plus 5cm}Mutacion\-::\-Mutacion (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Cromosoma} $>$}]{hijos}
+\end{DoxyParamCaption}
+)}}\label{classMutacion_afee3c90f0afc795c89fa0590bef2b667}
+
+
+Constructor. 
+
+Constructor para la aplicación de la mutación de los hijos generados de la población de Cromosomas 
+\begin{DoxyParams}{Parameters}
+{\em poblacion} & es un vector que contiene los hijos generados en el \hyperlink{classCruce}{Cruce}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMutacion_a6ef8eb8c3818175895cf7ff56cdfedf0}{\index{Mutacion@{Mutacion}!aplicar\-Mutacion@{aplicar\-Mutacion}}
+\index{aplicar\-Mutacion@{aplicar\-Mutacion}!Mutacion@{Mutacion}}
+\subsubsection[{aplicar\-Mutacion}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Mutacion\-::aplicar\-Mutacion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMutacion_a6ef8eb8c3818175895cf7ff56cdfedf0}
+Funcion que mutara a los Cromosomas hijos el 2\% de la población.
+
+\begin{DoxyVerb}  \return un vector con los cromosomas hijos ya mutados.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+mutacion.\-h\item 
+mutacion.\-cpp\end{DoxyCompactItemize}

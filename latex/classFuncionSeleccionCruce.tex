@@ -1,0 +1,95 @@
+\hypertarget{classFuncionSeleccionCruce}{\section{Funcion\-Seleccion\-Cruce Class Reference}
+\label{classFuncionSeleccionCruce}\index{Funcion\-Seleccion\-Cruce@{Funcion\-Seleccion\-Cruce}}
+}
+
+
+Clase para seleccionar el Mating pool.  
+
+
+
+
+{\ttfamily \#include $<$funcion\-Seleccion\-Cruce.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFuncionSeleccionCruce_a22066e85dbf1ee971ff1433024ea3817}{Funcion\-Seleccion\-Cruce} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ poblacion, double mejor\-Aptitud)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classFuncionSeleccionCruce_a54ddbbce4b3bf60a646f28fab74b46e0}{aplicar\-Seleccion\-Cruce} ()
+\begin{DoxyCompactList}\small\item\em Función que calculará los cromosomas seleccionados para relizar el cruce. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Clase para seleccionar el Mating pool. 
+
+\begin{DoxyVerb}Clase FuncionSeleccionCruce
+\end{DoxyVerb}
+
+
+Esta clase permitira seleccionar los cromosomas de acuerdo a la aptitud para la realización del cruce. \begin{DoxyAuthor}{Author}
+Carlos Andres Delgado 
+
+Edgar Andres Moncada 
+
+Luis Felipe Vargas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2012 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classFuncionSeleccionCruce_a22066e85dbf1ee971ff1433024ea3817}{\index{Funcion\-Seleccion\-Cruce@{Funcion\-Seleccion\-Cruce}!Funcion\-Seleccion\-Cruce@{Funcion\-Seleccion\-Cruce}}
+\index{Funcion\-Seleccion\-Cruce@{Funcion\-Seleccion\-Cruce}!FuncionSeleccionCruce@{Funcion\-Seleccion\-Cruce}}
+\subsubsection[{Funcion\-Seleccion\-Cruce}]{\setlength{\rightskip}{0pt plus 5cm}Funcion\-Seleccion\-Cruce\-::\-Funcion\-Seleccion\-Cruce (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Cromosoma} $>$}]{poblacion, }
+\item[{double}]{mejor\-Aptitud}
+\end{DoxyParamCaption}
+)}}\label{classFuncionSeleccionCruce_a22066e85dbf1ee971ff1433024ea3817}
+
+
+Constructor. 
+
+Constructor para la aplicación del Mating pool. 
+\begin{DoxyParams}{Parameters}
+{\em poblacion} & es un vector que contendrá la población de cromosomas. \\
+\hline
+{\em mejor\-Aptitud} & es el valor con la mejor aptitud, esto para calcular la normalización y que quede entre \mbox{[}0,1\mbox{]}. Se obtiene de la funcion de aptitud. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classFuncionSeleccionCruce_a54ddbbce4b3bf60a646f28fab74b46e0}{\index{Funcion\-Seleccion\-Cruce@{Funcion\-Seleccion\-Cruce}!aplicar\-Seleccion\-Cruce@{aplicar\-Seleccion\-Cruce}}
+\index{aplicar\-Seleccion\-Cruce@{aplicar\-Seleccion\-Cruce}!FuncionSeleccionCruce@{Funcion\-Seleccion\-Cruce}}
+\subsubsection[{aplicar\-Seleccion\-Cruce}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Funcion\-Seleccion\-Cruce\-::aplicar\-Seleccion\-Cruce (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFuncionSeleccionCruce_a54ddbbce4b3bf60a646f28fab74b46e0}
+
+
+Función que calculará los cromosomas seleccionados para relizar el cruce. 
+
+\begin{DoxyReturn}{Returns}
+un vector con los cromosomas seleccionados. 
+\end{DoxyReturn}
+se calculan las puntuaciones acumuladas
+
+constante a la mitad de la poblacion
+
+se selecciona la posicion donde r cayo en \char`\"{}la ruleta\char`\"{}
+
+mirando el algoritmo por internet dice que puede repetirse elementos, asi el erase no iria 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+funcion\-Seleccion\-Cruce.\-h\item 
+funcion\-Seleccion\-Cruce.\-cpp\end{DoxyCompactItemize}
