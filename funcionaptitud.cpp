@@ -6,7 +6,6 @@ FuncionAptitud::FuncionAptitud(vector<Cromosoma> poblacion, TablaDeVerdad tablaV
     this->tablaVerdad = tablaVerdad;
     this->esMinTermino = esMinTermino;
     this->mejorAptitud=-1;
-    this->sumaAptitud=0;
 }
 
 double FuncionAptitud::obtenerMejorAptitud()
@@ -18,10 +17,10 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
 {
     int size = poblacion.size();
     for(int j =0;j<size;j++){//! por cada cromosoma
-        int numComparaciones = (int)pow(2, poblacion.at(0).getNumeroVariables());
+        int numComparaciones = (int)pow(2, poblacion[j].getNumeroVariables());
         Cromosoma c_tmp = poblacion[j];
         for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
-            double aptitud = c_temp.getNumeroClausulas() + (int)(c_tmp.obtenerSalida(i)||tablaVerdad.obtenerSalida(i));
+            double aptitud = c_tmp.getNumeroClausulas() + (int)(c_tmp.obtenerSalida(i)||tablaVerdad.obtenerSalida(i));
 
             if(mejorAptitud==-1 || mejorAptitud<aptitud){
                 mejorAptitud=aptitud;
@@ -36,12 +35,13 @@ vector<Cromosoma> FuncionAptitud::aplicarAptitud()
     }
     /*! ordena sobre el vector de entrada
     */
-    sort(poblacion.begin(),poblacion.end(), compareAptitudCromosoma);
+    sort(poblacion.begin() , poblacion.end(), compareAptitudCromosoma);
 
     return poblacion;
 }
 
-bool FuncionAptitud::operator compareAptitudCromosoma(const Cromosoma &a, const Cromosoma &b)
+bool FuncionAptitud::compareAptitudCromosoma(Cromosoma a, Cromosoma b)
 {
-    return (a.getAptitud()<b.getAptitud());
+    return 1;
 }
+

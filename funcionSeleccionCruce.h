@@ -2,7 +2,7 @@
 #define FUNCIONEVALUACION_H
 #include "Cromosoma.h"
 #include <vector>
-#include <time>
+#include <time.h>
 #include <stdlib.h>
 
 //! Clase para seleccionar el Mating pool
@@ -24,7 +24,7 @@ public:
     /*!
       \return un vector con los cromosomas seleccionados.
     */
-    vector<Cromosoma> aplicarEvaluacion();
+    vector<Cromosoma> aplicarSeleccionCruce();
 private:
     vector<Cromosoma> poblacion;
     vector<double> puntuacionesAcumuladas;

@@ -2,10 +2,12 @@
 #define TABLADEVERDAD_H
 
 #include <vector>
+using namespace std;
 
 class TablaDeVerdad
 {
 	public:
+                TablaDeVerdad();
 		TablaDeVerdad(int numVariables);
 		~TablaDeVerdad();
 		
@@ -18,5 +20,6 @@ class TablaDeVerdad
 	private:
 		int numVariables;
 		vector<bool> tablaDeVerdad;
+};
  
 #endif

@@ -1,6 +1,6 @@
 #include "seleccion.h"
 
-Seleccion::Seleccion()
+Seleccion::Seleccion(vector<Cromosoma> poblacion, vector<Cromosoma> hijos)
 {
 }
 

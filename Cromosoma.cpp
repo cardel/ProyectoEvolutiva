@@ -132,7 +132,7 @@ bool Cromosoma::obtenerSalida(int posicionDecimal)
     return cromosomaEvaluado[posicionDecimal];
 }
 
-double Cromosoma::getAptitud() const
+double Cromosoma::getAptitud()
 {
     return aptitud;
 }

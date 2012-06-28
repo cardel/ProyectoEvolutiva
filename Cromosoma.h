@@ -23,7 +23,7 @@ class Cromosoma
                 bool obtenerSalida(int posicionDecimal);
 
                  //! adicionado por edgar//
-                double const getAptitud();
+                double getAptitud();
                 void setAptitud(double value);
 		
 	private:

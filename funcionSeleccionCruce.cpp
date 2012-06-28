@@ -6,7 +6,7 @@ FuncionSeleccionCruce::FuncionSeleccionCruce(vector<Cromosoma> poblacion, double
     this->mejorAptitud=mejorAptitud;
 }
 
-vector<Cromosoma> FuncionSeleccionCruce::aplicarEvaluacion()
+vector<Cromosoma> FuncionSeleccionCruce::aplicarSeleccionCruce()
 {
     calcularPuntuacionesAcumuladas();//! se calculan las puntuaciones acumuladas
 
@@ -19,7 +19,7 @@ vector<Cromosoma> FuncionSeleccionCruce::aplicarEvaluacion()
     srand(time(NULL));
     int r =rand();
     for(int i = 1; i <= k;i++ ){
-        r=(r+j-1/k);
+        r=(r+i-1/k);
         int posicion = 0;
         while(r>0 && r < size && r <= puntuacionesAcumuladas[posicion]){//! se selecciona la posicion donde r cayo en "la ruleta"
             posicion++;
@@ -35,7 +35,7 @@ void FuncionSeleccionCruce::calcularPuntuacionesAcumuladas()
 {
     int size=poblacion.size();
     double sumAptitud=0;
-    puntuacionesAcumuladas= vector(size, 0);
+    puntuacionesAcumuladas.resize(size);
     for(int i=size-1;i>=0;i--){
         double p=0;
         for(int j=0;j<i;j++){
