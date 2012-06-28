@@ -24,8 +24,8 @@ public:
         \param hijos es un vector que contendrá la población de cromosomas que se ha cruzado y aplicado posibles mutaciones.
         */
     Seleccion(vector<Cromosoma*> poblacion, vector<Cromosoma*> hijos);
-    /*! Función seleccionara, por medio del metodo de seleccion, entre la población vieja y
-        los hijos mutados para que pasen a la siguiente generación.
+    /*! Función seleccionara entre la población vieja y
+        los hijos mutados para que pasen a la siguiente generación. Se eliminan la mitad de los padres con peor aptitud
     */
     /*!
       \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.
