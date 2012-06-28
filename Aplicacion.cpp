@@ -80,6 +80,7 @@ int main(int argc, char ** argv)
 			
 			//Crear tabla de verdad
 			TablaDeVerdad * tablaVerdad = new TablaDeVerdad();
+			int numeroLineas = (int)pow(numeroVariables,2);
 			
 			if(numeroVariables==0)
 			{
@@ -87,27 +88,28 @@ int main(int argc, char ** argv)
 			}
 			else
 			{
-					int numeroLineas = (int)pow(numeroVariables,2);
+				for(int i=0; i<numeroLineas; i++)
+				{
 					
-					for(int i=0; i<numeroLineas; i++)
+					for(int j=0; j<numeroVariables+1; j++)
 					{
-							
-							for(int j=0; j<numeroVariables+1; j++)
-							{
-									int f;
-									fscanf(ArchivoDeEntrada,"%d",&f);
-									tablaVerdad->escribirTablaDeVerdad(f);
-							}							
-					}
+						int f;
+						fscanf(ArchivoDeEntrada,"%d",&f);
+						
+						//Solo escribir resultado en tabla de verdad
+						if(j==numeroVariables) tablaVerdad->escribirTablaDeVerdad(f);
+					}							
+				}
 			}
 			
+			//for(int z=0; z<numeroLineas; z++) cout << tablaVerdad->obtenerSalida(z) << endl;
 			/*
 			 * Generar poblacion
 			 */
 			
 			vector<Cromosoma*> poblacion;
 
-			for(int i=0; i<poblacionInicial; i++)
+			for(int i=0; i<1; i++)
 			{
 				int numeroClausulas=(int)(rand() % (numeroVariables+1));
 				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables*2, usarMaxiterminos);				
@@ -126,6 +128,7 @@ int main(int argc, char ** argv)
 			int numeroVariables = mejorCromosoma->getNumeroVariables();
 			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");
 
+			for(int z=0; z<numeroLineas; z++) cout << mejorCromosoma->obtenerSalida(z) << endl;
 			//Representar cromosoma
 			if(!usarMaxiterminos) 
 			{
@@ -135,7 +138,7 @@ int main(int argc, char ** argv)
 					for(int j=0; j<numeroVariables; j++)
 					{
 						if(mejorCromosoma->get(i,j)==1){	
-							int variable = (numeroVariables - j)/2;
+							int variable = (numeroVariables - j -1)/2;
 							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
 							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
 							
@@ -161,7 +164,7 @@ int main(int argc, char ** argv)
 					for(int j=0; j<numeroVariables; j++)
 					{		
 						if(mejorCromosoma->get(i,j)==1){				
-							int variable = (numeroVariables - j)/2;
+							int variable = (numeroVariables - j -1)/2;
 							if (j%2==0) fprintf (ArchivoDeSalida, "%s%d","x",variable);
 							else fprintf (ArchivoDeSalida, "%s%d","~x",variable);
 							if(j<numeroVariables-1) fprintf(ArchivoDeSalida, "%s"," or ");
