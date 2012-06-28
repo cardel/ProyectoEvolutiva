@@ -22,12 +22,12 @@ public:
     \param tablaVerdad es la tabla de verdad para obtener el valor de la funcion.
     \param esMinTermino variable booleana que indica si se trabaja con mini términos o maxi términos.
     */
-    FuncionAptitud(vector <Cromosoma> poblacion, TablaDeVerdad tablaVerdad,bool esMinTermino);
+    FuncionAptitud(vector <Cromosoma*> poblacion, TablaDeVerdad *tablaVerdad,bool esMinTermino);
     //! Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena.
     /*!
         \return un vector con los cromosomas ordenados de mejor aptitud a peor aptitud.
     */
-    vector<Cromosoma> aplicarAptitud();
+    vector<Cromosoma*> aplicarAptitud();
     //! Función que retorna el valor de la mejor aptitud calculada.
     /*!
         \return un double con el valor de la mejor aptitud.
@@ -37,26 +37,23 @@ public:
     */
     struct compare
     {
-        bool operator()(Cromosoma a, Cromosoma b) const
+        bool operator()(Cromosoma* a, Cromosoma* b) const
         {
             if(FuncionAptitud::ES_MIN_TERMINO){
-                return (a.getAptitud()<b.getAptitud());
+                return (a->getAptitud()<b->getAptitud());
             }else{
-                return (a.getAptitud()>b.getAptitud());
+                return (a->getAptitud()>b->getAptitud());
             }
 
         }
     };
 
 private:
-    vector<Cromosoma> poblacion;
-    TablaDeVerdad tablaVerdad;
+    vector<Cromosoma*> poblacion;
+    TablaDeVerdad *tablaVerdad;
     double mejorAptitud;
     static bool ES_MIN_TERMINO;
 
 };
-
-bool FuncionAptitud::ES_MIN_TERMINO=true;
-
 
 #endif // FUNCIONAPTITUD_H

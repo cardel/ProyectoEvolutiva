@@ -23,13 +23,13 @@ public:
         Constructor para la aplicación de la mutación de los hijos generados de la población de Cromosomas
         \param poblacion es un vector que contiene los hijos generados en el Cruce.
         */
-    Mutacion(vector <Cromosoma> hijos);
+    Mutacion(vector <Cromosoma*> hijos);
     /*! Funcion que mutara a los Cromosomas hijos el 2% de la población.
     */
     /*!
       \return un vector con los cromosomas hijos ya mutados.
     */
-    vector<Cromosoma> aplicarMutacion();
+    vector<Cromosoma*> aplicarMutacion();
 };
 
 #endif // MUTACION_H

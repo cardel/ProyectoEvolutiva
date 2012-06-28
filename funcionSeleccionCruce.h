@@ -19,14 +19,14 @@ public:
     \param mejorAptitud es el valor con la mejor aptitud, esto para calcular la normalización y que quede entre [0,1].
         Se obtiene de la funcion de aptitud.
     */
-    FuncionSeleccionCruce(vector<Cromosoma> poblacion, double mejorAptitud);
+    FuncionSeleccionCruce(vector<Cromosoma*> poblacion, double mejorAptitud);
     //! Función que calculará los cromosomas seleccionados para relizar el cruce.
     /*!
       \return un vector con los cromosomas seleccionados.
     */
-    vector<Cromosoma> aplicarSeleccionCruce();
+    vector<Cromosoma*> aplicarSeleccionCruce();
 private:
-    vector<Cromosoma> poblacion;
+    vector<Cromosoma*> poblacion;
     vector<double> puntuacionesAcumuladas;
     void calcularPuntuacionesAcumuladas();
     double mejorAptitud;

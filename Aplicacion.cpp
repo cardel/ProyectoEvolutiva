@@ -7,7 +7,11 @@
 #include <vector> 
 #include "Cromosoma.h"
 #include "TablaDeVerdad.h"
-
+#include "funcionSeleccionCruce.h"
+#include "cruce.h"
+#include "mutacion.h"
+#include "seleccion.h"
+#include "funcionaptitud.h"
 using namespace std;
 
 
@@ -109,7 +113,10 @@ int main(int argc, char ** argv)
 				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);				
  				poblacion.push_back(aux);
 			}
-			
+                        FuncionAptitud fa(poblacion, tablaVerdad, !usarMaxiterminos);
+                        vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
+                        FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
+
 			//Iteracciones
 			for(int i=0; i<numeroDeIteracciones; i++)
 			{
@@ -168,10 +175,10 @@ int main(int argc, char ** argv)
 
 				if(i<numeroClausulas-1) fprintf(ArchivoDeSalida, "%s",operadorClausulas.c_str());
 			}
-			
+
 			if(numeroClausulas>0) fprintf (ArchivoDeSalida, "%s","\n");
 			else fprintf (ArchivoDeSalida, "%s","0\n");	
-						
+
 		}
 		fclose(ArchivoDeEntrada);
 		fclose(ArchivoDeSalida);	

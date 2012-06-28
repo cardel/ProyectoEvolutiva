@@ -1,9 +1,9 @@
 #include "mutacion.h"
 
-Mutacion::Mutacion(vector <Cromosoma> hijos)
+Mutacion::Mutacion(vector <Cromosoma*> hijos)
 {
 }
 
-vector<Cromosoma> Mutacion::aplicarMutacion()
+vector<Cromosoma*> Mutacion::aplicarMutacion()
 {
 }

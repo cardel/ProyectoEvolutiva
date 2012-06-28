@@ -1,17 +1,17 @@
 #include "funcionSeleccionCruce.h"
 
-FuncionSeleccionCruce::FuncionSeleccionCruce(vector<Cromosoma> poblacion, double mejorAptitud)
+FuncionSeleccionCruce::FuncionSeleccionCruce(vector<Cromosoma*> poblacion, double mejorAptitud)
 {
     this->poblacion=poblacion;
     this->mejorAptitud=mejorAptitud;
 }
 
-vector<Cromosoma> FuncionSeleccionCruce::aplicarSeleccionCruce()
+vector<Cromosoma*> FuncionSeleccionCruce::aplicarSeleccionCruce()
 {
     calcularPuntuacionesAcumuladas();//! se calculan las puntuaciones acumuladas
 
     int size = poblacion.size();
-    vector<Cromosoma> tmp(poblacion), seleccionCruce;
+    vector<Cromosoma*> tmp(poblacion), seleccionCruce;
     int k= (size/2);//! constante a la mitad de la poblacion
     if(k%2!=0){
         k--;
@@ -39,10 +39,10 @@ void FuncionSeleccionCruce::calcularPuntuacionesAcumuladas()
     for(int i=size-1;i>=0;i--){
         double p=0;
         for(int j=0;j<i;j++){
-            Cromosoma c_tmp = poblacion[j];
-            p+=c_tmp.getAptitud() / mejorAptitud;
+            Cromosoma* c_tmp = poblacion[j];
+            p+=c_tmp->getAptitud() / mejorAptitud;
             if(i==size){
-                sumAptitud+=c_tmp.getAptitud();
+                sumAptitud+=c_tmp->getAptitud();
             }
         }
         puntuacionesAcumuladas[i]= p/sumAptitud;

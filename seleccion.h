@@ -17,14 +17,17 @@ public:
         \param poblacion es un vector que contendrá la población de cromosomas viejas.
         \param hijos es un vector que contendrá la población de cromosomas que se ha cruzado y aplicado posibles mutaciones.
         */
-    Seleccion(vector<Cromosoma> poblacion, vector<Cromosoma> hijos);
-    /*! Función seleccionara, por medio del metodo de seleccion por ruleta, entre la población vieja y
+    Seleccion(vector<Cromosoma*> poblacion, vector<Cromosoma*> hijos);
+    /*! Función seleccionara, por medio del metodo de seleccion, entre la población vieja y
         los hijos mutados para que pasen a la siguiente generación.
     */
     /*!
       \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.
     */
-    vector<Cromosoma> aplicarSeleccion();
+    vector<Cromosoma*> aplicarSeleccion();
+private:
+    vector<Cromosoma*> poblacion;
+    vector<Cromosoma*> hijosMutados;
 };
 
 #endif // SELECCION_H
