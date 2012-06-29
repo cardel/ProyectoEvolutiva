@@ -161,8 +161,8 @@ int main(int argc, char ** argv)
                             FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
                             vector<Cromosoma*> poblacionCruzar = fsc.aplicarSeleccionCruce();
                             Cruce c(poblacionCruzar);
-                            vector<Cromosoma*> hijos = c.aplicarCruce();
-                            Mutacion m(hijos);
+                            //vector<Cromosoma*> hijos = c.aplicarCruce();
+                            //Mutacion m(hijos);
                             //vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
 //                            Seleccion s(poblacion,hijosMutados);
 //                            poblacion= s.aplicarSeleccion();
