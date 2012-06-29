@@ -8,19 +8,29 @@ Mutacion::Mutacion(vector <Cromosoma*> hijos)
 vector<Cromosoma*> Mutacion::aplicarMutacion()
 {
     int cantidad = (int)((double)(hijosMutados.size())*2/100);
-    rand(time(NULL));
+    srand(time(NULL));
     for(int i=0; i < cantidad; i++){
-        if(rand()%2==0){
-            //Cambiar un valor
-            Cromosoma* t =hijosMutados[i];
-            int x=rand()%t->getNumeroClausulas(),y=rand()%(t->getNumeroVariables()*2),value=t->get(x,y);
 
+        int r=rand();
+        Cromosoma* t =hijosMutados[i];
+        int numClausulas = t->getNumeroClausulas();
+        if(numClausulas==0){// no se puede hacer nada la clausula
+            //cout << numClausulas << ":" << cantidad <<endl;
+            cantidad--;
+            continue;
+        }
+        if(r%2==0){
+
+            //Cambiar un valor
+            int x= rand() % numClausulas;//%;
+            int y=(int)(rand()%(t->getNumeroVariables()*2));
+            bool value=t->get(x,y);
             t->set(x,y, !(value==true));
 
         }else{
             //Borrar clausula
             Cromosoma* t =hijosMutados[i];
-            int posClausulaBorrar= rand()%t->getNumeroClausulas();
+            int posClausulaBorrar= (int)(rand()%t->getNumeroClausulas());
             t->deleteClausula(posClausulaBorrar);
         }
 

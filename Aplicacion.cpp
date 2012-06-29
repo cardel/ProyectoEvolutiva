@@ -154,7 +154,7 @@ int main(int argc, char ** argv)
 
 
 			//Iteracciones
-			for(int i=0; i<numeroDeIteracciones; i++)
+                        for(int i=0; i<numeroDeIteracciones; i++)
 			{
                             FuncionAptitud fa(poblacion, tablaVerdad, !usarMaxiterminos);
                             vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
@@ -163,10 +163,11 @@ int main(int argc, char ** argv)
                             Cruce c(poblacionCruzar);
                             vector<Cromosoma*> hijos = c.aplicarCruce();
                             Mutacion m(hijos);
-                            vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
-                            Seleccion s(poblacion,hijosMutados);
-                            poblacion= s.aplicarSeleccion();
-			}
+                            //vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
+//                            Seleccion s(poblacion,hijosMutados);
+//                            poblacion= s.aplicarSeleccion();
+
+                        }
 			 
 			Cromosoma * mejorCromosoma = poblacion.at(0);
 			

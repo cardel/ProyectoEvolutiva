@@ -95,7 +95,7 @@ void Cromosoma::evaluarCromosoma()
 						resultadoClausula|=valor;
 					} 
 					if(estadoCromosoma.at(i)[j*2+1]==1)
-                        Cromosoma		{
+                                        {
 						evaluo=1;
 						resultadoClausula|=(!valor);
 					} 

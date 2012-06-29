@@ -21,7 +21,7 @@ vector<Cromosoma*> Cruce::aplicarCruce()
         }
 
         if(menorClausulas==0){//! no puede sacar hijos(No debe pasar)
-
+            cout << "problem!!!!!!**************"<< endl;
             continue;
         }
 
@@ -33,32 +33,45 @@ vector<Cromosoma*> Cruce::aplicarCruce()
             alfa = 1+ rand()%(menorClausulas-1);
         }
 
-        hijo1=new Cromosoma(2*alfa, padre->getNumeroVariables(),false);//! ojo
+            hijo1=new Cromosoma(2*alfa, padre->getNumeroVariables(),false);//! ojo
 
-        for(int i=0; i<alfa;i++){
-            hijo1->setClausula(i,padre->getClausula(i));
-        }
-        for(int i=alfa; i<alfa*2;i++){
-            hijo1->setClausula(i,madre->getClausula(i-alfa));
-
-        }
-        int padreSobra= (padre->getNumeroClausulas()-alfa), madreSobra=(madre->getNumeroClausulas()-alfa);
-        int sizeHijo2 = padreSobra +madreSobra ;
-
-        hijo2 = new Cromosoma(sizeHijo2, padre->getNumeroVariables(),false);//! ojo
-
-        for(int i=0; i<sizeHijo2;i++){
-            if(padreSobra!=0){
-                hijo2->setClausula(i,padre->getClausula(i+alfa));
-                padreSobra--;
-            }else if(madreSobra!=0){
-                hijo2->setClausula(i,madre->getClausula(i+alfa));
-                madreSobra--;
+            for(int i=0; i<alfa;i++){
+                hijo1->setClausula(i,padre->getClausula(i));
             }
-        }
+            for(int i=alfa; i<alfa*2;i++){
+                hijo1->setClausula(i,madre->getClausula(i-alfa));
 
-        hijos.push_back(hijo1);
-        hijos.push_back(hijo2);
+            }
+            int padreSobra= (padre->getNumeroClausulas()-alfa), madreSobra=(madre->getNumeroClausulas()-alfa);
+            int sizeHijo2 = padreSobra +madreSobra ;
+
+
+
+
+            hijo2 = new Cromosoma(sizeHijo2, madre->getNumeroVariables(),false);//! ojo
+
+            for(int i=0; i<sizeHijo2;i++){
+                if(padreSobra!=0){
+                        hijo2->setClausula(i,padre->getClausula(i+alfa));
+                        padreSobra--;
+                }else if(madreSobra!=0){
+                    try{
+                        hijo2->setClausula(i,madre->getClausula(i+alfa));
+                        madreSobra--;
+                    }catch(...){
+                        cout <<"seras mank0000 " <<sizeHijo2 << ":" <<madre->getNumeroClausulas() <<":"<< i << ":"<< menorClausulas<< endl;
+                    }
+
+                }
+            }
+
+
+
+
+
+
+            hijos.push_back(hijo1);
+            hijos.push_back(hijo2);
     }
     return hijos;
 }
