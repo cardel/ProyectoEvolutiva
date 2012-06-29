@@ -1,3 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$classCromosoma.html#a53e4a3cda8f7a0b2233f0219579f7cc3" title="getNumeroClausulas" alt="" coords="200,5,443,32"/>
+<area shape="rect" id="node5" href="$classCromosoma.html#a826283527e3bdefe28a7ba7fc84dc965" title="setClausula" alt="" coords="230,56,413,83"/>
+<area shape="rect" id="node7" href="$classCromosoma.html#a400e7970b9e2d9995cbc6b1f4335fd51" title="getClausula" alt="" coords="229,107,413,133"/>
 </map>

@@ -1,8 +1,6 @@
 Solución #1:
-(~x0)
+(x0)
 Solución #2:
-(~x1 and x0 and ~x0) or (x1 and ~x0)
+(~x1)
 Solución #3:
-(~x3 and x1) or (x3 and ~x3 and x1) or (x3 and ~x3 and x2 and ~x2 and x0)
-Solución #4:
-(x2 and x1 and ~x1 and ~x0) or (~x2 and ~x0) or (x2 and ~x1 and x0) or (x2 and ~x2 and x1 and x0) or (~x2 and ~x1)
+(~x0)

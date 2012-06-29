@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -72,20 +66,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
       <li><a href="functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('classMutacion.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -100,6 +80,7 @@ $(document).ready(function(){initNavTree('classMutacion.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos públicos</a>  </div>
@@ -172,6 +153,15 @@ Luis Felipe Vargas </dd></dl>
 </div><div class="memdoc">
 <p>Funcion que mutara a los Cromosomas hijos el 2% de la población.</p>
 <pre class="fragment">  \return un vector con los cromosomas hijos ya mutados.</pre> 
+<p><div class="dynheader">
+Gráfico de llamadas para esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMutacion_aad417b36379e665d5c9249f133020d93_cgraph.png" border="0" usemap="#classMutacion_aad417b36379e665d5c9249f133020d93_cgraph" alt=""/></div>
+<map name="classMutacion_aad417b36379e665d5c9249f133020d93_cgraph" id="classMutacion_aad417b36379e665d5c9249f133020d93_cgraph">
+<area shape="rect" id="node3" href="classCromosoma.html#a53e4a3cda8f7a0b2233f0219579f7cc3" title="getNumeroClausulas" alt="" coords="243,5,485,32"/><area shape="rect" id="node5" href="classCromosoma.html#a825104a1dd2a7595d119907c84fd2fd1" title="getNumeroVariables" alt="" coords="244,56,484,83"/><area shape="rect" id="node7" href="classCromosoma.html#a59d6a42685e8b6e983b496d8051e4168" title="get" alt="" coords="299,107,429,133"/><area shape="rect" id="node9" href="classCromosoma.html#aaf002d2f7f9438e74eeba52892868e83" title="set" alt="" coords="299,157,429,184"/><area shape="rect" id="node11" href="classCromosoma.html#a845ebd5367a0e7978bf8d4b1ae452cbe" title="evaluarCromosoma" alt="" coords="247,208,481,235"/><area shape="rect" id="node13" href="classCromosoma.html#ad9c66633c62ac96944faae7e778beb21" title="getNumeroClausulas" alt="" coords="263,259,465,285"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
@@ -179,15 +169,11 @@ Luis Felipe Vargas </dd></dl>
 <li>mutacion.cpp</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="classMutacion.html">Mutacion</a></li>
-    <li class="footer">Generado el Jueves, 28 de Junio de 2012 22:18:39 para Proyecto computación evolutiva: por
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generado el Viernes, 29 de Junio de 2012 18:16:27 para Proyecto computación evolutiva: por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1.1
+</small></address>
 </body>
 </html>

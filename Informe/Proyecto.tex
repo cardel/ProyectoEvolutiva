@@ -1,5 +1,5 @@
 
-\documentclass[a4paper]{article}
+\documentclass[letter]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -26,7 +26,7 @@ escapeinside={\%*}{*)}
 \maketitle{}
 \renewcommand{\tablename}{\textbf{Tabla}}
 
-\abstract{En este proyecto se busca la simplicación de ecuaciones de funciones booleanas utilizando un algoritmo evolutivo, que haga el proceso que se hace con los mapas de Karnaugh}
+\abstract{En este proyecto se busca la simplicación de ecuaciones de funciones booleanas utilizando un algoritmo evolutivo, que busque automatizar el proceso que se realiza con los mapas de Karnaugh}
 
 \section{Fundamentación del problema}
 
@@ -105,7 +105,7 @@ En maxitérminos:
 
 \subsection{El cromosoma}
 
-El cromosoma se codifica como una matriz de tamaño número de clausulas (que es un número entre 1 y número de variables que es el peor caso donde existe una clausula por cada variable) por 2 veces el número de variables de entrada, por ejemplo:
+El cromosoma se codifica como una matriz de tamaño número de clausulas (que es un número entre 1 y número de posibles entradas que es el peor caso donde existe una clausula por cada entradas donde $entradas=2^{bits})$ ejemplo:
 
 \begin{table}[H]
 	\centering
@@ -166,7 +166,13 @@ La función de aptitud considera los siguiente factores:
 	\item \textbf{Acercamiento a la función} Es el factor más importante se busca que este valor sea 0, es decir que la función encontrada sea correcta
 \end{itemize}
 
-Se busca que la función de aptitud sea 0, es decir los mejores cromosomas son aquellos que tengan el menor valor de función de aptitud.
+La función de aptitud se calcula
+
+$F_{aptitud}=25*N_{clausulas} + 75*(N_{aciertosEntrada} - N_{posible_entrada})$
+
+Se le da un mayor peso a la diferencia entre los aciertos con la entrada y el número de entradas ya que el objetivo principal es que la función que encuentre pueda representar la entrada.
+
+Se busca que la función de aptitud sea las mas pequeña posible, es decir los mejores cromosomas son aquellos que tengan el menor valor de función de aptitud.
 
 \subsection{Función de selección}
 
@@ -228,12 +234,14 @@ Se igualan los cromosomas y dado que el Cromosoma B tiene menor número de claú
 		\hline
 		1 & 1& 1 & 0\\
 		\hline
-		0 & 1& 1 & 0\\	
+		0 & 0& 1 & 0\\
 		\hline
 	\end{tabular}
 \end{table}
 
-Ahora se tienen que el número de cláusulas es 3 por tanto $\alpha$ puede valer 1 ó 2. Elegimos a $\alpha$ con valor 2 para este ejemplo y el primer hijo será:
+En ese caso se ha insertado la primera posición en la última, queda como una claúsula redundante.
+
+Ahora se tienen que el número de cláusulas es 3 por tanto $\alpha$ puede valer 1 ó 2. Se elige a $\alpha$ con valor 2 para este ejemplo y el primer hijo es:
 
 \begin{table}[H]
 	\centering
@@ -248,6 +256,9 @@ Ahora se tienen que el número de cláusulas es 3 por tanto $\alpha$ puede valer
 		\hline
 	\end{tabular}
 \end{table}
+
+En este caso se ha insertado un cromosoma del padre y uno de la madre.
+
 
 Para el segundo hijo el número de clausulas será 3 (número de cláusula padre) menos 2 ($\alpha$) mas 1 igual a 2 y se toman las cláusulas restantes:
 
@@ -265,6 +276,7 @@ Para el segundo hijo el número de clausulas será 3 (número de cláusula padre
 	\end{tabular}
 \end{table}
 
+En este caso se ha insertado un cromosoma del padre y uno de la madre.
 
 \subsection{Mutación}
 
@@ -287,7 +299,7 @@ El criterio de parada se presenta en dos casos
 
 \begin{itemize}
 	\item Al pasar 200 generaciones
-	\item Si el menor valor de la función de cambio, no tiene cambios en 5 generaciones
+	\item Si la aptitud del mejor cromosoma en cada generación, no tiene cambios en 10 generaciones
 \end{itemize}
 
 \section{La aplicación}
@@ -350,8 +362,6 @@ Ejemplo:
 	\end{tabular}
 \end{table}
 
-
-
 \subsection{La entrada}
 
 La entrada se codifica en un archivo de entrada, en cuya primera linea tiene un número natural $B$ que indica el número de bits de la entrada, en las siguiente $2^B$ líneas se especifica la función booleana, ésta función debe ingresarse en orden de codificación binaria y en la última columna debe tener el valor que toma ante una entrada específica, en la siguiente línea tiene un número natural para indicar el tamaño de la siguiente entrada, sí este número es $0$ significa que no hay más entradas.
@@ -374,8 +384,6 @@ La entrada se codifica en un archivo de entrada, en cuya primera linea tiene un 
 1 1 1 1
 0
 \end{lstlisting}
-
-\subsection{Parámetros de la aplicación}
 
 \subsection{Salida}
 
@@ -401,8 +409,114 @@ Si es en maxitérminos
 
 \section{Análisis y resultados}
 
+Se realizan varias pruebas, variando el número de bits de entrada y los tipos de funciones, los resultados son los siguientes
+
+\subsection{Entradas pequeñas}
+
+Las pruebas se realizan con dos entradas de 1,2  y 3 bits, se encuentra que el sistema encuentra la ecuación resultante de forma rápida (menos de 20 iteracciones).
+
+Las entradas de prueba son:
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+1
+0 0
+1 1
+2
+0 0 1
+0 1 1
+1 0 0
+1 1 0
+3
+0 0 0 1
+0 0 1 0 
+0 1 0 1
+0 1 1 0
+1 0 0 1
+1 0 1 0
+1 1 0 0
+1 1 1 1
+0
+\end{lstlisting}
+
+La salida correspondiente es:
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+---------------------------------------------
+SOLUCION ENTRADA #1
+---------------------------------------------
+Numero de iteracciones 11
+
+Datos Mejor cromosoma
+1 0 
+Comparaciones
+Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma
+0 		 0 			 0
+1 		 1 			 1
+
+---------------------------------------------
+SOLUCION ENTRADA #2
+---------------------------------------------
+Numero de iteracciones 11
+
+Datos Mejor cromosoma
+0 1 0 0 
+Comparaciones
+Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma
+00 		 1 			 1
+01 		 1 			 1
+10 		 0 			 0
+11 		 0 			 0
+
+---------------------------------------------
+SOLUCION ENTRADA #3
+---------------------------------------------
+Numero de iteracciones 19
+
+Comparaciones
+Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma
+000 		 1 			 1
+001 		 0 			 0
+010 		 1 			 1
+011 		 0 			 0
+100 		 1 			 1
+101 		 0 			 0
+110 		 1 			 0
+111 		 1 			 1
+\end{lstlisting}
+
+Como se ve en el caso de los 3 bits, no corresponde la función encontrada ante la entrada 110
+
+\subsection{Entradas grandes}
+
+Se realiza una prueba con 4 y 6 bits.
+
+\subsection{Entradas de funciones con muchos 1}
+
+La entrada de prueba es la siguiente:
+
+\subsection{Entradas de funciones con muchos 0}
+
+La entrada de prueba es la siguiente:
+
+\subsection{Entradas de funciones con 1 y 0 variados}
+
+La entrada de prueba es la siguiente:
+
 \section{Conclusiones}
 
+\begin{itemize}
+	\item La codificación de cada variable y su negada muestra ser apropiada para ser aplicada a un algoritmo evolutivo, ya que permite realiza con gran facilidad las operaciones de mutación y cruce correctamente.
+	\item Se encuentra que el algoritmo se acerca muy rápidamente a una solución cerca a la óptima pero tarda mucho en converger, lo que explica que los resultandos incorrectos fallan en la salida ante una o dos entradas.
+	\item ...
+	\item Se debe elaborar una mejor función de aptitud para que el sistema encuentre en todos los casos una solución total ante una entrada, ya que las pruebas realizadas indican que en las entradas grandes, se encuentra una buena aproximación pero no la función que concuerda totalmente con la entrada. Sin embargo, en las pruebas realizadas en el proyecto indica que la taza de error es baja.
+	\item El método aplicado para diseñar el algoritmo evolutivo muestra ser una buena herramienta para crear una aplicación para la simplificación de ecuaciones de funciones booleanas, si se realizan algunos ajustes.
+\end{itemize}
+
 \section{Referencias}
+
+-Apuntes computación evolutiva
+-Definición de mapas de Karnaugh
 
 \end{document}

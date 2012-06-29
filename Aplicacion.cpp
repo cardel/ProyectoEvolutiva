@@ -229,7 +229,7 @@ int main(int argc, char ** argv)
 			cout << "---------------------------------------------"<<endl;
 
 			cout << "Aptitud "<<mejorCromosoma->getAptitud() << endl;
-			cout << "Número de interacciones "<<numeroDeInteraccionesRealizadas << endl;
+			cout << "Número de iteracciones "<<numeroDeInteraccionesRealizadas << endl;
 			
 			cout << "\nDatos Mejor cromosoma" << endl;
 			for(int x=0; x<mejorCromosoma->getNumeroClausulas(); x++){

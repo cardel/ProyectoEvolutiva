@@ -14,9 +14,9 @@ Los parametros pueden ir o no, sus valores por defecto soN:
 
 -p "input.txt"
 -o "output.txt"
--i 500
+-i 500 (Min 100 max 1000)
 -t 0 (Usar minitérminos)
--p 200
+-p 200 (Min 100 max 1000)
 
 En la ejecución muestra una breve información sobre el mejor cromosoma encontrado y la respectiva comparación con ambas tablas
 

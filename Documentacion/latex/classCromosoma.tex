@@ -27,6 +27,8 @@ void \hyperlink{classCromosoma_a826283527e3bdefe28a7ba7fc84dc965}{set\-Clausula}
 \begin{DoxyCompactList}\small\item\em set\-Clausula \end{DoxyCompactList}\item 
 int \hyperlink{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}{get\-Numero\-Clausulas} ()
 \begin{DoxyCompactList}\small\item\em get\-Numero\-Clausulas \end{DoxyCompactList}\item 
+void \hyperlink{classCromosoma_ad9c66633c62ac96944faae7e778beb21}{delete\-Clausula} (int x)
+\begin{DoxyCompactList}\small\item\em get\-Numero\-Clausulas \end{DoxyCompactList}\item 
 int \hyperlink{classCromosoma_a825104a1dd2a7595d119907c84fd2fd1}{get\-Numero\-Variables} ()
 \begin{DoxyCompactList}\small\item\em get\-Numero\-Variables \end{DoxyCompactList}\item 
 bool \hyperlink{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}{obtener\-Salida} (int posicion\-Decimal)
@@ -34,7 +36,9 @@ bool \hyperlink{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}{obtener\-Salid
 double \hyperlink{classCromosoma_a280c8232e95aec0c8dd627cd579abec6}{get\-Aptitud} ()
 \begin{DoxyCompactList}\small\item\em get\-Aptitud \end{DoxyCompactList}\item 
 void \hyperlink{classCromosoma_a158f2fe672e3232ebf07a5724a15fc2e}{set\-Aptitud} (double value)
-\begin{DoxyCompactList}\small\item\em set\-Aptitud \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em set\-Aptitud \end{DoxyCompactList}\item 
+void \hyperlink{classCromosoma_a845ebd5367a0e7978bf8d4b1ae452cbe}{evaluar\-Cromosoma} ()
+\begin{DoxyCompactList}\small\item\em evaluar\-Cromosoma \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripción detallada}
@@ -97,6 +101,55 @@ Destructor.
 Destructor de la clase \hyperlink{classCromosoma}{Cromosoma} 
 
 \subsection{Documentación de las funciones miembro}
+\hypertarget{classCromosoma_ad9c66633c62ac96944faae7e778beb21}{\index{Cromosoma@{Cromosoma}!delete\-Clausula@{delete\-Clausula}}
+\index{delete\-Clausula@{delete\-Clausula}!Cromosoma@{Cromosoma}}
+\subsubsection[{delete\-Clausula}]{\setlength{\rightskip}{0pt plus 5cm}void Cromosoma\-::delete\-Clausula (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_ad9c66633c62ac96944faae7e778beb21}
+
+
+get\-Numero\-Clausulas 
+
+elimina la claúsula x del cromosoma y reduce en 1 el numero\-Clausulas 
+\begin{DoxyParams}{Parámetros}
+{\em x} & es un número entero que indica la claúsula a eliminar \\
+\hline
+\end{DoxyParams}
+
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_ad9c66633c62ac96944faae7e778beb21_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCromosoma_a845ebd5367a0e7978bf8d4b1ae452cbe}{\index{Cromosoma@{Cromosoma}!evaluar\-Cromosoma@{evaluar\-Cromosoma}}
+\index{evaluar\-Cromosoma@{evaluar\-Cromosoma}!Cromosoma@{Cromosoma}}
+\subsubsection[{evaluar\-Cromosoma}]{\setlength{\rightskip}{0pt plus 5cm}void Cromosoma\-::evaluar\-Cromosoma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a845ebd5367a0e7978bf8d4b1ae452cbe}
+
+
+evaluar\-Cromosoma 
+
+Evalua el cromosoma ante todas las entradas posibles. 
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_a845ebd5367a0e7978bf8d4b1ae452cbe_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classCromosoma_a59d6a42685e8b6e983b496d8051e4168}{\index{Cromosoma@{Cromosoma}!get@{get}}
 \index{get@{get}!Cromosoma@{Cromosoma}}
 \subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}bool Cromosoma\-::get (
@@ -116,6 +169,17 @@ Obtiene un elemento específico de una claúsula
 {\em y} & es número entero que indica la variable deseada (recordar que están duplicada) normal y negada \\
 \hline
 \end{DoxyParams}
+
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_a59d6a42685e8b6e983b496d8051e4168_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classCromosoma_a280c8232e95aec0c8dd627cd579abec6}{\index{Cromosoma@{Cromosoma}!get\-Aptitud@{get\-Aptitud}}
 \index{get\-Aptitud@{get\-Aptitud}!Cromosoma@{Cromosoma}}
 \subsubsection[{get\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}double Cromosoma\-::get\-Aptitud (
@@ -146,6 +210,17 @@ Obtiene una claúsula
 {\em x} & es un número entero que indica la claúsula deseada \\
 \hline
 \end{DoxyParams}
+
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_a400e7970b9e2d9995cbc6b1f4335fd51_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}{\index{Cromosoma@{Cromosoma}!get\-Numero\-Clausulas@{get\-Numero\-Clausulas}}
 \index{get\-Numero\-Clausulas@{get\-Numero\-Clausulas}!Cromosoma@{Cromosoma}}
 \subsubsection[{get\-Numero\-Clausulas}]{\setlength{\rightskip}{0pt plus 5cm}int Cromosoma\-::get\-Numero\-Clausulas (
@@ -179,7 +254,18 @@ Gráfico de llamadas a esta función\-:\nopagebreak
 
 get\-Numero\-Variables 
 
-Retorna el número de variables que tiene cada claúsula en el cromosoma \hypertarget{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}{\index{Cromosoma@{Cromosoma}!obtener\-Salida@{obtener\-Salida}}
+Retorna el número de variables que tiene cada claúsula en el cromosoma 
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_a825104a1dd2a7595d119907c84fd2fd1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCromosoma_a8a75eb52e417f9c050c32969b56984e7}{\index{Cromosoma@{Cromosoma}!obtener\-Salida@{obtener\-Salida}}
 \index{obtener\-Salida@{obtener\-Salida}!Cromosoma@{Cromosoma}}
 \subsubsection[{obtener\-Salida}]{\setlength{\rightskip}{0pt plus 5cm}bool Cromosoma\-::obtener\-Salida (
 \begin{DoxyParamCaption}
@@ -231,6 +317,17 @@ Obtiene un elemento específico de una claúsula
 {\em z} & es booleano que indica el valor de la variable y deseada en la claúsula x \\
 \hline
 \end{DoxyParams}
+
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_aaf002d2f7f9438e74eeba52892868e83_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{classCromosoma_a158f2fe672e3232ebf07a5724a15fc2e}{\index{Cromosoma@{Cromosoma}!set\-Aptitud@{set\-Aptitud}}
 \index{set\-Aptitud@{set\-Aptitud}!Cromosoma@{Cromosoma}}
 \subsubsection[{set\-Aptitud}]{\setlength{\rightskip}{0pt plus 5cm}void Cromosoma\-::set\-Aptitud (
@@ -272,6 +369,17 @@ Obtiene un elemento específico de una claúsula
 {\em z} & es un vector$<$bool$>$ que indica la nueva clausula en la posicion x \\
 \hline
 \end{DoxyParams}
+
+
+Gráfico de llamadas a esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCromosoma_a826283527e3bdefe28a7ba7fc84dc965_icgraph}
+\end{center}
+\end{figure}
+
+
 
 
 La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}

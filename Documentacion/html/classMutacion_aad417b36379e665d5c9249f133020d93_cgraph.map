@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classCromosoma.html#a53e4a3cda8f7a0b2233f0219579f7cc3" title="getNumeroClausulas" alt="" coords="243,5,485,32"/>
+<area shape="rect" id="node5" href="$classCromosoma.html#a825104a1dd2a7595d119907c84fd2fd1" title="getNumeroVariables" alt="" coords="244,56,484,83"/>
+<area shape="rect" id="node7" href="$classCromosoma.html#a59d6a42685e8b6e983b496d8051e4168" title="get" alt="" coords="299,107,429,133"/>
+<area shape="rect" id="node9" href="$classCromosoma.html#aaf002d2f7f9438e74eeba52892868e83" title="set" alt="" coords="299,157,429,184"/>
+<area shape="rect" id="node11" href="$classCromosoma.html#a845ebd5367a0e7978bf8d4b1ae452cbe" title="evaluarCromosoma" alt="" coords="247,208,481,235"/>
+<area shape="rect" id="node13" href="$classCromosoma.html#ad9c66633c62ac96944faae7e778beb21" title="getNumeroClausulas" alt="" coords="263,259,465,285"/>
+</map>
