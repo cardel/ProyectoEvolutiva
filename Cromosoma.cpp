@@ -172,3 +172,9 @@ void Cromosoma::setAptitud(double value)
 {
     aptitud=value;
 }
+
+void Cromosoma::deleteClausula(int x)
+{
+    estadoCromosoma.erase(estadoCromosoma.begin()+x);
+    numeroClausulas--;
+}

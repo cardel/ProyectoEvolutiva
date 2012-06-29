@@ -23,7 +23,7 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
         int numComparaciones = (int)pow(2, poblacion[j]->getNumeroVariables());
         Cromosoma *c_tmp = poblacion[j];
 
-        if(c_tmp->getAptitud()==-1){//! si no tiene una aptitud calculada
+        //if(c_tmp->getAptitud()==-1){//! si no tiene una aptitud calculada
 
             double aptitud = (double)c_tmp->getNumeroClausulas();
             double count =0;
@@ -46,7 +46,7 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
             }
 
             //! sumaAptitud+=aptitud;
-        }
+        //}
 
     }
     /*! ordena sobre el vector de entrada

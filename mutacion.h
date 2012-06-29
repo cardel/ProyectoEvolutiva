@@ -3,6 +3,8 @@
 
 #include "Cromosoma.h"
 #include <vector>
+#include <time.h>
+#include <stdlib.h>
 
 //! Clase para implementar mutación
 /*!
@@ -30,6 +32,8 @@ public:
       \return un vector con los cromosomas hijos ya mutados.
     */
     vector<Cromosoma*> aplicarMutacion();
+private:
+    vector<Cromosoma*> hijosMutados;
 };
 
 #endif // MUTACION_H

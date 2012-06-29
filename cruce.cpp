@@ -11,6 +11,7 @@ vector<Cromosoma*> Cruce::aplicarCruce()
     int size = poblacionSeleccionada.size();
     if(size%2!=0){//! no numero par de padres
         //! no deberia de pasar
+        size--;
     }
     for(int i=0;i<size;i=i+2){
         Cromosoma* padre = poblacionSeleccionada[i], *madre=poblacionSeleccionada[i+1], *hijo1, *hijo2;
@@ -19,8 +20,9 @@ vector<Cromosoma*> Cruce::aplicarCruce()
             menorClausulas=madre->getNumeroClausulas();
         }
 
-        if(menorClausulas==0){//! no puede sacar hijos!!
+        if(menorClausulas==0){//! no puede sacar hijos(No debe pasar)
 
+            continue;
         }
 
         srand(time(NULL));

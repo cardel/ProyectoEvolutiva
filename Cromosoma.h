@@ -64,8 +64,14 @@ class Cromosoma
 			
  		//! getNumeroClausulas
 		/*! Retorna el número de claúsulas que tiene el cromosoma
-        */		        
-        int getNumeroClausulas();	
+       */
+                int getNumeroClausulas();
+
+                //! getNumeroClausulas
+                /*! elimina la claúsula x del cromosoma y reduce en 1 el numeroClausulas
+                    \param x es un número entero que indica la claúsula a eliminar
+       */
+                void deleteClausula(int x);
         	
  		//! getNumeroVariables
 		/*! Retorna el número de variables que tiene cada claúsula en el cromosoma
