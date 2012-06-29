@@ -63,7 +63,7 @@ int main(int argc, char ** argv)
 	int numeroVariables=0;
 	
 	int numeroSolucion=0;
-	
+	int numeroDeInteraccionesRealizadas=0;
 	
 	/*
 	 * Leer argumentos de entrada
@@ -120,10 +120,11 @@ int main(int argc, char ** argv)
 		{
 			fscanf(ArchivoDeEntrada,"%d",&numeroVariables);
 			numeroSolucion++;
+			numeroDeInteraccionesRealizadas=0;
 			
 			TablaDeVerdad * tablaVerdad = new TablaDeVerdad();
 			int numeroLineas = (int)pow(numeroVariables,2);
-			
+			cout << "numero variables "<<numeroVariables<<endl;
 			if(numeroVariables==0)
 			{
 					break;
@@ -152,13 +153,28 @@ int main(int argc, char ** argv)
  				poblacion.push_back(aux);
 			}
 
-
+			vector<double> aptitudes;
 			//Iteracciones
 			for(int i=0; i<numeroDeIteracciones; i++)
 			{
 				FuncionAptitud fa(poblacion, tablaVerdad, usarMaxiterminos);
 				vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
+				numeroDeInteraccionesRealizadas++;			
+					
+				//Verificar si en las 5 generaciones anteriores la aptitud no cambio
+				if(aptitudes.size()==5)
+				{
+					double diferenciasAptitud = 0.;
+					for(int x=0; x<5; x++) diferenciasAptitud+=aptitudes.at(x);
+					
+					diferenciasAptitud/=5;
+					
+					if(diferenciasAptitud==aptitudes.at(0)) break;
+					aptitudes.erase(aptitudes.begin());
+				} 
+				aptitudes.push_back(poblacionOrganizadaAptitud.at(0)->getAptitud());
 
+				
 				
 				if(i==(numeroDeIteracciones-1))
 				{
@@ -166,52 +182,57 @@ int main(int argc, char ** argv)
 				}
 				else
 				{
+					//Seleccionar mejores poblacion /2
 					FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
 					vector<Cromosoma*> poblacionCruzar = fsc.aplicarSeleccionCruce();
 
+					//Cruzar
+
 					Cruce c(poblacionCruzar, usarMaxiterminos);
-					vector<Cromosoma*> hijos = c.aplicarCruce();
-					for(int k=0; k<poblacionCruzar.size(); k++)
-					{
-						for(int j=0; j<poblacionCruzar.at(k)->getNumeroClausulas(); j++)
-						{
-							for(int t=0; t<poblacionCruzar.at(k)->getNumeroVariables(); t++)
-							{
-									cout << poblacionCruzar.at(k)->get(j,t) << " ";
-							}
-							cout << endl;
-						}
-						cout << "Cromosoma " << k << " Clausulas " << poblacionCruzar.at(k)->getNumeroClausulas() << endl;
-					}	
-					int a;
-					cin >> a;					
-	
+					vector<Cromosoma*> hijos = c.aplicarCruce();				
+					
+					//Mutar hijos
 					Mutacion m(hijos);
 					vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
+
+					//Calcular aptitud hijos mutados
+					FuncionAptitud fm(hijosMutados, tablaVerdad, usarMaxiterminos);
+					vector<Cromosoma*> hijosMutadosAptitud = fm.aplicarAptitud();
+
+					//Seleccionar poblacion que pasa a la siguiente generacion
+					Seleccion s(poblacion,hijosMutadosAptitud);					
+					vector<Cromosoma*> nuevaPoblacion = s.aplicarSeleccion();
 	
-					Seleccion s(poblacion,hijosMutados);
-					poblacion=s.aplicarSeleccion();
-
-
+					FuncionAptitud ft(nuevaPoblacion, tablaVerdad, usarMaxiterminos);
+					vector<Cromosoma *> nuevaPoblacionAptitud = ft.aplicarAptitud();
+			
+					poblacion=nuevaPoblacionAptitud;
 				}
 
 			}
 
 			Cromosoma * mejorCromosoma = poblacion.at(0);
+			cout << "---------------------------------------------\nSOLUCION ENTRADA #" << numeroSolucion<<endl;
+
 			cout << "Aptitud "<<mejorCromosoma->getAptitud() << endl;
+			cout << "Número de interacciones "<<numeroDeInteraccionesRealizadas << endl;
 			
+			cout << "Mejor cromosoma" << endl;
 			for(int i=0; i<numeroVariables; i++)
 			{
 				cout << mejorCromosoma->get(0,i)<<" ";
 			}
 			cout<<endl;
-			
-			for(int i=0; i<4; i++)
+			cout << "Tabla de verdad cromosoma" << endl;
+	
+			for(int i=0; i<pow(2,numeroVariables); i++)
 			{
 				cout << mejorCromosoma->obtenerSalida(i)<<" ";
 			}
 			cout<<endl;
-				for(int i=0; i<4; i++)
+			cout << "Tabla de verdad entrada" << endl;
+
+			for(int i=0; i<pow(2,numeroVariables); i++)
 			{
 				cout << tablaVerdad->obtenerSalida(i)<<" ";
 			}
