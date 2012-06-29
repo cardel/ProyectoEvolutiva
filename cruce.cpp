@@ -19,7 +19,7 @@ vector<Cromosoma*> Cruce::aplicarCruce()
             menorClausulas=madre->getNumeroClausulas();
         }
 
-        if(menorClausulas==0){
+        if(menorClausulas==0){//! no puede sacar hijos!!
 
         }
 

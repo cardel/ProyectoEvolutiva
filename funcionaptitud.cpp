@@ -22,7 +22,9 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
     for(int j =0;j<size;j++){//! por cada cromosoma
         int numComparaciones = (int)pow(2, poblacion[j]->getNumeroVariables());
         Cromosoma *c_tmp = poblacion[j];
+
         if(c_tmp->getAptitud()==-1){//! si no tiene una aptitud calculada
+
             double aptitud = (double)c_tmp->getNumeroClausulas();
             double count =0;
             for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
