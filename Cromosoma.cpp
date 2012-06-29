@@ -69,6 +69,7 @@ void Cromosoma::evaluarCromosoma()
 		{
 			bool evaluo = 0;
 			bool resultadoClausula = 0;
+			cout <<maxiTerminos<<endl;
 			for(int j=0; j<representacionBinaria.size(); j++)
 			{
 				bool valor = representacionBinaria.at(j) - '0';

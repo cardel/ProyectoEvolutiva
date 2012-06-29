@@ -14,12 +14,8 @@ vector<Cromosoma*> Mutacion::aplicarMutacion()
         int r=rand();
         Cromosoma* t =hijosMutados[i];
         int numClausulas = t->getNumeroClausulas();
-        if(numClausulas==0){// no se puede hacer nada la clausula
-            //cout << numClausulas << ":" << cantidad <<endl;
-            cantidad--;
-            continue;
-        }
-        if(r%2==0){
+
+        if(r%2==0||numClausulas==1){
 
             //Cambiar un valor
             int x= rand() % numClausulas;//%;

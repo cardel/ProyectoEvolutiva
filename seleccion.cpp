@@ -11,10 +11,8 @@ vector<Cromosoma*> Seleccion::aplicarSeleccion()
     vector<Cromosoma*> nuevaGeneracion;
     int sizePoblacion=poblacion.size();
     int sizeHijos = hijosMutados.size();//! la cantidad de padres que se borraran
-    for(int i=0;i<sizePoblacion;i++){
-        if(i==sizeHijos){
-            break;
-        }
+    
+    for(int i=0;i<sizeHijos;i++){
         nuevaGeneracion.push_back(poblacion[i]);
     }
 
@@ -22,8 +20,6 @@ vector<Cromosoma*> Seleccion::aplicarSeleccion()
         nuevaGeneracion.push_back(hijosMutados[j]);
     }
     
-    //Ordenas nueva generacion
     
-    //cout << "sizePoblacion: "<<sizePoblacion << " sizeNuevoG: " << nuevaGeneracion.size() << endl;
     return nuevaGeneracion;//! debe tener el mismo tamaño de la poblacion
 }
