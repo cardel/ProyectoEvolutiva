@@ -26,7 +26,7 @@ vector<Cromosoma*> FuncionSeleccionCruce::aplicarSeleccionCruce()
         }
         /*! mirando el algoritmo por internet dice que puede repetirse elementos, asi el erase no iria */
         seleccionCruce.push_back(tmp[posicion]);
-        tmp.erase(tmp.begin()+posicion);
+        //tmp.erase(tmp.begin()+posicion);
     }
     return seleccionCruce;
 }

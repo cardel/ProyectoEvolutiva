@@ -25,7 +25,7 @@ vector<Cromosoma*> Cruce::aplicarCruce()
         }
         srand(time(NULL));
         int alfa = 1+ rand()%(menorClausulas-1);
-        //como tomar las clausulas :S
+
 
         hijos.push_back(hijo1);
         hijos.push_back(hijo2);

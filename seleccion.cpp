@@ -18,8 +18,8 @@ vector<Cromosoma*> Seleccion::aplicarSeleccion()
         nuevaGeneracion.push_back(poblacion[i]);
     }
 
-    for(int i=0;i<sizeHijos;i++){
-        nuevaGeneracion.push_back(hijosMutados[i]);
+    for(int j=0;j<sizeHijos;j++){
+        nuevaGeneracion.push_back(hijosMutados[j]);
     }
     cout << "sizePoblacion: "<<sizePoblacion << " sizeNuevoG: " << nuevaGeneracion.size() << endl;
     return nuevaGeneracion;//! debe tener el mismo tamaño de la poblacion
