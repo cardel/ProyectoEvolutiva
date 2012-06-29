@@ -105,7 +105,7 @@ En maxitérminos:
 
 \subsection{El cromosoma}
 
-El cromosoma se codifica como una matriz de tamaño número de clausulas por 2 veces el número de variables de entrada, por ejemplo:
+El cromosoma se codifica como una matriz de tamaño número de clausulas (que es un número entre 1 y número de variables que es el peor caso donde existe una clausula por cada variable) por 2 veces el número de variables de entrada, por ejemplo:
 
 \begin{table}[H]
 	\centering
@@ -254,6 +254,8 @@ Para mutar se selecciona el 2\% de los individuos, en éstos se selecciona aleat
 	\item \textbf{Borrar cláusula} Borra una clausula, si es la única de la función, la salida de la misma es siempre 0
 	\item \textbf{Cambiar el valor de una variable} Se selecciona una posición de la cláusula y se cambia el valor que tiene asignado por su negación
 \end{itemize}
+
+Si dado el caso se llega seleccionar borrar clausula en un cromosoma con una sóla clausula se aplica la segunda que es cambiar el valor de una variable, para evitar inconsistencias.	
 
 \subsection{Selección de los cromosomas que pasan a la siguiente generación}
 
