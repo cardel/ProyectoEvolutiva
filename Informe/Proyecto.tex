@@ -26,15 +26,15 @@ escapeinside={\%*}{*)}
 \maketitle{}
 \renewcommand{\tablename}{\textbf{Tabla}}
 
-\abstract{En este proyecto se busca la simplicación de ecuaciones de funciones booleanas utilizando un algortimo evolutivo, que haga el proceso que se hace con los mapas de Karnaugh}
+\abstract{En este proyecto se busca la simplicación de ecuaciones de funciones booleanas utilizando un algoritmo evolutivo, que haga el proceso que se hace con los mapas de Karnaugh}
 
 \section{Fundamentación del problema}
 
 Se busca que en la construcción de circuitos digitales para el cálculo de funciones booleanas sea del menor tamaño posible, existen dos posible formas de representar una función booleana en términos de compuertas \textit{and} y \textit{or}:
 
 \begin{itemize}
-	\item \textbf{Minitérminos} Se trata de representar la función en claúsulas, cada clausula es determinada por cada \textit{1} que tiene la función, cada claúsula se crea conectando las entradas con compuertas \textit{and} y las claúsulas entre sí se conectan con compuertas \textit{or}
-	\item \textbf{Maxitérminos} Se trata de representar la función en claúsulas, cada clausula es determinada por cada \textit{0} que tiene la función, cada claúsula se crea conectando las entradas con compuertas \textit{or} y las claúsulas entre sí se conectan con compuertas \textit{and}, cada entrada se representa como su negación
+	\item \textbf{Minitérminos} Se trata de representar la función en cláusulas, cada clausula es determinada por cada \textit{1} que tiene la función, cada claúsula se crea conectando las entradas con compuertas \textit{and} y las cláusulas entre sí se conectan con compuertas \textit{or}
+	\item \textbf{Maxitérminos} Se trata de representar la función en cláusulas, cada clausula es determinada por cada \textit{0} que tiene la función, cada cláusula se crea conectando las entradas con compuertas \textit{or} y las cláusulas entre sí se conectan con compuertas \textit{and}, cada entrada se representa como su negación
 \end{itemize}
 
 Por ejemplo, para la siguiente función:
@@ -162,7 +162,7 @@ Para el problema se utilizan poblaciones iniciales de 200 individuos por defecto
 La función de aptitud considera los siguiente factores:
 
 \begin{itemize}
-	\item \textbf{Número de claúsulas} Número de claúsulas en el cromosoma, se busca minimizar este valor.
+	\item \textbf{Número de cláusulas} Número de cláusulas en el cromosoma, se busca minimizar este valor.
 	\item \textbf{Acercamiento a la función} Es el factor más importante se busca que este valor sea 0, es decir que la función encontrada sea correcta
 \end{itemize}
 
@@ -176,7 +176,7 @@ En este caso se utiliza la selección por ruleta.
 
 Se seleccionan dos cromosomas dentro del grupo de seleccionados, se toma el cromosoma con menor número de cláusulas y se genera un número aleatorio entre 1 y ese número menos 1, valor que se denota con $\alpha$.
 \\\\
-Con éste valor se generan dos hijos, uno tomando en ambos cromosomas $\alpha$ claúsulas iniciales y generando un cromosoma de tamaño $2*\alpha$, con el resto de ambos cromosomas se realiza el mismo procedimiento
+Con éste valor se generan dos hijos, uno tomando en ambos cromosomas $\alpha$ cláusulas iniciales y generando un cromosoma de tamaño $2*\alpha$, con el resto de ambos cromosomas se realiza el mismo procedimiento
 \\\\
 Ejemplo:
 
@@ -210,7 +210,7 @@ Ejemplo:
 	\end{tabular}
 \end{table}
 
-Como B tiene 2 claúsulas por lo tanto $\alpha$ solamente puede tomar el valor de $1$, por lo tanto, los hijos de estos dos padres son:
+Como B tiene 2 cláusulas por lo tanto $\alpha$ solamente puede tomar el valor de $1$, por lo tanto, los hijos de estos dos padres son:
 
 \begin{table}[H]
 	\centering
@@ -244,20 +244,20 @@ Este hijo se genera al combinar la cĺáusula 1 del hijo A con la claúsula 1 de
 	\end{tabular}
 \end{table}
 
-Este hijo se genera al combinar el resto de claúsulas del hijo A con el resto de claúsulas del hijo B.
+Este hijo se genera al combinar el resto de cláusulas del hijo A con el resto de cláusulas del hijo B.
 
 \subsection{Mutación}
 
-Para mutar se selecciona el 2\% de los individuos, en éstos se selecciona aleatoriamente una claúsula, con probabilidad del 50\% se realiza alguna de estas dos acciones
+Para mutar se selecciona el 2\% de los individuos, en éstos se selecciona aleatoriamente una cláusula, con probabilidad del 50\% se realiza alguna de estas dos acciones
 
 \begin{itemize}
-	\item \textbf{Borrar claúsula} Borra una clausula, si es la única de la función, la salida de la misma es siempre 0
-	\item \textbf{Cambiar el valor de una variable} Se selecciona una posición de la claúsula y se cambia el valor que tiene asignado por su negación
+	\item \textbf{Borrar cláusula} Borra una clausula, si es la única de la función, la salida de la misma es siempre 0
+	\item \textbf{Cambiar el valor de una variable} Se selecciona una posición de la cláusula y se cambia el valor que tiene asignado por su negación
 \end{itemize}
 
 \subsection{Selección de los cromosomas que pasan a la siguiente generación}
 
-En este algortimo se mantiene el número de la población por lo tanto como se están creando una población de hijos que es igual a la mitad de los padres (por el cruze entre dos individuos) se elimina el 50\% de los padres con la peor función de aptitud.
+En este algoritmo se mantiene el número de la población inicial, por lo tanto para ingresar los hijos se eliminan los peores padres.
 
 \subsection{Criterio de parada}
 
@@ -279,7 +279,7 @@ El criterio de parada se presenta en dos casos
 		\hline
 		\textbf{Parámetro} & \textbf{Tipo dato} & \textbf{Descripción}\\
 		\hline
-		-f & Cadena de caráteres & Nombre archivo de entrada. Por defecto \textit{input.txt}\\
+		-f & Cadena de caracteres & Nombre archivo de entrada. Por defecto \textit{input.txt}\\
 		\hline
 		-p & Número natural & Población inicial (Por defecto 200) Min: 100 Máx: 1000\\
 		\hline
@@ -287,7 +287,7 @@ El criterio de parada se presenta en dos casos
 		\hline
 		-t & Booleano (0 o 1) & Indica si se va trabajar por minitérminos o maxitérminos 0 o 1 respectivamente (por defecto 0 o false)\\
 		\hline
-		-o & Cadena de caráteres & Nombre archivo de salida. Por defecto \textit{output.txt} \\
+		-o & Cadena de caracteres & Nombre archivo de salida. Por defecto \textit{output.txt} \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -332,7 +332,7 @@ Ejemplo:
 
 \subsection{La entrada}
 
-La entrada se codifica en un archivo de entrada, en cuya primera linea tiene un número natural $B$ que indica el número de bits de la entrada, en las siguiente $2^B$ líneas se especifica la función booleana, èsta función debe ingresarse en orden de codificación binaria y en la última columna debe tener el valor que toma ante una entrada específica, en la siguiente línea tiene un número natural para indicar el tamaño de la siguiente entrada, sí este número es $0$ significa que no hay más entradas.
+La entrada se codifica en un archivo de entrada, en cuya primera linea tiene un número natural $B$ que indica el número de bits de la entrada, en las siguiente $2^B$ líneas se especifica la función booleana, ésta función debe ingresarse en orden de codificación binaria y en la última columna debe tener el valor que toma ante una entrada específica, en la siguiente línea tiene un número natural para indicar el tamaño de la siguiente entrada, sí este número es $0$ significa que no hay más entradas.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[frame=trBL]
