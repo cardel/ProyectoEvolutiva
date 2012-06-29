@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classFuncionAptitud.html#a45c1cdc83e08ba9b26a2f95fc49523f1" title="Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena..." alt="" coords="278,5,474,32"/>
+<area shape="rect" id="node3" href="$classCruce.html#a5fd9d9cbca36abf7d81f5eedc06f18e7" title="Función que calculara los nuevos hijos al cruzar la población actual." alt="" coords="329,5,476,32"/>
+<area shape="rect" id="node5" href="$classFuncionAptitud.html#a205f0e06db47f30aa8fdce674a41b94b" title="Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena..." alt="" coords="297,56,509,83"/>
 </map>

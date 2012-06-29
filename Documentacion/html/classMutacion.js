@@ -1,5 +1,5 @@
 var classMutacion =
 [
-    [ "Mutacion", "classMutacion.html#afee3c90f0afc795c89fa0590bef2b667", null ],
-    [ "aplicarMutacion", "classMutacion.html#a6ef8eb8c3818175895cf7ff56cdfedf0", null ]
+    [ "Mutacion", "classMutacion.html#a07d65c43c777e43d8b91ea8e9d992429", null ],
+    [ "aplicarMutacion", "classMutacion.html#aad417b36379e665d5c9249f133020d93", null ]
 ];

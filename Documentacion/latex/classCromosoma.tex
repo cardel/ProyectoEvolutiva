@@ -19,8 +19,12 @@ Clase cromosoma.
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 bool \hyperlink{classCromosoma_a59d6a42685e8b6e983b496d8051e4168}{get} (int x, int y)
 \begin{DoxyCompactList}\small\item\em get \end{DoxyCompactList}\item 
+vector$<$ bool $>$ \hyperlink{classCromosoma_a400e7970b9e2d9995cbc6b1f4335fd51}{get\-Clausula} (int x)
+\begin{DoxyCompactList}\small\item\em get\-Clausula \end{DoxyCompactList}\item 
 void \hyperlink{classCromosoma_aaf002d2f7f9438e74eeba52892868e83}{set} (int x, int y, bool z)
 \begin{DoxyCompactList}\small\item\em set \end{DoxyCompactList}\item 
+void \hyperlink{classCromosoma_a826283527e3bdefe28a7ba7fc84dc965}{set\-Clausula} (int x, vector$<$ bool $>$ z)
+\begin{DoxyCompactList}\small\item\em set\-Clausula \end{DoxyCompactList}\item 
 int \hyperlink{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}{get\-Numero\-Clausulas} ()
 \begin{DoxyCompactList}\small\item\em get\-Numero\-Clausulas \end{DoxyCompactList}\item 
 int \hyperlink{classCromosoma_a825104a1dd2a7595d119907c84fd2fd1}{get\-Numero\-Variables} ()
@@ -126,6 +130,22 @@ get\-Aptitud
 Obtiene la aptitud que tiene el cromosoma \begin{DoxyReturn}{Devuelve}
 double que representa el valor de la aptitud del cromosoma 
 \end{DoxyReturn}
+\hypertarget{classCromosoma_a400e7970b9e2d9995cbc6b1f4335fd51}{\index{Cromosoma@{Cromosoma}!get\-Clausula@{get\-Clausula}}
+\index{get\-Clausula@{get\-Clausula}!Cromosoma@{Cromosoma}}
+\subsubsection[{get\-Clausula}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ bool $>$ Cromosoma\-::get\-Clausula (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a400e7970b9e2d9995cbc6b1f4335fd51}
+
+
+get\-Clausula 
+
+Obtiene una claúsula 
+\begin{DoxyParams}{Parámetros}
+{\em x} & es un número entero que indica la claúsula deseada \\
+\hline
+\end{DoxyParams}
 \hypertarget{classCromosoma_a53e4a3cda8f7a0b2233f0219579f7cc3}{\index{Cromosoma@{Cromosoma}!get\-Numero\-Clausulas@{get\-Numero\-Clausulas}}
 \index{get\-Numero\-Clausulas@{get\-Numero\-Clausulas}!Cromosoma@{Cromosoma}}
 \subsubsection[{get\-Numero\-Clausulas}]{\setlength{\rightskip}{0pt plus 5cm}int Cromosoma\-::get\-Numero\-Clausulas (
@@ -233,6 +253,25 @@ Gráfico de llamadas a esta función\-:\nopagebreak
 \end{figure}
 
 
+\hypertarget{classCromosoma_a826283527e3bdefe28a7ba7fc84dc965}{\index{Cromosoma@{Cromosoma}!set\-Clausula@{set\-Clausula}}
+\index{set\-Clausula@{set\-Clausula}!Cromosoma@{Cromosoma}}
+\subsubsection[{set\-Clausula}]{\setlength{\rightskip}{0pt plus 5cm}void Cromosoma\-::set\-Clausula (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{vector$<$ bool $>$}]{z}
+\end{DoxyParamCaption}
+)}}\label{classCromosoma_a826283527e3bdefe28a7ba7fc84dc965}
+
+
+set\-Clausula 
+
+Obtiene un elemento específico de una claúsula 
+\begin{DoxyParams}{Parámetros}
+{\em x} & es un número entero que indica la claúsula deseada \\
+\hline
+{\em z} & es un vector$<$bool$>$ que indica la nueva clausula en la posicion x \\
+\hline
+\end{DoxyParams}
 
 
 La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}

@@ -115,10 +115,10 @@ $(document).ready(function(){initNavTree('classCruce.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
-<tr class="memitem:aed65682d35805efe97e0d72d72f9e656"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCruce.html#aed65682d35805efe97e0d72d72f9e656">Cruce</a> (vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt; poblacion)</td></tr>
-<tr class="memdesc:aed65682d35805efe97e0d72d72f9e656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aed65682d35805efe97e0d72d72f9e656"></a><br/></td></tr>
-<tr class="memitem:aa1c30687e13accb4b5f6f54533608ea3"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCruce.html#aa1c30687e13accb4b5f6f54533608ea3">aplicarCruce</a> ()</td></tr>
-<tr class="memdesc:aa1c30687e13accb4b5f6f54533608ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que calculara los nuevos hijos al cruzar la población actual.  <a href="#aa1c30687e13accb4b5f6f54533608ea3"></a><br/></td></tr>
+<tr class="memitem:af0c3421f9764a791c63c08cd98a50b3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCruce.html#af0c3421f9764a791c63c08cd98a50b3b">Cruce</a> (vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt; poblacionSeleccionada)</td></tr>
+<tr class="memdesc:af0c3421f9764a791c63c08cd98a50b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#af0c3421f9764a791c63c08cd98a50b3b"></a><br/></td></tr>
+<tr class="memitem:a5fd9d9cbca36abf7d81f5eedc06f18e7"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCruce.html#a5fd9d9cbca36abf7d81f5eedc06f18e7">aplicarCruce</a> ()</td></tr>
+<tr class="memdesc:a5fd9d9cbca36abf7d81f5eedc06f18e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que calculara los nuevos hijos al cruzar la población actual.  <a href="#a5fd9d9cbca36abf7d81f5eedc06f18e7"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
 <div class="textblock"><p>Clase para el manejo del <a class="el" href="classCruce.html" title="Clase para el manejo del Cruce de los cromosomas.">Cruce</a> de los cromosomas. </p>
@@ -133,15 +133,15 @@ Luis Felipe Vargas </dd></dl>
 <dl class="section date"><dt>Fecha:</dt><dd>2012 </dd></dl>
 <dl class="section copyright"><dt>Copyright:</dt><dd>GNU Public License. </dd></dl>
 </div><hr/><h2>Documentación del constructor y destructor</h2>
-<a class="anchor" id="aed65682d35805efe97e0d72d72f9e656"></a>
+<a class="anchor" id="af0c3421f9764a791c63c08cd98a50b3b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Cruce::Cruce </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt;&#160;</td>
-          <td class="paramname"><em>poblacion</em></td><td>)</td>
+          <td class="paramtype">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt;&#160;</td>
+          <td class="paramname"><em>poblacionSeleccionada</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -159,12 +159,12 @@ Luis Felipe Vargas </dd></dl>
 </div>
 </div>
 <hr/><h2>Documentación de las funciones miembro</h2>
-<a class="anchor" id="aa1c30687e13accb4b5f6f54533608ea3"></a>
+<a class="anchor" id="a5fd9d9cbca36abf7d81f5eedc06f18e7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt; Cruce::aplicarCruce </td>
+          <td class="memname">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt; Cruce::aplicarCruce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,6 +174,16 @@ Luis Felipe Vargas </dd></dl>
 
 <p>Función que calculara los nuevos hijos al cruzar la población actual. </p>
 <dl class="section return"><dt>Devuelve:</dt><dd>un vector con los nuevos Cromosomas. </dd></dl>
+<p>esto no deberia pasar </p>
+
+<p><div class="dynheader">
+Gráfico de llamadas para esta función:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7_cgraph.png" border="0" usemap="#classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7_cgraph" alt=""/></div>
+<map name="classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7_cgraph" id="classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7_cgraph">
+<area shape="rect" id="node3" href="classCromosoma.html#a53e4a3cda8f7a0b2233f0219579f7cc3" title="getNumeroClausulas" alt="" coords="200,5,443,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -187,7 +197,7 @@ Luis Felipe Vargas </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classCruce.html">Cruce</a></li>
-    <li class="footer">Generado el Jueves, 28 de Junio de 2012 16:56:34 para Proyecto computación evolutiva: por
+    <li class="footer">Generado el Jueves, 28 de Junio de 2012 22:18:39 para Proyecto computación evolutiva: por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

@@ -116,43 +116,40 @@ $(document).ready(function(){initNavTree('funcionaptitud_8h.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classFuncionAptitud.html#a7e6eb419f2c5c754e96cc93ecebac0e3" title="Constructor.">FuncionAptitud</a>(vector &lt;Cromosoma&gt; poblacion, <a class="code" href="classTablaDeVerdad.html" title="Clase TablaDeVerdad.">TablaDeVerdad</a> tablaVerdad,<span class="keywordtype">bool</span> esMinTermino);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classFuncionAptitud.html#a31336bdb3aa833da6c06f6b27e47522b" title="Constructor.">FuncionAptitud</a>(vector &lt;Cromosoma*&gt; poblacion, <a class="code" href="classTablaDeVerdad.html" title="Clase TablaDeVerdad.">TablaDeVerdad</a> *tablaVerdad,<span class="keywordtype">bool</span> esMinTermino);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    vector&lt;Cromosoma&gt; <a class="code" href="classFuncionAptitud.html#a45c1cdc83e08ba9b26a2f95fc49523f1" title="Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena...">aplicarAptitud</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    vector&lt;Cromosoma*&gt; <a class="code" href="classFuncionAptitud.html#a205f0e06db47f30aa8fdce674a41b94b" title="Función que calculara a cada cromosoma la función de aptitud y retornara la población ordena...">aplicarAptitud</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classFuncionAptitud.html#a4719bc3182eeba62dd27a595f659ee8c" title="Función que retorna el valor de la mejor aptitud calculada.">obtenerMejorAptitud</a>();</div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="structFuncionAptitud_1_1compare.html">   43</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structFuncionAptitud_1_1compare.html">compare</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">bool</span> operator()(<a class="code" href="classCromosoma.html" title="Clase cromosoma.">Cromosoma</a> a, <a class="code" href="classCromosoma.html" title="Clase cromosoma.">Cromosoma</a> b)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">bool</span> operator()(<a class="code" href="classCromosoma.html" title="Clase cromosoma.">Cromosoma</a>* a, <a class="code" href="classCromosoma.html" title="Clase cromosoma.">Cromosoma</a>* b)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span>(FuncionAptitud::ES_MIN_TERMINO){</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> (a.<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>()&lt;b.<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> (a-&gt;<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>()&lt;b-&gt;<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>());</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }<span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> (a.<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>()&gt;b.<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> (a-&gt;<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>()&gt;b-&gt;<a class="code" href="classCromosoma.html#a280c8232e95aec0c8dd627cd579abec6" title="getAptitud">getAptitud</a>());</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    vector&lt;Cromosoma&gt; poblacion;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classTablaDeVerdad.html" title="Clase TablaDeVerdad.">TablaDeVerdad</a> tablaVerdad;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    vector&lt;Cromosoma*&gt; poblacion;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classTablaDeVerdad.html" title="Clase TablaDeVerdad.">TablaDeVerdad</a> *tablaVerdad;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">double</span> mejorAptitud;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> ES_MIN_TERMINO;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">bool</span> FuncionAptitud::ES_MIN_TERMINO=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // FUNCIONAPTITUD_H</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif // FUNCIONAPTITUD_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>funcionaptitud.h</b></li>
-    <li class="footer">Generado el Jueves, 28 de Junio de 2012 16:56:34 para Proyecto computación evolutiva: por
+    <li class="footer">Generado el Jueves, 28 de Junio de 2012 22:18:39 para Proyecto computación evolutiva: por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

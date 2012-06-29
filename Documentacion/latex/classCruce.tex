@@ -13,9 +13,9 @@ Clase para el manejo del \hyperlink{classCruce}{Cruce} de los cromosomas.
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classCruce_aed65682d35805efe97e0d72d72f9e656}{Cruce} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ poblacion)
+\hyperlink{classCruce_af0c3421f9764a791c63c08cd98a50b3b}{Cruce} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $\ast$ $>$ poblacion\-Seleccionada)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classCruce_aa1c30687e13accb4b5f6f54533608ea3}{aplicar\-Cruce} ()
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $\ast$ $>$ \hyperlink{classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7}{aplicar\-Cruce} ()
 \begin{DoxyCompactList}\small\item\em Función que calculara los nuevos hijos al cruzar la población actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -45,13 +45,13 @@ G\-N\-U Public License.
 
 
 \subsection{Documentación del constructor y destructor}
-\hypertarget{classCruce_aed65682d35805efe97e0d72d72f9e656}{\index{Cruce@{Cruce}!Cruce@{Cruce}}
+\hypertarget{classCruce_af0c3421f9764a791c63c08cd98a50b3b}{\index{Cruce@{Cruce}!Cruce@{Cruce}}
 \index{Cruce@{Cruce}!Cruce@{Cruce}}
 \subsubsection[{Cruce}]{\setlength{\rightskip}{0pt plus 5cm}Cruce\-::\-Cruce (
 \begin{DoxyParamCaption}
-\item[{vector$<$ {\bf Cromosoma} $>$}]{poblacion}
+\item[{vector$<$ {\bf Cromosoma} $\ast$ $>$}]{poblacion\-Seleccionada}
 \end{DoxyParamCaption}
-)}}\label{classCruce_aed65682d35805efe97e0d72d72f9e656}
+)}}\label{classCruce_af0c3421f9764a791c63c08cd98a50b3b}
 
 
 Constructor. 
@@ -64,13 +64,13 @@ Constructor para la aplicación de \hyperlink{classCruce}{Cruce} a la población
 
 
 \subsection{Documentación de las funciones miembro}
-\hypertarget{classCruce_aa1c30687e13accb4b5f6f54533608ea3}{\index{Cruce@{Cruce}!aplicar\-Cruce@{aplicar\-Cruce}}
+\hypertarget{classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7}{\index{Cruce@{Cruce}!aplicar\-Cruce@{aplicar\-Cruce}}
 \index{aplicar\-Cruce@{aplicar\-Cruce}!Cruce@{Cruce}}
-\subsubsection[{aplicar\-Cruce}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Cruce\-::aplicar\-Cruce (
+\subsubsection[{aplicar\-Cruce}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $\ast$ $>$ Cruce\-::aplicar\-Cruce (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classCruce_aa1c30687e13accb4b5f6f54533608ea3}
+)}}\label{classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7}
 
 
 Función que calculara los nuevos hijos al cruzar la población actual. 
@@ -78,6 +78,17 @@ Función que calculara los nuevos hijos al cruzar la población actual.
 \begin{DoxyReturn}{Devuelve}
 un vector con los nuevos Cromosomas. 
 \end{DoxyReturn}
+esto no deberia pasar 
+
+Gráfico de llamadas para esta función\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCruce_a5fd9d9cbca36abf7d81f5eedc06f18e7_cgraph}
+\end{center}
+\end{figure}
+
+
 
 
 La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}

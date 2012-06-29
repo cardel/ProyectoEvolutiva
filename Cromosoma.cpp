@@ -132,6 +132,15 @@ vector<bool> Cromosoma::getClausula(int x)
 	
 }
 
+void Cromosoma::setClausula(int x, vector<bool> z)
+{
+	for(int y=0; y<z.size(); y++)
+	{
+		estadoCromosoma.at(x)[y] = z.at(y);
+	}		
+	
+}
+
 void Cromosoma::set(int x, int y, bool z)
 {
 	estadoCromosoma.at(x)[y]=z;

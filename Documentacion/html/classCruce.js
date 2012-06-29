@@ -1,5 +1,5 @@
 var classCruce =
 [
-    [ "Cruce", "classCruce.html#aed65682d35805efe97e0d72d72f9e656", null ],
-    [ "aplicarCruce", "classCruce.html#aa1c30687e13accb4b5f6f54533608ea3", null ]
+    [ "Cruce", "classCruce.html#af0c3421f9764a791c63c08cd98a50b3b", null ],
+    [ "aplicarCruce", "classCruce.html#a5fd9d9cbca36abf7d81f5eedc06f18e7", null ]
 ];

@@ -53,13 +53,20 @@ class Cromosoma
 		\param y es número entero que indica la variable deseada (recordar que están duplicada) normal y negada
 		\param z es booleano que indica el valor de la variable y deseada en la claúsula x
        */	
-		void set(int x, int y, bool z);
-		
+		void set(int x, int y, bool z);	
+	
+		//! setClausula
+		/*! Obtiene un elemento específico de una claúsula
+		\param x es un número entero que indica la claúsula deseada
+		\param z es un vector<bool> que indica la nueva clausula en la posicion x
+       */       
+		void setClausula(int x, vector<bool> z);
+			
  		//! getNumeroClausulas
 		/*! Retorna el número de claúsulas que tiene el cromosoma
-        */		
-		int getNumeroClausulas();
-		
+        */		        
+        int getNumeroClausulas();	
+        	
  		//! getNumeroVariables
 		/*! Retorna el número de variables que tiene cada claúsula en el cromosoma
         */	

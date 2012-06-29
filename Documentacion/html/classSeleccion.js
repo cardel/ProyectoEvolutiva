@@ -1,5 +1,5 @@
 var classSeleccion =
 [
-    [ "Seleccion", "classSeleccion.html#a98fa8d406a3f543405dab4f25efde0a0", null ],
-    [ "aplicarSeleccion", "classSeleccion.html#ae8ac58d7995c5807522fa3eba7a17ebb", null ]
+    [ "Seleccion", "classSeleccion.html#acb29238452bae45af7d8f17a40717546", null ],
+    [ "aplicarSeleccion", "classSeleccion.html#afa43291c3ecb60dbce0370e19fba81e7", null ]
 ];
