@@ -22,27 +22,30 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
     for(int j =0;j<size;j++){//! por cada cromosoma
         int numComparaciones = (int)pow(2, poblacion[j]->getNumeroVariables());
         Cromosoma *c_tmp = poblacion[j];
-        double aptitud = (double)c_tmp->getNumeroClausulas();
-        double count =0;
-        for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
-            if(c_tmp->obtenerSalida(i)==tablaVerdad->obtenerSalida(i)){
-                count++;
+        if(c_tmp->getAptitud()==-1){//! si no tiene una aptitud calculada
+            double aptitud = (double)c_tmp->getNumeroClausulas();
+            double count =0;
+            for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
+                if(c_tmp->obtenerSalida(i)==tablaVerdad->obtenerSalida(i)){
+                    count++;
+                }
             }
-        }
-        aptitud+= count;
-        c_tmp->setAptitud(aptitud);//! esta es la aptitud no la normalizacion
+            aptitud+= count;
+            c_tmp->setAptitud(aptitud);//! esta es la aptitud no la normalizacion
 
-        if(FuncionAptitud::ES_MIN_TERMINO){
-            if(mejorAptitud==-1 || mejorAptitud>aptitud){//tratamos de minimizar
-                mejorAptitud=aptitud;
+            if(FuncionAptitud::ES_MIN_TERMINO){
+                if(mejorAptitud==-1 || mejorAptitud>aptitud){//tratamos de minimizar
+                    mejorAptitud=aptitud;
+                }
+            }else{
+                if(mejorAptitud==-1 || mejorAptitud<aptitud){//tratamos de maximizar
+                    mejorAptitud=aptitud;
+                }
             }
-        }else{
-            if(mejorAptitud==-1 || mejorAptitud<aptitud){//tratamos de maximizar
-                mejorAptitud=aptitud;
-            }
+
+            //! sumaAptitud+=aptitud;
         }
 
-        //! sumaAptitud+=aptitud;
     }
     /*! ordena sobre el vector de entrada
     */
