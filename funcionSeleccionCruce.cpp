@@ -11,12 +11,12 @@ vector<Cromosoma*> FuncionSeleccionCruce::aplicarSeleccionCruce()
     calcularPuntuacionesAcumuladas();//! se calculan las puntuaciones acumuladas
 
     int size = poblacion.size();
-    vector<Cromosoma*> tmp(poblacion), seleccionCruce;
+    vector<Cromosoma*>  seleccionCruce;
     int k= (size/2);//! constante a la mitad de la poblacion
     if(k%2!=0){
         k--;
     }
-    srand(time(NULL));
+    //srand(time(NULL));
     int r =rand();
     for(int i = 1; i <= k;i++ ){
         r=(r+i-1/k);
@@ -25,7 +25,7 @@ vector<Cromosoma*> FuncionSeleccionCruce::aplicarSeleccionCruce()
             posicion++;
         }
         /*! mirando el algoritmo por internet dice que puede repetirse elementos, asi el erase no iria */
-        seleccionCruce.push_back(tmp[posicion]);
+        seleccionCruce.push_back(poblacion.at(i));
         //tmp.erase(tmp.begin()+posicion);
     }
     return seleccionCruce;

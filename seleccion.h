@@ -3,6 +3,7 @@
 #include "Cromosoma.h"
 #include <vector>
 
+
 //! Clase para el manejo de la función de Aptitud.
 /*!
  *  \brief     Clase Seleccion
@@ -34,6 +35,7 @@ public:
 private:
     vector<Cromosoma*> poblacion;
     vector<Cromosoma*> hijosMutados;
+	
 };
 
 #endif // SELECCION_H

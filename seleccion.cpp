@@ -21,6 +21,9 @@ vector<Cromosoma*> Seleccion::aplicarSeleccion()
     for(int j=0;j<sizeHijos;j++){
         nuevaGeneracion.push_back(hijosMutados[j]);
     }
-    cout << "sizePoblacion: "<<sizePoblacion << " sizeNuevoG: " << nuevaGeneracion.size() << endl;
+    
+    //Ordenas nueva generacion
+    
+    //cout << "sizePoblacion: "<<sizePoblacion << " sizeNuevoG: " << nuevaGeneracion.size() << endl;
     return nuevaGeneracion;//! debe tener el mismo tamaño de la poblacion
 }

@@ -1,13 +1,10 @@
 #include "funcionaptitud.h"
 
-bool FuncionAptitud::ES_MIN_TERMINO=true;
-
 
 FuncionAptitud::FuncionAptitud(vector<Cromosoma*> poblacion, TablaDeVerdad *tablaVerdad, bool esMinTermino)
 {
     this->poblacion = poblacion;
     this->tablaVerdad = tablaVerdad;
-    ES_MIN_TERMINO = esMinTermino;
     this->mejorAptitud=-1;
 }
 
@@ -23,36 +20,39 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
         int numComparaciones = (int)pow(2, poblacion[j]->getNumeroVariables());
         Cromosoma *c_tmp = poblacion[j];
 
-        //if(c_tmp->getAptitud()==-1){//! si no tiene una aptitud calculada
+		double aptitud = (double)c_tmp->getNumeroClausulas();
+		double count =0;
+		for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
+			if(c_tmp->obtenerSalida(i)==tablaVerdad->obtenerSalida(i)){
+				count++;
+			}
+		}
+		//Se busca minimzar la funcion de aptitud
+		count=numComparaciones-count;
+		aptitud+= count;
+		c_tmp->setAptitud(aptitud);//! esta es la aptitud no la normalizacion
 
-            double aptitud = (double)c_tmp->getNumeroClausulas();
-            double count =0;
-            for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
-                if(c_tmp->obtenerSalida(i)==tablaVerdad->obtenerSalida(i)){
-                    count++;
-                }
-            }
-            aptitud+= count;
-            c_tmp->setAptitud(aptitud);//! esta es la aptitud no la normalizacion
-
-            if(FuncionAptitud::ES_MIN_TERMINO){
-                if(mejorAptitud==-1 || mejorAptitud>aptitud){//tratamos de minimizar
-                    mejorAptitud=aptitud;
-                }
-            }else{
-                if(mejorAptitud==-1 || mejorAptitud<aptitud){//tratamos de maximizar
-                    mejorAptitud=aptitud;
-                }
-            }
-
-            //! sumaAptitud+=aptitud;
-        //}
+		if(mejorAptitud==-1 || mejorAptitud>aptitud){
+			mejorAptitud=aptitud;
+		}
 
     }
+    
     /*! ordena sobre el vector de entrada
     */
-
-    sort(poblacion.begin() , poblacion.end(), compare());
-
+    //sort(poblacion.begin() , poblacion.end(), compare());
+    for (int i=0; i<size; i++)
+	{
+		for (int j=i+1; j<size; j++)
+		{
+			if (poblacion.at(i)->getAptitud()>poblacion.at(j)->getAptitud())
+			{
+				Cromosoma * aux=poblacion.at(i);
+				poblacion.at(i)=poblacion.at(j);
+				poblacion.at(j)=aux;
+			}
+		}
+	}
+	
     return poblacion;
 }

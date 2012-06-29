@@ -44,12 +44,7 @@ public:
     {
         bool operator()(Cromosoma* a, Cromosoma* b) const
         {
-            if(FuncionAptitud::ES_MIN_TERMINO){
-                return (a->getAptitud()<b->getAptitud());
-            }else{
-                return (a->getAptitud()>b->getAptitud());
-            }
-
+          return (a->getAptitud()<b->getAptitud());
         }
     };
 
@@ -57,8 +52,6 @@ private:
     vector<Cromosoma*> poblacion;
     TablaDeVerdad *tablaVerdad;
     double mejorAptitud;
-    static bool ES_MIN_TERMINO;
-
 };
 
 #endif // FUNCIONAPTITUD_H

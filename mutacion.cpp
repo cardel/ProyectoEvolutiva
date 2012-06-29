@@ -8,7 +8,7 @@ Mutacion::Mutacion(vector <Cromosoma*> hijos)
 vector<Cromosoma*> Mutacion::aplicarMutacion()
 {
     int cantidad = (int)((double)(hijosMutados.size())*2/100);
-    srand(time(NULL));
+    //srand(time(NULL));
     for(int i=0; i < cantidad; i++){
 
         int r=rand();

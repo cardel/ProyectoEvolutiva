@@ -65,13 +65,13 @@ class Cromosoma
  		//! getNumeroClausulas
 		/*! Retorna el número de claúsulas que tiene el cromosoma
        */
-                int getNumeroClausulas();
+        int getNumeroClausulas();
 
-                //! getNumeroClausulas
-                /*! elimina la claúsula x del cromosoma y reduce en 1 el numeroClausulas
-                    \param x es un número entero que indica la claúsula a eliminar
+        //! getNumeroClausulas
+        /*! elimina la claúsula x del cromosoma y reduce en 1 el numeroClausulas
+        \param x es un número entero que indica la claúsula a eliminar
        */
-                void deleteClausula(int x);
+        void deleteClausula(int x);
         	
  		//! getNumeroVariables
 		/*! Retorna el número de variables que tiene cada claúsula en el cromosoma
@@ -109,13 +109,13 @@ class Cromosoma
 		*/    
 		int numeroVariables;
 		
-            //! numeroVariablesARepresentar
+        //! numeroVariablesARepresentar
 		/*!
 		  Entero que almacena el número de variables y su representación negada del cromosoma.
 		*/    
 		int numeroVariablesARepresentar;
 		
-            //! numeroEntrada
+         //! numeroEntrada
 		/*!
 		  Entero que almacena el número de posibles entradas que puede tener el cromosoma es 2^(numerovariables).
 		*/   

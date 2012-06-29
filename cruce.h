@@ -4,6 +4,7 @@
 #include <vector>
 #include <time.h>
 #include <stdlib.h>
+#include <cmath>
 
 //! Clase para el manejo del Cruce de los cromosomas.
 /*!
@@ -24,8 +25,9 @@ public:
     /*!
     Constructor para la aplicación de Cruce a la población de Cromosomas
     \param poblacion es un vector que contendrá la población de Cromosomas generado por la función de evaluación.
+    \param usarMaxiterminos, indica si se usa maxiterminos o minitérminis en los hijos
     */
-    Cruce(vector<Cromosoma*> poblacionSeleccionada);
+    Cruce(vector<Cromosoma*> poblacionSeleccionada, bool usarMaxiterminos);
     //! Función que calculara los nuevos hijos al cruzar la población actual.
     /*!
       \return un vector con los nuevos Cromosomas.
@@ -33,6 +35,7 @@ public:
     vector<Cromosoma*> aplicarCruce();
 private:
     vector<Cromosoma*> poblacionSeleccionada;
+    bool usarMaxiterminos;
 
 };
 

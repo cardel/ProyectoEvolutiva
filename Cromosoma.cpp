@@ -8,7 +8,7 @@ Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 		bool * aux = new bool[numVariables];
 		estadoCromosoma.push_back(aux);
 	}
-        aptitud=-1;
+    aptitud=-1;
 	numeroClausulas = numClausulas;
 	numeroVariables = numVariables;
 	numeroVariablesARepresentar = numVariables*2;
@@ -95,7 +95,7 @@ void Cromosoma::evaluarCromosoma()
 						resultadoClausula|=valor;
 					} 
 					if(estadoCromosoma.at(i)[j*2+1]==1)
-                                        {
+                    {
 						evaluo=1;
 						resultadoClausula|=(!valor);
 					} 

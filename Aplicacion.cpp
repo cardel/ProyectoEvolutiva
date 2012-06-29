@@ -154,24 +154,68 @@ int main(int argc, char ** argv)
 
 
 			//Iteracciones
-                        for(int i=0; i<numeroDeIteracciones; i++)
+			for(int i=0; i<numeroDeIteracciones; i++)
 			{
-                            FuncionAptitud fa(poblacion, tablaVerdad, !usarMaxiterminos);
-                            vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
-                            FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
-                            vector<Cromosoma*> poblacionCruzar = fsc.aplicarSeleccionCruce();
-                            Cruce c(poblacionCruzar);
-                            //vector<Cromosoma*> hijos = c.aplicarCruce();
-                            //Mutacion m(hijos);
-                            //vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
-//                            Seleccion s(poblacion,hijosMutados);
-//                            poblacion= s.aplicarSeleccion();
+				FuncionAptitud fa(poblacion, tablaVerdad, usarMaxiterminos);
+				vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
 
-                        }
-			 
+				
+				if(i==(numeroDeIteracciones-1))
+				{
+					poblacion=poblacionOrganizadaAptitud;
+				}
+				else
+				{
+					FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
+					vector<Cromosoma*> poblacionCruzar = fsc.aplicarSeleccionCruce();
+
+					Cruce c(poblacionCruzar, usarMaxiterminos);
+					vector<Cromosoma*> hijos = c.aplicarCruce();
+					for(int k=0; k<poblacionCruzar.size(); k++)
+					{
+						for(int j=0; j<poblacionCruzar.at(k)->getNumeroClausulas(); j++)
+						{
+							for(int t=0; t<poblacionCruzar.at(k)->getNumeroVariables(); t++)
+							{
+									cout << poblacionCruzar.at(k)->get(j,t) << " ";
+							}
+							cout << endl;
+						}
+						cout << "Cromosoma " << k << " Clausulas " << poblacionCruzar.at(k)->getNumeroClausulas() << endl;
+					}	
+					int a;
+					cin >> a;					
+	
+					Mutacion m(hijos);
+					vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
+	
+					Seleccion s(poblacion,hijosMutados);
+					poblacion=s.aplicarSeleccion();
+
+
+				}
+
+			}
+
 			Cromosoma * mejorCromosoma = poblacion.at(0);
+			cout << "Aptitud "<<mejorCromosoma->getAptitud() << endl;
 			
-		
+			for(int i=0; i<numeroVariables; i++)
+			{
+				cout << mejorCromosoma->get(0,i)<<" ";
+			}
+			cout<<endl;
+			
+			for(int i=0; i<4; i++)
+			{
+				cout << mejorCromosoma->obtenerSalida(i)<<" ";
+			}
+			cout<<endl;
+				for(int i=0; i<4; i++)
+			{
+				cout << tablaVerdad->obtenerSalida(i)<<" ";
+			}
+			cout<<endl;		
 			int numeroClausulas = mejorCromosoma->getNumeroClausulas();
 			int numeroVariables = mejorCromosoma->getNumeroVariables();
 			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");
