@@ -90,13 +90,13 @@ class Cromosoma
 		*/    
 		int numeroVariables;
 		
-	    //! numeroVariables
+            //! numeroVariablesARepresentar
 		/*!
 		  Entero que almacena el número de variables y su representación negada del cromosoma.
 		*/    
 		int numeroVariablesARepresentar;
 		
-	    //! numeroVariables
+            //! numeroEntrada
 		/*!
 		  Entero que almacena el número de posibles entradas que puede tener el cromosoma es 2^(numerovariables).
 		*/   

@@ -2,7 +2,8 @@
 #define CRUCE_H
 #include "Cromosoma.h"
 #include <vector>
-
+#include <time.h>
+#include <stdlib.h>
 
 //! Clase para el manejo del Cruce de los cromosomas.
 /*!
@@ -24,14 +25,14 @@ public:
     Constructor para la aplicación de Cruce a la población de Cromosomas
     \param poblacion es un vector que contendrá la población de Cromosomas generado por la función de evaluación.
     */
-    Cruce(vector<Cromosoma*> poblacion);
+    Cruce(vector<Cromosoma*> poblacionSeleccionada);
     //! Función que calculara los nuevos hijos al cruzar la población actual.
     /*!
       \return un vector con los nuevos Cromosomas.
     */
     vector<Cromosoma*> aplicarCruce();
 private:
-    vector<Cromosoma*> poblacion;
+    vector<Cromosoma*> poblacionSeleccionada;
 
 };
 

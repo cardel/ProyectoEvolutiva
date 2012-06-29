@@ -151,18 +151,21 @@ int main(int argc, char ** argv)
 				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);				
  				poblacion.push_back(aux);
 			}
-                        FuncionAptitud fa(poblacion, tablaVerdad, !usarMaxiterminos);
-                        vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
-                        FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
+
 
 			//Iteracciones
 			for(int i=0; i<numeroDeIteracciones; i++)
 			{
-				
-					//Cruce
-					//Mutacion
-					//Etc
-					//Etc
+                            FuncionAptitud fa(poblacion, tablaVerdad, !usarMaxiterminos);
+                            vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
+                            FuncionSeleccionCruce fsc(poblacionOrganizadaAptitud,fa.obtenerMejorAptitud());
+                            vector<Cromosoma*> poblacionCruzar = fsc.aplicarSeleccionCruce();
+                            Cruce c(poblacionCruzar);
+                            vector<Cromosoma*> hijos = c.aplicarCruce();
+                            Mutacion m(hijos);
+                            vector<Cromosoma*> hijosMutados = m.aplicarMutacion();
+                            Seleccion s(poblacion,hijosMutados);
+                            poblacion= s.aplicarSeleccion();
 			}
 			 
 			Cromosoma * mejorCromosoma = poblacion.at(0);
