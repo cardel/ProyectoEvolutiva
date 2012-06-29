@@ -170,6 +170,7 @@ int main(int argc, char ** argv)
 			 
 			Cromosoma * mejorCromosoma = poblacion.at(0);
 			
+		
 			int numeroClausulas = mejorCromosoma->getNumeroClausulas();
 			int numeroVariables = mejorCromosoma->getNumeroVariables();
 			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");

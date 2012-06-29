@@ -118,6 +118,20 @@ bool Cromosoma::get(int x, int y)
 {
 	return estadoCromosoma.at(x)[y];
 }
+
+vector<bool> Cromosoma::getClausula(int x)
+{
+	vector <bool> clausula;
+	
+	for(int y=0; y<numeroVariablesARepresentar; y++)
+	{
+		clausula.push_back(estadoCromosoma.at(x)[y]);
+	}
+	
+	return clausula;
+	
+}
+
 void Cromosoma::set(int x, int y, bool z)
 {
 	estadoCromosoma.at(x)[y]=z;

@@ -40,6 +40,12 @@ class Cromosoma
 		\param y es número entero que indica la variable deseada (recordar que están duplicada) normal y negada
        */		
 		bool get(int x, int y);
+
+		//! getClausula
+		/*! Obtiene una claúsula
+		\param x es un número entero que indica la claúsula deseada
+       */			
+		vector<bool> getClausula(int x);
 		
 		//! set
 		/*! Obtiene un elemento específico de una claúsula
