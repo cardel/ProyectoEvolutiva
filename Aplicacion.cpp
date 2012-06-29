@@ -123,7 +123,7 @@ int main(int argc, char ** argv)
 			numeroDeInteraccionesRealizadas=0;
 			
 			TablaDeVerdad * tablaVerdad = new TablaDeVerdad();
-			int numeroLineas = (int)pow(numeroVariables,2);
+			int numeroLineas = (int)pow(2,numeroVariables);
 			if(numeroVariables==0)
 			{
 					break;
@@ -133,12 +133,12 @@ int main(int argc, char ** argv)
 				for(int i=0; i<numeroLineas; i++)
 				{
 					
-					for(int j=0; j<numeroVariables+1; j++)
+					for(int j=0; j<(numeroVariables+1); j++)
 					{
 						int f;
-						fscanf(ArchivoDeEntrada,"%d",&f);						
+						fscanf(ArchivoDeEntrada,"%d",&f);	
 						if(j==numeroVariables) tablaVerdad->escribirTablaDeVerdad(f);
-					}							
+					}
 				}
 			}
 			
@@ -160,20 +160,18 @@ int main(int argc, char ** argv)
 				vector<Cromosoma*> poblacionOrganizadaAptitud = fa.aplicarAptitud();
 				numeroDeInteraccionesRealizadas++;			
 					
-				//Verificar si en las 5 generaciones anteriores la aptitud no cambio
-				if(aptitudes.size()==5)
+				//Verificar si en las 10 generaciones anteriores la aptitud no cambio
+				if(aptitudes.size()==10)
 				{
 					double diferenciasAptitud = 0.;
-					for(int x=0; x<5; x++)
+					for(int x=0; x<10; x++)
 					{
 						diferenciasAptitud+=aptitudes.at(x);
-						cout << aptitudes.at(x) << endl;
+						//cout << aptitudes.at(x) << endl;
 					} 
 					
-					diferenciasAptitud/=5;
-					
-					
-					
+					diferenciasAptitud/=10;
+
 					if(diferenciasAptitud==aptitudes.at(0)) break;
 					aptitudes.erase(aptitudes.begin());
 				} 

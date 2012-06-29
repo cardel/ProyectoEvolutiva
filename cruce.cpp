@@ -123,7 +123,8 @@ vector<Cromosoma*> Cruce::aplicarCruce()
 				hijo2->setClausula(x,madre->getClausula(alfa+x-totalPadre-1));
 			}		
 		 }
-
+		 hijo1->evaluarCromosoma();
+		 hijo2->evaluarCromosoma();
 		 hijos.push_back(hijo1);
 		 hijos.push_back(hijo2);
 	}	

@@ -95,7 +95,10 @@ class Cromosoma
 		/*! Establece la aptitud que tiene el cromosoma
         */
         void setAptitud(double value);
-		
+		//! evaluarCromosoma
+		/*! Evalua el cromosoma ante todas las entradas posibles.
+       */		
+		void evaluarCromosoma();		
 	private:
 	    //! numeroClausulas
 		/*!
@@ -144,10 +147,7 @@ class Cromosoma
        */
 		void GenerarIndividuo();	
 			
-		//! evaluarCromosoma
-		/*! Evalua el cromosoma ante todas las entradas posibles.
-       */		
-		void evaluarCromosoma();
+
 		
 		//! decimalABinario
 		/*! Genera una representación booleana de un número entero (Función auxiliar)

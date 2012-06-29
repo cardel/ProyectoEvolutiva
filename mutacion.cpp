@@ -22,12 +22,13 @@ vector<Cromosoma*> Mutacion::aplicarMutacion()
             int y=(int)(rand()%(t->getNumeroVariables()*2));
             bool value=t->get(x,y);
             t->set(x,y, !(value==true));
+            t->evaluarCromosoma();
 
         }else{
             //Borrar clausula
-            Cromosoma* t =hijosMutados[i];
             int posClausulaBorrar= (int)(rand()%t->getNumeroClausulas());
             t->deleteClausula(posClausulaBorrar);
+            t->evaluarCromosoma();
         }
 
     }
