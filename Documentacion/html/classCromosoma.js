@@ -9,5 +9,6 @@ var classCromosoma =
     [ "getNumeroVariables", "classCromosoma.html#a825104a1dd2a7595d119907c84fd2fd1", null ],
     [ "obtenerSalida", "classCromosoma.html#a8a75eb52e417f9c050c32969b56984e7", null ],
     [ "set", "classCromosoma.html#aaf002d2f7f9438e74eeba52892868e83", null ],
-    [ "setAptitud", "classCromosoma.html#a158f2fe672e3232ebf07a5724a15fc2e", null ]
+    [ "setAptitud", "classCromosoma.html#a158f2fe672e3232ebf07a5724a15fc2e", null ],
+    [ "setClausula", "classCromosoma.html#a826283527e3bdefe28a7ba7fc84dc965", null ]
 ];
