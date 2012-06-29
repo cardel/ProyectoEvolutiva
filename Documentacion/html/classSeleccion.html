@@ -115,14 +115,14 @@ $(document).ready(function(){initNavTree('classSeleccion.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Métodos públicos</h2></td></tr>
-<tr class="memitem:a98fa8d406a3f543405dab4f25efde0a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeleccion.html#a98fa8d406a3f543405dab4f25efde0a0">Seleccion</a> (vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt; poblacion, vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt; hijos)</td></tr>
-<tr class="memdesc:a98fa8d406a3f543405dab4f25efde0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a98fa8d406a3f543405dab4f25efde0a0"></a><br/></td></tr>
-<tr class="memitem:ae8ac58d7995c5807522fa3eba7a17ebb"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeleccion.html#ae8ac58d7995c5807522fa3eba7a17ebb">aplicarSeleccion</a> ()</td></tr>
+<tr class="memitem:acb29238452bae45af7d8f17a40717546"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeleccion.html#acb29238452bae45af7d8f17a40717546">Seleccion</a> (vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt; poblacion, vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt; hijos)</td></tr>
+<tr class="memdesc:acb29238452bae45af7d8f17a40717546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#acb29238452bae45af7d8f17a40717546"></a><br/></td></tr>
+<tr class="memitem:afa43291c3ecb60dbce0370e19fba81e7"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSeleccion.html#afa43291c3ecb60dbce0370e19fba81e7">aplicarSeleccion</a> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Descripción detallada</h2>
 <div class="textblock"><p>Clase para el manejo de la función de Aptitud. </p>
 <pre class="fragment">Clase Seleccion
-</pre><p>Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y poder obtenerlos de manera ordenada. </p>
+</pre><p>Esta clase permitira el calculo de la función de aptitud para cada elemento de la población de Cromosomas y poder obtenerlos de manera ordenada. </p>
 <dl class="section author"><dt>Autor:</dt><dd>Carlos Andres Delgado </dd>
 <dd>
 Edgar Andres Moncada </dd>
@@ -132,20 +132,20 @@ Luis Felipe Vargas </dd></dl>
 <dl class="section date"><dt>Fecha:</dt><dd>2012 </dd></dl>
 <dl class="section copyright"><dt>Copyright:</dt><dd>GNU Public License. </dd></dl>
 </div><hr/><h2>Documentación del constructor y destructor</h2>
-<a class="anchor" id="a98fa8d406a3f543405dab4f25efde0a0"></a>
+<a class="anchor" id="acb29238452bae45af7d8f17a40717546"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Seleccion::Seleccion </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt;&#160;</td>
+          <td class="paramtype">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt;&#160;</td>
           <td class="paramname"><em>poblacion</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt;&#160;</td>
+          <td class="paramtype">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt;&#160;</td>
           <td class="paramname"><em>hijos</em>&#160;</td>
         </tr>
         <tr>
@@ -169,20 +169,22 @@ Luis Felipe Vargas </dd></dl>
 </div>
 </div>
 <hr/><h2>Documentación de las funciones miembro</h2>
-<a class="anchor" id="ae8ac58d7995c5807522fa3eba7a17ebb"></a>
+<a class="anchor" id="afa43291c3ecb60dbce0370e19fba81e7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> &gt; Seleccion::aplicarSeleccion </td>
+          <td class="memname">vector&lt; <a class="el" href="classCromosoma.html">Cromosoma</a> * &gt; Seleccion::aplicarSeleccion </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Función seleccionara, por medio del metodo de seleccion por ruleta, entre la población vieja y los hijos mutados para que pasen a la siguiente generación.</p>
-<pre class="fragment">  \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.</pre> 
+<p>Función seleccionara entre la población vieja y los hijos mutados para que pasen a la siguiente generación. Se eliminan la mitad de los padres con peor aptitud</p>
+<pre class="fragment">  \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.</pre> <p>la cantidad de padres que se borraran</p>
+<p>debe tener el mismo tamaño de la poblacion </p>
+
 </div>
 </div>
 <hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
@@ -195,7 +197,7 @@ Luis Felipe Vargas </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classSeleccion.html">Seleccion</a></li>
-    <li class="footer">Generado el Jueves, 28 de Junio de 2012 16:56:34 para Proyecto computación evolutiva: por
+    <li class="footer">Generado el Jueves, 28 de Junio de 2012 21:55:51 para Proyecto computación evolutiva: por
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

@@ -13,9 +13,9 @@ Clase para el manejo de la función de Aptitud.
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classSeleccion_a98fa8d406a3f543405dab4f25efde0a0}{Seleccion} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ poblacion, vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ hijos)
+\hyperlink{classSeleccion_acb29238452bae45af7d8f17a40717546}{Seleccion} (vector$<$ \hyperlink{classCromosoma}{Cromosoma} $\ast$ $>$ poblacion, vector$<$ \hyperlink{classCromosoma}{Cromosoma} $\ast$ $>$ hijos)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-vector$<$ \hyperlink{classCromosoma}{Cromosoma} $>$ \hyperlink{classSeleccion_ae8ac58d7995c5807522fa3eba7a17ebb}{aplicar\-Seleccion} ()
+vector$<$ \hyperlink{classCromosoma}{Cromosoma} $\ast$ $>$ \hyperlink{classSeleccion_afa43291c3ecb60dbce0370e19fba81e7}{aplicar\-Seleccion} ()
 \end{DoxyCompactItemize}
 
 
@@ -26,7 +26,7 @@ Clase para el manejo de la función de Aptitud.
 \end{DoxyVerb}
 
 
-Esta clase permitira el calculo de la función de aptitud para cada elemento e la población de Cromosomas y poder obtenerlos de manera ordenada. \begin{DoxyAuthor}{Autor}
+Esta clase permitira el calculo de la función de aptitud para cada elemento de la población de Cromosomas y poder obtenerlos de manera ordenada. \begin{DoxyAuthor}{Autor}
 Carlos Andres Delgado 
 
 Edgar Andres Moncada 
@@ -45,14 +45,14 @@ G\-N\-U Public License.
 
 
 \subsection{Documentación del constructor y destructor}
-\hypertarget{classSeleccion_a98fa8d406a3f543405dab4f25efde0a0}{\index{Seleccion@{Seleccion}!Seleccion@{Seleccion}}
+\hypertarget{classSeleccion_acb29238452bae45af7d8f17a40717546}{\index{Seleccion@{Seleccion}!Seleccion@{Seleccion}}
 \index{Seleccion@{Seleccion}!Seleccion@{Seleccion}}
 \subsubsection[{Seleccion}]{\setlength{\rightskip}{0pt plus 5cm}Seleccion\-::\-Seleccion (
 \begin{DoxyParamCaption}
-\item[{vector$<$ {\bf Cromosoma} $>$}]{poblacion, }
-\item[{vector$<$ {\bf Cromosoma} $>$}]{hijos}
+\item[{vector$<$ {\bf Cromosoma} $\ast$ $>$}]{poblacion, }
+\item[{vector$<$ {\bf Cromosoma} $\ast$ $>$}]{hijos}
 \end{DoxyParamCaption}
-)}}\label{classSeleccion_a98fa8d406a3f543405dab4f25efde0a0}
+)}}\label{classSeleccion_acb29238452bae45af7d8f17a40717546}
 
 
 Constructor. 
@@ -67,17 +67,19 @@ Constructor para la aplicación de la seleccion de cromosomas
 
 
 \subsection{Documentación de las funciones miembro}
-\hypertarget{classSeleccion_ae8ac58d7995c5807522fa3eba7a17ebb}{\index{Seleccion@{Seleccion}!aplicar\-Seleccion@{aplicar\-Seleccion}}
+\hypertarget{classSeleccion_afa43291c3ecb60dbce0370e19fba81e7}{\index{Seleccion@{Seleccion}!aplicar\-Seleccion@{aplicar\-Seleccion}}
 \index{aplicar\-Seleccion@{aplicar\-Seleccion}!Seleccion@{Seleccion}}
-\subsubsection[{aplicar\-Seleccion}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $>$ Seleccion\-::aplicar\-Seleccion (
+\subsubsection[{aplicar\-Seleccion}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Cromosoma} $\ast$ $>$ Seleccion\-::aplicar\-Seleccion (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classSeleccion_ae8ac58d7995c5807522fa3eba7a17ebb}
-Función seleccionara, por medio del metodo de seleccion por ruleta, entre la población vieja y los hijos mutados para que pasen a la siguiente generación.
+)}}\label{classSeleccion_afa43291c3ecb60dbce0370e19fba81e7}
+Función seleccionara entre la población vieja y los hijos mutados para que pasen a la siguiente generación. Se eliminan la mitad de los padres con peor aptitud
 
 \begin{DoxyVerb}  \return un vector con los cromosomas seleccionados del mismo tamaño de la población inicial.\end{DoxyVerb}
- 
+ la cantidad de padres que se borraran
+
+debe tener el mismo tamaño de la poblacion 
 
 La documentación para esta clase fue generada a partir de los siguientes ficheros\-:\begin{DoxyCompactItemize}
 \item 
