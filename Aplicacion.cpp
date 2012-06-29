@@ -124,7 +124,6 @@ int main(int argc, char ** argv)
 			
 			TablaDeVerdad * tablaVerdad = new TablaDeVerdad();
 			int numeroLineas = (int)pow(numeroVariables,2);
-			cout << "numero variables "<<numeroVariables<<endl;
 			if(numeroVariables==0)
 			{
 					break;
@@ -148,7 +147,7 @@ int main(int argc, char ** argv)
 
 			for(int i=0; i<poblacionInicial; i++)
 			{
-				int numeroClausulas=(int)(rand() % (numeroVariables))+1;
+				int numeroClausulas=(int)(rand() % (numeroVariables*2))+1;
 				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);				
  				poblacion.push_back(aux);
 			}
@@ -169,12 +168,11 @@ int main(int argc, char ** argv)
 					
 					diferenciasAptitud/=5;
 					
-					if(diferenciasAptitud==aptitudes.at(0)) break;
+					//if(diferenciasAptitud==aptitudes.at(0)) break;
 					aptitudes.erase(aptitudes.begin());
 				} 
 				aptitudes.push_back(poblacionOrganizadaAptitud.at(0)->getAptitud());
-
-				
+			
 				
 				if(i==(numeroDeIteracciones-1))
 				{
@@ -212,17 +210,21 @@ int main(int argc, char ** argv)
 			}
 
 			Cromosoma * mejorCromosoma = poblacion.at(0);
-			cout << "---------------------------------------------\nSOLUCION ENTRADA #" << numeroSolucion<<endl;
+			cout << "---------------------------------------------"<<endl;
+			cout << "SOLUCION ENTRADA #" << numeroSolucion<<endl;
+			cout << "---------------------------------------------"<<endl;
 
 			cout << "Aptitud "<<mejorCromosoma->getAptitud() << endl;
 			cout << "Número de interacciones "<<numeroDeInteraccionesRealizadas << endl;
 			
-			cout << "Mejor cromosoma" << endl;
-			for(int i=0; i<numeroVariables; i++)
-			{
-				cout << mejorCromosoma->get(0,i)<<" ";
+			cout << "Datos Mejor cromosoma\n" << endl;
+			for(int x=0; x<mejorCromosoma->getNumeroClausulas(); x++){
+				for(int y=0; y<numeroVariables*2; y++)
+				{
+					cout << mejorCromosoma->get(x,y)<<" ";
+				}
+				cout<<endl;
 			}
-			cout<<endl;
 			cout << "Tabla de verdad cromosoma" << endl;
 	
 			for(int i=0; i<pow(2,numeroVariables); i++)
@@ -260,10 +262,10 @@ int main(int argc, char ** argv)
 					operadorClausulas=" and ";				
 				}
 				
-				for(int j=0; j<numeroVariables; j++)
+				for(int j=0; j<numeroVariables*2; j++)
 				{
 					if(mejorCromosoma->get(i,j)==1){	
-						int variable = (numeroVariables - j -1)/2;
+						int variable = (numeroVariables*2 - j -1)/2;
 						stringstream out;
 						out << variable;
 						

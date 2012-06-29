@@ -2,18 +2,18 @@
 
 Cromosoma::Cromosoma(int numClausulas, int numVariables, bool maxiTerminos)
 {
-	
-	for(int i=0; i<numClausulas; i++)
-	{
-		bool * aux = new bool[numVariables];
-		estadoCromosoma.push_back(aux);
-	}
-    aptitud=-1;
+	aptitud=-1;
 	numeroClausulas = numClausulas;
 	numeroVariables = numVariables;
 	numeroVariablesARepresentar = numVariables*2;
-	numeroEntrada = pow(numVariables,2);
+	numeroEntrada = (int)pow(2,numVariables);
 	usarMaxiTerminos = maxiTerminos;
+	
+	for(int i=0; i<numClausulas; i++)
+	{
+		bool * aux = new bool[numeroVariablesARepresentar];
+		estadoCromosoma.push_back(aux);
+	}
 	GenerarIndividuo();
 }
 
@@ -50,11 +50,12 @@ string Cromosoma::decimalABinario(int number)
 
 void Cromosoma::evaluarCromosoma()
 {
+
 	for(int s=0; s<numeroEntrada; s++)
 	{
 		string representacionBinaria = decimalABinario(s);
 		
-		int correccion = log2(numeroVariables)-representacionBinaria.size();
+		int correccion = numeroVariables-representacionBinaria.size();
 		
 		for(int k=0; k<correccion; k++)
 		{
@@ -69,19 +70,20 @@ void Cromosoma::evaluarCromosoma()
 		{
 			bool evaluo = 0;
 			bool resultadoClausula = 0;
-			cout <<usarMaxiTerminos<<endl;
 			for(int j=0; j<representacionBinaria.size(); j++)
 			{
-				bool valor = representacionBinaria.at(j) - '0';
+				bool valor = representacionBinaria.at(representacionBinaria.size()-1-j) - '0';
+
 				if(!usarMaxiTerminos)
 				{
-					if(j==0) resultadoClausula = 1;					
-					if(estadoCromosoma.at(i)[j*2]==1)
+					if(j==0) resultadoClausula = 1;	
+									
+					if(estadoCromosoma.at(i)[numeroVariablesARepresentar-2-j*2]==1)
 					{	
 						evaluo=1;				
 						resultadoClausula&=valor;
 					} 
-					if(estadoCromosoma.at(i)[j*2+1]==1)
+					if(estadoCromosoma.at(i)[numeroVariablesARepresentar-j*2-1]==1)
 					{
 						evaluo=1;
 						resultadoClausula&=(!valor);
@@ -90,12 +92,12 @@ void Cromosoma::evaluarCromosoma()
 				else
 				{
 					if(j==0) resultadoClausula = 0;					
-					if(estadoCromosoma.at(i)[j*2]==1)
+					if(estadoCromosoma.at(i)[numeroVariablesARepresentar-2-j*2]==1)
 					{	
 						evaluo=1;				
 						resultadoClausula|=valor;
 					} 
-					if(estadoCromosoma.at(i)[j*2+1]==1)
+					if(estadoCromosoma.at(i)[numeroVariablesARepresentar-j*2-1]==1)
                     {
 						evaluo=1;
 						resultadoClausula|=(!valor);

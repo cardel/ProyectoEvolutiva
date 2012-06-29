@@ -2,7 +2,3 @@ Solución #1:
 (~x0)
 Solución #2:
 (~x0)
-Solución #3:
-(x1 and ~x1)
-Solución #4:
-(x1 and x0)

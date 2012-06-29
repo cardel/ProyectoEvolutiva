@@ -30,6 +30,8 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
 		//Se busca minimzar la funcion de aptitud
 		count=numComparaciones-count;
 		aptitud+= count;
+		
+		
 		c_tmp->setAptitud(aptitud);//! esta es la aptitud no la normalizacion
 
 		if(mejorAptitud==-1 || mejorAptitud>aptitud){
@@ -40,7 +42,6 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
     
     /*! ordena sobre el vector de entrada
     */
-    //sort(poblacion.begin() , poblacion.end(), compare());
     for (int i=0; i<size; i++)
 	{
 		for (int j=i+1; j<size; j++)
