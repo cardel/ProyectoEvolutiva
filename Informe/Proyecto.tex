@@ -176,13 +176,11 @@ En este caso se utiliza la selección por ruleta.
 
 Se seleccionan dos cromosomas dentro del grupo de seleccionados, denominados padre y madre, y se igualan la cantidad de cláusulas, es decir que si la madre tiene 3 cláusulas y el padre tiene 2, se toma la primera cláusula de la madre y se inserta al final del padre para que tengan el mismo número.
 \\\\
-Se genera un número aleatorio $\alpha$ entre 1 y el número de cláusulas menos 1. Se genera otro número aleatorio $\beta$ entre 1 y el número de variables menos 1.
-\\\\
-Con estos valores se generaran dos hijos de la siguiente manera:
+Se genera un número aleatorio $\alpha$ entre 1 y el número de cláusulas menos 1. Con este valor se generaran dos hijos de la siguiente manera:
 
 \begin{itemize}
-	\item \textbf{Hijo 1:} se construye con $\alpha$ cláusulas, y sus cláusulas contienen los primeros $\beta$ elementos del padre y número de variables menos $\beta$ elementos de la madre.
-	\item \textbf{Hijo 2:} se construye con número de cláusulas menos $\alpha$, de las cuales tendrán el resto de $\beta$ elementos del padre y número de variables menos $\beta$ elementos de la madre.
+	\item \textbf{Hijo 1:} se construye con $\alpha$ cláusulas, y sus cláusulas contienen los primeros $\alpha$/2 elementos del padre y de la madre, si $\alpha$ es impar se toma al azar un elemento del padre o de la madre.
+	\item \textbf{Hijo 2:} se construye con numero de clausulas de los padres menos $\alpha$ mas 1 cláusulas, y sus cláusulas contienen el resto $\alpha$/2 elementos del padre y de la madre, si $\alpha$ es impar se toma al azar un elemento del padre o de la madre.
 \end{itemize}
 
 Ejemplo:
@@ -235,7 +233,7 @@ Se igualan los cromosomas y dado que el Cromosoma B tiene menor número de claú
 	\end{tabular}
 \end{table}
 
-Ahora se tienen que el número de cláusulas es 3 y el número de variables es 2, por tanto $\alpha$ puede valer 1 ó 2 y $\beta$ el valor de beta será 1. Elegimos a $\alpha$ con valor 2 para este ejemplo y el primer hijo será:
+Ahora se tienen que el número de cláusulas es 3 por tanto $\alpha$ puede valer 1 ó 2. Elegimos a $\alpha$ con valor 2 para este ejemplo y el primer hijo será:
 
 \begin{table}[H]
 	\centering
@@ -246,12 +244,12 @@ Ahora se tienen que el número de cláusulas es 3 y el número de variables es 2
 		\hline
 		0 & 1& 1 & 0\\
 		\hline
-		0 & 1& 1 & 0\\		
+		0 & 0& 1 & 0\\
 		\hline
 	\end{tabular}
 \end{table}
 
-Para el segundo hijo el número de clausulas será 3 (número de cláusula padre) menos 2 ($\alpha$) igual a 1 y se toman las cláusulas restantes:
+Para el segundo hijo el número de clausulas será 3 (número de cláusula padre) menos 2 ($\alpha$) mas 1 igual a 2 y se toman las cláusulas restantes:
 
 \begin{table}[H]
 	\centering
@@ -261,6 +259,8 @@ Para el segundo hijo el número de clausulas será 3 (número de cláusula padre
 		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
 		\hline
 		0 & 0& 1 & 0\\
+		\hline
+		1 & 1& 1 & 0\\
 		\hline
 	\end{tabular}
 \end{table}
