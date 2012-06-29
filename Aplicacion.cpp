@@ -147,8 +147,8 @@ int main(int argc, char ** argv)
 
 			for(int i=0; i<poblacionInicial; i++)
 			{
-				int numeroClausulas=(int)(rand() % (numeroVariables*2))+1;
-				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);				
+				int numeroClausulas=(int)(rand() % (numeroLineas))+1;
+				Cromosoma * aux = new Cromosoma(numeroClausulas,numeroVariables, usarMaxiterminos);	
  				poblacion.push_back(aux);
 			}
 
@@ -164,9 +164,15 @@ int main(int argc, char ** argv)
 				if(aptitudes.size()==5)
 				{
 					double diferenciasAptitud = 0.;
-					for(int x=0; x<5; x++) diferenciasAptitud+=aptitudes.at(x);
+					for(int x=0; x<5; x++)
+					{
+						diferenciasAptitud+=aptitudes.at(x);
+						cout << aptitudes.at(x) << endl;
+					} 
 					
 					diferenciasAptitud/=5;
+					
+					
 					
 					if(diferenciasAptitud==aptitudes.at(0)) break;
 					aptitudes.erase(aptitudes.begin());

@@ -20,7 +20,7 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
         int numComparaciones = (int)pow(2, poblacion[j]->getNumeroVariables());
         Cromosoma *c_tmp = poblacion[j];
 
-		double aptitud = (double)c_tmp->getNumeroClausulas();
+		double aptitud = 30*(double)c_tmp->getNumeroClausulas();
 		double count =0;
 		for(int i=0;i<numComparaciones;i++){//! para cada valor de verdad
 			if(c_tmp->obtenerSalida(i)==tablaVerdad->obtenerSalida(i)){
@@ -29,7 +29,7 @@ vector<Cromosoma*> FuncionAptitud::aplicarAptitud()
 		}
 		//Se busca minimzar la funcion de aptitud
 		count=numComparaciones-count;
-		aptitud+= count;
+		aptitud+= 70*count;
 		
 		
 		c_tmp->setAptitud(aptitud);//! esta es la aptitud no la normalizacion

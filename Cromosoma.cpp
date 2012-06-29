@@ -24,13 +24,15 @@ Cromosoma::~Cromosoma()
 
 
 void Cromosoma::GenerarIndividuo()
-{
+{  
+
 	for(int i=0; i<numeroClausulas; i++)
 	{
 		for(int j=0; j<numeroVariablesARepresentar; j++)
 		{
-			estadoCromosoma.at(i)[j] = (rand() % 2);			
-		}	
+			estadoCromosoma.at(i)[j] = (rand() % 2);	
+		
+		}
 		
 	}
 	evaluarCromosoma();	

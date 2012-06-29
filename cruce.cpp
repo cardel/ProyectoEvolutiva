@@ -62,34 +62,68 @@ vector<Cromosoma*> Cruce::aplicarCruce()
 				sizePadre = sizeMadre;
 		 }
 		 //Crear dos hijos
-			srand ( time(NULL) );
 		 int alfa = 1;
 		 if(sizeMadre>1) alfa = 1 + rand()%(sizeMadre-1);
 		 
-		 int beta = 1;		 
-		 if(numeroVariables>1) beta = 1 + rand()%(numeroVariables-1);		 
 		 //Hijo 1
 
 		 hijo1= new Cromosoma(alfa,numeroVariables, usarMaxiterminos);
+		 
+		 //Seleccionar elementos
+		 int totalMadre, totalPadre;
+		 if(alfa%1==0)
+		 {
+			totalMadre = alfa/2;
+			totalPadre = alfa/2;
+		 }else
+		 {
+			totalMadre = alfa/2;
+			totalPadre = alfa/2;
+			
+			if(rand()%2==0) totalMadre++;
+			else totalPadre++;			 
+		 }
+		 
 		 for(int x=0; x<alfa; x++)
 		 {
-			 for(int y=0; y<numeroVariables; y++)
-			 {
-					if(y<beta) hijo1->set(x,y,padre->get(x,y));
-					else hijo1->set(x,y,madre->get(x,y));
-			 }
+			if(x<totalPadre)
+			{
+				hijo1->setClausula(x,padre->getClausula(x));
+			}
+			else
+			{
+				hijo1->setClausula(x,madre->getClausula(x-totalPadre));
+			}
+		
 		 }
 		 //Hijo 2
-		 hijo2= new Cromosoma(sizePadre-alfa+1,numeroVariables, usarMaxiterminos);
+		 int sizeHijo2= sizePadre-alfa+1;
+		 hijo2= new Cromosoma(sizeHijo2,numeroVariables, usarMaxiterminos);
+		 
+		 if(sizeHijo2%1==0)
+		 {
+			totalMadre = sizeHijo2/2;
+			totalPadre = sizeHijo2/2;
+		 }else
+		 {
+			totalMadre = sizeHijo2/2;
+			totalPadre = sizeHijo2/2;
+			
+			if(rand()%2==0) totalMadre++;
+			else totalPadre++;			 
+		 }
 		 for(int x=0; x<hijo2->getNumeroClausulas(); x++)
 		 {
-			 for(int y=0; y<numeroVariables; y++)
-			 {
-			
-				if(y<beta) hijo2->set(x,y,padre->get(alfa+x-1,y));
-				else hijo2->set(x,y,madre->get(alfa+x-1,y));
-			 }
+			if(x<totalPadre)
+			{
+				hijo2->setClausula(x,padre->getClausula(alfa+x-1));
+			}
+			else
+			{
+				hijo2->setClausula(x,madre->getClausula(alfa+x-totalPadre-1));
+			}		
 		 }
+
 		 hijos.push_back(hijo1);
 		 hijos.push_back(hijo2);
 	}	
