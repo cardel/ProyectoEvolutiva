@@ -174,10 +174,17 @@ En este caso se utiliza la selección por ruleta.
 
 \subsection{Cruce}
 
-Se seleccionan dos cromosomas dentro del grupo de seleccionados, se toma el cromosoma con menor número de cláusulas y se genera un número aleatorio entre 1 y ese número menos 1, valor que se denota con $\alpha$.
+Se seleccionan dos cromosomas dentro del grupo de seleccionados, denominados padre y madre, y se igualan la cantidad de cláusulas, es decir que si la madre tiene 3 cláusulas y el padre tiene 2, se toma la primera cláusula de la madre y se inserta al final del padre para que tengan el mismo número.
 \\\\
-Con éste valor se generan dos hijos, uno tomando en ambos cromosomas $\alpha$ cláusulas iniciales y generando un cromosoma de tamaño $2*\alpha$, con el resto de ambos cromosomas se realiza el mismo procedimiento
+Se genera un número aleatorio $\alpha$ entre 1 y el número de cláusulas menos 1. Se genera otro número aleatorio $\beta$ entre 1 y el número de variables menos 1.
 \\\\
+Con estos valores se generaran dos hijos de la siguiente manera:
+
+\begin{itemize}
+	\item \textbf{Hijo 1:} se construye con $\alpha$ cláusulas, y sus cláusulas contienen los primeros $\beta$ elementos del padre y número de variables menos $\beta$ elementos de la madre.
+	\item \textbf{Hijo 2:} se construye con número de cláusulas menos $\alpha$, de las cuales tendrán el resto de $\beta$ elementos del padre y número de variables menos $\beta$ elementos de la madre.
+\end{itemize}
+
 Ejemplo:
 
 \begin{table}[H]
@@ -210,7 +217,25 @@ Ejemplo:
 	\end{tabular}
 \end{table}
 
-Como B tiene 2 cláusulas por lo tanto $\alpha$ solamente puede tomar el valor de $1$, por lo tanto, los hijos de estos dos padres son:
+Se igualan los cromosomas y dado que el Cromosoma B tiene menor número de claúsulas queda de la siguiente manera:
+
+\begin{table}[H]
+	\centering
+	\caption{Cromosoma B}
+	\begin{tabular}{|c | c | c|  c|  c|}
+		\hline
+		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\	
+		\hline
+		0 & 0& 1 & 0\\
+		\hline
+		1 & 1& 1 & 0\\
+		\hline
+		0 & 1& 1 & 0\\	
+		\hline
+	\end{tabular}
+\end{table}
+
+Ahora se tienen que el número de cláusulas es 3 y el número de variables es 2, por tanto $\alpha$ puede valer 1 ó 2 y $\beta$ el valor de beta será 1. Elegimos a $\alpha$ con valor 2 para este ejemplo y el primer hijo será:
 
 \begin{table}[H]
 	\centering
@@ -221,12 +246,12 @@ Como B tiene 2 cláusulas por lo tanto $\alpha$ solamente puede tomar el valor d
 		\hline
 		0 & 1& 1 & 0\\
 		\hline
-		0 & 0& 1 & 0\\
+		0 & 1& 1 & 0\\		
 		\hline
 	\end{tabular}
 \end{table}
 
-Este hijo se genera al combinar la cĺáusula 1 del hijo A con la claúsula 1 del hijo B
+Para el segundo hijo el número de clausulas será 3 (número de cláusula padre) menos 2 ($\alpha$) igual a 1 y se toman las cláusulas restantes:
 
 \begin{table}[H]
 	\centering
@@ -235,16 +260,11 @@ Este hijo se genera al combinar la cĺáusula 1 del hijo A con la claúsula 1 de
 		\hline
 		$x_1$ & $ \sim{x_1}$ & $x_0$ & $ \sim{x_0}$\\
 		\hline
-		1 & 1& 0 & 0\\
-		\hline
 		0 & 0& 1 & 0\\
-		\hline
-		1 & 1& 1 & 0\\
 		\hline
 	\end{tabular}
 \end{table}
 
-Este hijo se genera al combinar el resto de cláusulas del hijo A con el resto de cláusulas del hijo B.
 
 \subsection{Mutación}
 
