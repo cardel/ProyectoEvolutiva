@@ -52,6 +52,16 @@
 #include "funcionaptitud.h"
 using namespace std;
 
+string decimalABinario(int number)
+{
+    if ( number == 0 ) return "0";
+    if ( number == 1 ) return "1";
+
+    if ( number % 2 == 0 )
+        return decimalABinario(number / 2) + "0";
+    else
+        return decimalABinario(number / 2) + "1";
+}
 
 int main(int argc, char ** argv)
 {
@@ -229,20 +239,18 @@ int main(int argc, char ** argv)
 				}
 				cout<<endl;
 			}
-			cout << "Tabla de verdad cromosoma" << endl;
-	
-			for(int i=0; i<pow(2,numeroVariables); i++)
-			{
-				cout << mejorCromosoma->obtenerSalida(i)<<" ";
-			}
-			cout<<endl;
-			cout << "Tabla de verdad entrada" << endl;
+			cout << "Comparaciones" << endl;
+			cout << "Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma" << endl;
 
 			for(int i=0; i<pow(2,numeroVariables); i++)
 			{
-				cout << tablaVerdad->obtenerSalida(i)<<" ";
+				string decimal = decimalABinario(i);
+				int correccion = numeroVariables-decimal.size();
+				for(int k=0; k<correccion; k++) decimal="0"+decimal;
+				cout << decimal << " \t\t "<<mejorCromosoma->obtenerSalida(i)<<" \t\t\t " << tablaVerdad->obtenerSalida(i)<< endl;;
 			}
-			cout<<endl;		
+			cout<<endl;
+	
 			int numeroClausulas = mejorCromosoma->getNumeroClausulas();
 			int numeroVariables = mejorCromosoma->getNumeroVariables();
 			fprintf (ArchivoDeSalida, "%s%d%s","Solución #",numeroSolucion,":\n");
