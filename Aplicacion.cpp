@@ -168,7 +168,7 @@ int main(int argc, char ** argv)
 					
 					diferenciasAptitud/=5;
 					
-					//if(diferenciasAptitud==aptitudes.at(0)) break;
+					if(diferenciasAptitud==aptitudes.at(0)) break;
 					aptitudes.erase(aptitudes.begin());
 				} 
 				aptitudes.push_back(poblacionOrganizadaAptitud.at(0)->getAptitud());
@@ -217,7 +217,7 @@ int main(int argc, char ** argv)
 			cout << "Aptitud "<<mejorCromosoma->getAptitud() << endl;
 			cout << "Número de interacciones "<<numeroDeInteraccionesRealizadas << endl;
 			
-			cout << "Datos Mejor cromosoma\n" << endl;
+			cout << "\nDatos Mejor cromosoma" << endl;
 			for(int x=0; x<mejorCromosoma->getNumeroClausulas(); x++){
 				for(int y=0; y<numeroVariables*2; y++)
 				{

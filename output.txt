@@ -1,4 +1,4 @@
 Solución #1:
 (~x0)
 Solución #2:
-(~x0)
+(~x1 and x0) or (~x0)
