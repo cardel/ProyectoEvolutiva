@@ -490,33 +490,154 @@ Como se ve en el caso de los 3 bits, no corresponde la función encontrada ante 
 
 \subsection{Entradas grandes}
 
-Se realiza una prueba con 4 y 6 bits.
+Se realiza una prueba con 8 bits. Se muestran sólo aquellos donde la función falla.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+---------------------------------------------
+SOLUCION ENTRADA #8
+---------------------------------------------
+Aptitud 9675
+Numero de iteracciones 13
+
+Comparaciones
+Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma
+00000001 		 1 		 0
+00000010 		 1 		 0
+00000011 		 1 		 1
+00000100 		 1 		 0
+00011000 		 1 		 0
+01001001 		 1 		 0
+01001010 		 1 		 0
+01001011 		 1 		 0
+01010111 		 1 		 0
+01011010 		 1 		 0
+01011011 		 1 		 0
+01011100 		 1 		 0
+01011101 		 1 		 0
+01101101 		 1 		 0
+01101110 		 1 		 0
+01110100 		 1 		 0
+01110101 		 1 		 0
+01111010 		 1 		 0
+01111011 		 1 		 0
+01111100 		 1 		 0
+01111101 		 1 		 0
+01111110 		 1 		 0
+01111111 		 1 		 1
+10000000 		 1 		 1
+10000001 		 1 		 0
+10000010 		 1 		 0
+10000011 		 1 		 0
+10000100 		 1 		 0
+10000101 		 1 		 0
+11000111 		 1 		 0
+11001010 		 1 		 0
+11001100 		 0 		 0
+11001110 		 1 		 0
+11010010 		 1 		 0
+11010011 		 1 		 0
+11100010 		 0 		 1
+11100011 		 0 		 1
+11100100 		 1 		 0
+11100101 		 1 		 0
+11100110 		 1 		 0
+11100111 		 1 		 0
+11101000 		 0 		 0
+11101001 		 0 		 1
+11101010 		 0 		 1
+11101011 		 0 		 1
+11101100 		 0 		 1
+11101101 		 1 		 0
+11101110 		 1 		 0
+11101111 		 1 		 0
+11110000 		 1 		 0
+11110001 		 1 		 0
+11110010 		 1 		 0
+11111111 		 1 		 0
+\end{lstlisting}
 
 \subsection{Entradas de funciones con muchos 1}
 
-La entrada de prueba es la siguiente:
+Se ingresa una entrada y la solución es la siguiente:
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+---------------------------------------------
+SOLUCION ENTRADA #1
+---------------------------------------------
+Aptitud 325
+Numero de iteracciones 12
+
+Comparaciones
+Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma
+0000 		 0 			 1
+0001 		 0 			 0
+0010 		 0 			 0
+0011 		 0 			 1
+0100 		 1 			 1
+0101 		 1 			 1
+0110 		 1 			 1
+0111 		 1 			 1
+1000 		 1 			 1
+1001 		 0 			 1
+1010 		 1 			 1
+1011 		 0 			 0
+1100 		 1 			 1
+1101 		 1 			 1
+1110 		 1 			 1
+1111 		 1 			 1
+\end{lstlisting}
 
 \subsection{Entradas de funciones con muchos 0}
 
-La entrada de prueba es la siguiente:
+Se ingresa una entrada y la solución es la siguiente:
 
-\subsection{Entradas de funciones con 1 y 0 variados}
+\lstset{frameround=fttt}
+\begin{lstlisting}[frame=trBL]
+---------------------------------------------
+SOLUCION ENTRADA #1
+---------------------------------------------
+Aptitud 100
+Numero de iteracciones 15
 
-La entrada de prueba es la siguiente:
+Datos Mejor cromosoma
+1 0 0 1 0 0 1 1 
+Comparaciones
+Entrada | Tabla de verdad entrada | Tabla de Verdad cromosoma
+0000 		 0 			 0
+0001 		 0 			 0
+0010 		 0 			 0
+0011 		 0 			 0
+0100 		 0 			 0
+0101 		 0 			 0
+0110 		 0 			 0
+0111 		 0 			 0
+1000 		 1 			 1
+1001 		 0 			 0
+1010 		 0 			 0
+1011 		 0 			 0
+1100 		 1 			 1
+1101 		 0 			 0
+1110 		 0 			 0
+1111 		 0 			 1
+\end{lstlisting}
 
 \section{Conclusiones}
 
 \begin{itemize}
 	\item La codificación de cada variable y su negada muestra ser apropiada para ser aplicada a un algoritmo evolutivo, ya que permite realiza con gran facilidad las operaciones de mutación y cruce correctamente.
-	\item Se encuentra que el algoritmo se acerca muy rápidamente a una solución cerca a la óptima pero tarda mucho en converger, lo que explica que los resultandos incorrectos fallan en la salida ante una o dos entradas.
-	\item ...
+	\item Se encuentra que el algoritmo se acerca muy rápidamente a una solución cerca a la óptima pero tarda mucho en converger, lo que explica que los resultandos incorrectos fallan en la salida en pocas entradas. Cuando se elimina la condición de parada de 10 generaciones, la ganancia no es muy notoria. Lo que permite concluir que la función de aptitud debe ser más detallada para poder conseguir mejores resultados.
+	\item El comportamiento ante entradas pequeñas, es muy bueno, ya que encuentra buenas soluciones, en el caso de entradas grandes encuentra una aproximación que no es tan buena, pero cubre en gran medida la función, el algoritmo no es bueno ante entradas con muchos 1 y es muy bueno ante entradas con muchos 0. Esto indica que se debe realizar un análisis del comportamiento de los operadores de cruce con respecto al paso de las características de los padres a los hijos.
 	\item Se debe elaborar una mejor función de aptitud para que el sistema encuentre en todos los casos una solución total ante una entrada, ya que las pruebas realizadas indican que en las entradas grandes, se encuentra una buena aproximación pero no la función que concuerda totalmente con la entrada. Sin embargo, en las pruebas realizadas en el proyecto indica que la taza de error es baja.
 	\item El método aplicado para diseñar el algoritmo evolutivo muestra ser una buena herramienta para crear una aplicación para la simplificación de ecuaciones de funciones booleanas, si se realizan algunos ajustes.
 \end{itemize}
 
 \section{Referencias}
 
--Apuntes computación evolutiva
--Definición de mapas de Karnaugh
+\begin{thebibliography}{9}
+  \bibitem{Digitales}Ronald J. Tocci,Neal S. Widmer, ``Sistemas digitales: Principios y aplicaciones'', Prentice Hall, 2003
+  \bibitem{Evolutiva}Garcia. Angel, ``Guias de Clase Computación Evolutiva'', Universidad del Valle, 2012  
+\end{thebibliography}
 
 \end{document}
